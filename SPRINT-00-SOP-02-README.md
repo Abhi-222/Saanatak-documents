@@ -1,4 +1,4 @@
-<img width="1774" height="887" alt="image" src="./sprint-00-sop2-banner.png" />
+<img width="1774" height="887" alt="image" src="https://github.com/Abhi-222/Saanatak-documents/blob/main/sprint-00-sop2-banner.png?raw=true" />
 
 # SOP: Python | Ubuntu 24.04 | Dependency Management Using requirements.txt
 
