@@ -1,5 +1,4 @@
-# React JS Installation Guide
-
+# Common Stack | React JS | Installation Guide
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="150"/>
 </p>
