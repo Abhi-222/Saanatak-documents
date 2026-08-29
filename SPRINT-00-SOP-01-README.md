@@ -7,8 +7,8 @@
 # Author Table
 
 | **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-|---|---|---|---|---|---|---|---|
-| Sahil | 24-08-26 | 1.0 | Sahil | 27-08-26 | `Diviya M` | `Ayush Verma` | `Varun` |
+| ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | --------------- |
+| Sahil      | 24-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Ayush Verma`   | `Varun`         |
 
 ---
 
@@ -62,41 +62,41 @@ These procedures help maintain **system stability, security posture, performance
 
 ### 3.1 Access & Permissions
 
-| **Prerequisite** | **Details** |
-|---|---|
-| SSH Access | SSH access to the target server |
-| Privileges | `sudo` / root privileges to view and modify kernel parameters |
-| Edit Access | Access to edit files under `/etc/sysctl.d/` and `/etc/sysctl.conf` |
+| **Prerequisite**   | **Details**                                                                                      |
+| ------------------ | ------------------------------------------------------------------------------------------------ |
+| SSH Access         | SSH access to the target server                                                                  |
+| Privileges         | `sudo` / root privileges to view and modify kernel parameters                                    |
+| Edit Access        | Access to edit files under `/etc/sysctl.d/` and `/etc/sysctl.conf`                               |
 | Out-of-band Access | Console/out-of-band access available in case a networking parameter change causes an SSH lockout |
 
 ### 3.2 System Requirements
 
-| **Requirement** | **Details** |
-|---|---|
-| OS & Access | Ubuntu Server 22.04 LTS or 24.04 LTS with SSH/terminal access |
-| Required Packages | `procps` (provides `sysctl`, pre-installed on most distros) |
-| Permissions | `sudo`/root access where required |
-| Backup Space | Sufficient space to back up existing `sysctl.conf` and `sysctl.d` before making changes |
+| **Requirement**   | **Details**                                                                             |
+| ----------------- | --------------------------------------------------------------------------------------- |
+| OS & Access       | Ubuntu Server 22.04 LTS or 24.04 LTS with SSH/terminal access                           |
+| Required Packages | `procps` (provides `sysctl`, pre-installed on most distros)                             |
+| Permissions       | `sudo`/root access where required                                                       |
+| Backup Space      | Sufficient space to back up existing `sysctl.conf` and `sysctl.d` before making changes |
 
 ### 3.3 Tools Used
 
-| **Command/File** | **Purpose** |
-|---|---|
-| `sysctl` | Views and modifies kernel parameters at runtime |
-| `/proc/sys/` | Virtual filesystem exposing live kernel parameters |
-| `/etc/sysctl.conf` | Main persistent sysctl configuration file |
-| `/etc/sysctl.d/*.conf` | Modular, isolated persistent configuration files (recommended over editing `sysctl.conf` directly) |
-| `sysctl -p` / `sysctl --system` | Applies/reloads persisted configuration without a reboot |
+| **Command/File**                | **Purpose**                                                                                        |
+| ------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `sysctl`                        | Views and modifies kernel parameters at runtime                                                    |
+| `/proc/sys/`                    | Virtual filesystem exposing live kernel parameters                                                 |
+| `/etc/sysctl.conf`              | Main persistent sysctl configuration file                                                          |
+| `/etc/sysctl.d/*.conf`          | Modular, isolated persistent configuration files (recommended over editing `sysctl.conf` directly) |
+| `sysctl -p` / `sysctl --system` | Applies/reloads persisted configuration without a reboot                                           |
 
 ---
 
 # 4. Roles & Responsibilities
 
-| **Role** | **Responsibility** |
-|---|---|
+| **Role**                               | **Responsibility**                                                                                |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | System Administrator / DevOps Engineer | Executes the checks, applies and persists parameter changes, and attaches screenshots as evidence |
-| Application Owner | Confirms the tuning values required for the application/workload |
-| Reviewer (L0/L1/L2) | Reviews the completed SOP checklist, risk assessment, and evidence before sign-off |
+| Application Owner                      | Confirms the tuning values required for the application/workload                                  |
+| Reviewer (L0/L1/L2)                    | Reviews the completed SOP checklist, risk assessment, and evidence before sign-off                |
 
 ---
 
@@ -152,12 +152,12 @@ flowchart LR
 
 **Quick reference**
 
-| **Step** | **Command** | **Purpose** |
-|---|---|---|
-| 6.1 | `sudo sysctl -a` | List every active kernel parameter and its current value |
-| 6.2 | `sysctl <parameter>` | View the value of one specific parameter |
-| 6.3 | `cat /proc/sys/<path>` | Read a parameter directly from the proc filesystem |
-| 6.4 | `sudo sysctl -a \| grep <keyword>` | Search for a parameter by keyword |
+| **Step** | **Command**                        | **Purpose**                                              |
+| -------- | ---------------------------------- | -------------------------------------------------------- |
+| 6.1      | `sudo sysctl -a`                   | List every active kernel parameter and its current value |
+| 6.2      | `sysctl <parameter>`               | View the value of one specific parameter                 |
+| 6.3      | `cat /proc/sys/<path>`             | Read a parameter directly from the proc filesystem       |
+| 6.4      | `sudo sysctl -a \| grep <keyword>` | Search for a parameter by keyword                        |
 
 ## Step 6.1: List all current kernel parameters
 
@@ -168,7 +168,7 @@ sudo sysctl -a
 <details>
 <summary>📸 <strong>Screenshot - sysctl -a output</strong></summary>
 
-![sysctl -a output](./screenshots/6.1-sysctl-a.png)
+![sysctl -a output](./sop-01-screenshots/image-1.png)
 
 </details>
 
@@ -189,7 +189,7 @@ net.ipv4.ip_forward = 0
 <details>
 <summary>📸 <strong>Screenshot - specific parameter value</strong></summary>
 
-![specific parameter value](./screenshots/6.2-sysctl-param.png)
+![specific parameter value](./sop-01-screenshots/image-2.png)
 
 </details>
 
@@ -204,7 +204,7 @@ cat /proc/sys/net/ipv4/ip_forward
 <details>
 <summary>📸 <strong>Screenshot - /proc/sys read</strong></summary>
 
-![proc sys read](./screenshots/6.3-proc-sys.png)
+![proc sys read](./sop-01-screenshots/image-3.png)
 
 </details>
 
@@ -221,7 +221,7 @@ Useful when the exact parameter name is not known in advance.
 <details>
 <summary>📸 <strong>Screenshot - keyword search output</strong></summary>
 
-![keyword search output](./screenshots/6.4-sysctl-grep.png)
+![keyword search output](./sop-01-screenshots/image-4.png)
 
 </details>
 
@@ -233,12 +233,12 @@ Temporary changes take effect immediately at runtime but do **not** survive a re
 
 **Quick reference**
 
-| **Step** | **Command** | **Purpose** |
-|---|---|---|
-| 7.1 | `sudo cp ...bak_$(date +%F)` | Backup existing config before any change |
-| 7.2 | `sudo sysctl -w <param>=<value>` | Apply a parameter change at runtime |
-| 7.3 | `echo <value> \| sudo tee /proc/sys/...` | Alternative: direct proc write |
-| 7.4 | `sysctl <param>` | Verify the applied value |
+| **Step** | **Command**                              | **Purpose**                              |
+| -------- | ---------------------------------------- | ---------------------------------------- |
+| 7.1      | `sudo cp ...bak_$(date +%F)`             | Backup existing config before any change |
+| 7.2      | `sudo sysctl -w <param>=<value>`         | Apply a parameter change at runtime      |
+| 7.3      | `echo <value> \| sudo tee /proc/sys/...` | Alternative: direct proc write           |
+| 7.4      | `sysctl <param>`                         | Verify the applied value                 |
 
 ## Step 7.1: Backup existing configuration
 
@@ -252,7 +252,7 @@ This backup is required for a clean rollback later (Section 9). Take it **before
 <details>
 <summary>📸 <strong>Screenshot - backup files created</strong></summary>
 
-![backup files created](./screenshots/7.1-backup.png)
+![backup files created](./sop-01-screenshots/image-5.png)
 
 </details>
 
@@ -273,7 +273,7 @@ vm.swappiness = 10
 <details>
 <summary>📸 <strong>Screenshot - sysctl -w applied</strong></summary>
 
-![sysctl -w applied](./screenshots/7.2-sysctl-w.png)
+![sysctl -w applied](./sop-01-screenshots/image-6.png)
 
 </details>
 
@@ -298,7 +298,7 @@ sysctl vm.swappiness
 <details>
 <summary>📸 <strong>Screenshot - verified runtime value</strong></summary>
 
-![verified runtime value](./screenshots/7.4-verify.png)
+![verified runtime value](./sop-01-screenshots/image-7.png)
 
 </details>
 
@@ -310,11 +310,11 @@ Once the temporary change is validated, persist it so it survives a reboot.
 
 **Quick reference**
 
-| **Step** | **Command** | **Purpose** |
-|---|---|---|
-| 8.1 | `sudo nano /etc/sysctl.d/99-custom-tuning.conf` | Create a dedicated, isolated config file |
-| 8.2 | `sudo sysctl -p <file>` | Apply the config file |
-| 8.3 | `sudo sysctl --system` | Reload all sysctl config files in load order |
+| **Step** | **Command**                                     | **Purpose**                                  |
+| -------- | ----------------------------------------------- | -------------------------------------------- |
+| 8.1      | `sudo nano /etc/sysctl.d/99-custom-tuning.conf` | Create a dedicated, isolated config file     |
+| 8.2      | `sudo sysctl -p <file>`                         | Apply the config file                        |
+| 8.3      | `sudo sysctl --system`                          | Reload all sysctl config files in load order |
 
 ## Step 8.1: Create a dedicated config file
 
@@ -335,7 +335,7 @@ Use a dedicated file under `/etc/sysctl.d/` instead of editing `/etc/sysctl.conf
 <details>
 <summary>📸 <strong>Screenshot - config file contents</strong></summary>
 
-![config file contents](./screenshots/8.1-config-file.png)
+![config file contents](./sop-01-screenshots/image-8.png)
 
 </details>
 
@@ -350,7 +350,7 @@ sudo sysctl -p /etc/sysctl.d/99-custom-tuning.conf
 <details>
 <summary>📸 <strong>Screenshot - sysctl -p applied</strong></summary>
 
-![sysctl -p applied](./screenshots/8.2-sysctl-p.png)
+![sysctl -p applied](./sop-01-screenshots/image-9.png)
 
 </details>
 
@@ -365,7 +365,7 @@ sudo sysctl --system
 <details>
 <summary>📸 <strong>Screenshot - sysctl --system output</strong></summary>
 
-![sysctl --system output](./screenshots/8.3-sysctl-system.png)
+![sysctl --system output](./sop-01-screenshots/image-10.png)
 
 </details>
 
@@ -375,13 +375,13 @@ sudo sysctl --system
 
 If a persisted change causes unexpected behaviour, revert as follows. **Restoring or deleting config files alone does not reset the live kernel value** — the rollback has two parts.
 
-| **Step** | **Action** | **Command** |
-|---|---|---|
-| 1 | Remove the change file | `sudo rm -f /etc/sysctl.d/99-custom-tuning.conf` |
-| 2 | Find the original value from backup | `grep -rE "vm.swappiness\|ip_forward\|file-max" /etc/sysctl.d.bak_<date>/` |
-| 3 | Manually re-push the original value into the live kernel | `sudo sysctl -w vm.swappiness=<original_value>` |
-| 4 | Reload config | `sudo sysctl --system` |
-| 5 | Reboot and confirm the value holds long-term | `sudo reboot` |
+| **Step** | **Action**                                               | **Command**                                                                |
+| -------- | -------------------------------------------------------- | -------------------------------------------------------------------------- |
+| 1        | Remove the change file                                   | `sudo rm -f /etc/sysctl.d/99-custom-tuning.conf`                           |
+| 2        | Find the original value from backup                      | `grep -rE "vm.swappiness\|ip_forward\|file-max" /etc/sysctl.d.bak_<date>/` |
+| 3        | Manually re-push the original value into the live kernel | `sudo sysctl -w vm.swappiness=<original_value>`                            |
+| 4        | Reload config                                            | `sudo sysctl --system`                                                     |
+| 5        | Reboot and confirm the value holds long-term             | `sudo reboot`                                                              |
 
 > [!NOTE]
 > If `grep` finds no value for a parameter in the backup, it was only ever a kernel default — use Ubuntu's standard default (`vm.swappiness=60`, `net.ipv4.ip_forward=0`), or for `fs.file-max`, let it recalculate on reboot rather than guessing a fixed number.
@@ -389,7 +389,7 @@ If a persisted change causes unexpected behaviour, revert as follows. **Restorin
 <details>
 <summary>📸 <strong>Screenshot - rollback confirmation</strong></summary>
 
-![rollback confirmation](./screenshots/9.1-rollback-verify.png)
+![rollback confirmation](./sop-01-screenshots/image-11.png)
 
 </details>
 
@@ -416,51 +416,51 @@ sysctl vm.swappiness net.ipv4.ip_forward fs.file-max
 
 ### Final Validation Checklist
 
-| **Validation** | **Expected Result** |
-|---|---|
-| `sysctl <parameter>` immediately after apply | Matches the intended value |
-| `sysctl <parameter>` after `sysctl --system` | Matches the persisted config file |
-| `sysctl <parameter>` after reboot | Still matches — confirms true persistence |
-| Dependent services (networking, DB, app) | Healthy post-reboot |
-| Screenshots | Attached at their respective placeholders as evidence |
+| **Validation**                               | **Expected Result**                                   |
+| -------------------------------------------- | ----------------------------------------------------- |
+| `sysctl <parameter>` immediately after apply | Matches the intended value                            |
+| `sysctl <parameter>` after `sysctl --system` | Matches the persisted config file                     |
+| `sysctl <parameter>` after reboot            | Still matches — confirms true persistence             |
+| Dependent services (networking, DB, app)     | Healthy post-reboot                                   |
+| Screenshots                                  | Attached at their respective placeholders as evidence |
 
 ---
 
 # 11. Use Cases
 
-| **Scenario** | **Commands / Actions** |
-|---|---|
-| Application under memory pressure, excessive swapping | Lower `vm.swappiness` (Step 7.2), validate app behavior, then persist (Step 8) |
-| Server needs to act as a router/gateway | Set `net.ipv4.ip_forward = 1` temporarily (Step 7.2), validate routing, then persist |
+| **Scenario**                                          | **Commands / Actions**                                                                                      |
+| ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| Application under memory pressure, excessive swapping | Lower `vm.swappiness` (Step 7.2), validate app behavior, then persist (Step 8)                              |
+| Server needs to act as a router/gateway               | Set `net.ipv4.ip_forward = 1` temporarily (Step 7.2), validate routing, then persist                        |
 | Application hitting "too many open files" system-wide | Raise `fs.file-max` (Step 7.2/8.1) after confirming the process-level `ulimit` is not the actual bottleneck |
-| Security hardening review flags SYN flood exposure | Set `net.ipv4.tcp_syncookies = 1` and persist under `/etc/sysctl.d/` |
-| A prior tuning change needs to be safely undone | Follow the two-part Rollback Procedure (Section 9) — file removal **and** manual live re-push |
+| Security hardening review flags SYN flood exposure    | Set `net.ipv4.tcp_syncookies = 1` and persist under `/etc/sysctl.d/`                                        |
+| A prior tuning change needs to be safely undone       | Follow the two-part Rollback Procedure (Section 9) — file removal **and** manual live re-push               |
 
 ---
 
 # 12. Troubleshooting
 
-| **Issue** | **Cause** | **Solution** |
-|---|---|---|
-| `sysctl -p` returns "No such file or directory" | Typo in parameter name, or parameter removed in a newer kernel | Confirm the exact name with `sudo sysctl -a \| grep <keyword>` |
-| Value reverts after reboot | Change was only applied with `sysctl -w`, never persisted | Repeat the Persist steps (Section 8) and confirm with `sysctl --system` |
-| Value doesn't change after restoring backup config | Restoring/removing a config file does not reset the already-running kernel value | Manually re-push with `sudo sysctl -w <param>=<value>` (Section 9) |
-| Permission denied | Command run without `sudo` | Re-run with `sudo` |
-| Network drops after a `net.*` parameter change | Incorrect value for this host/environment (e.g. forwarding disabled on a routing host) | Use console/out-of-band access to roll back immediately |
-| Same parameter set in multiple `.conf` files | Duplicate entries across `sysctl.conf` and `sysctl.d/*.conf` | The last-loaded file wins — search with `grep -r "<param>" /etc/sysctl.conf /etc/sysctl.d/` and remove duplicates |
+| **Issue**                                          | **Cause**                                                                              | **Solution**                                                                                                      |
+| -------------------------------------------------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| `sysctl -p` returns "No such file or directory"    | Typo in parameter name, or parameter removed in a newer kernel                         | Confirm the exact name with `sudo sysctl -a \| grep <keyword>`                                                    |
+| Value reverts after reboot                         | Change was only applied with `sysctl -w`, never persisted                              | Repeat the Persist steps (Section 8) and confirm with `sysctl --system`                                           |
+| Value doesn't change after restoring backup config | Restoring/removing a config file does not reset the already-running kernel value       | Manually re-push with `sudo sysctl -w <param>=<value>` (Section 9)                                                |
+| Permission denied                                  | Command run without `sudo`                                                             | Re-run with `sudo`                                                                                                |
+| Network drops after a `net.*` parameter change     | Incorrect value for this host/environment (e.g. forwarding disabled on a routing host) | Use console/out-of-band access to roll back immediately                                                           |
+| Same parameter set in multiple `.conf` files       | Duplicate entries across `sysctl.conf` and `sysctl.d/*.conf`                           | The last-loaded file wins — search with `grep -r "<param>" /etc/sysctl.conf /etc/sysctl.d/` and remove duplicates |
 
 ---
 
 # 13. Best Practices
 
-| **Best Practice** | **Description** |
-|---|---|
-| Always test with `sysctl -w` first | Validate the value at runtime before persisting — no reboot risk if it's wrong |
-| Use `/etc/sysctl.d/` over `sysctl.conf` | Isolates custom tuning from OS defaults, making review and rollback a single file operation |
-| Backup before every change | `sysctl.conf` and `sysctl.d` should be backed up before any modification, not just once |
-| Treat rollback as two steps | Config file removal **and** a manual `sysctl -w` re-push — file removal alone is not a complete rollback |
+| **Best Practice**                            | **Description**                                                                                              |
+| -------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| Always test with `sysctl -w` first           | Validate the value at runtime before persisting — no reboot risk if it's wrong                               |
+| Use `/etc/sysctl.d/` over `sysctl.conf`      | Isolates custom tuning from OS defaults, making review and rollback a single file operation                  |
+| Backup before every change                   | `sysctl.conf` and `sysctl.d` should be backed up before any modification, not just once                      |
+| Treat rollback as two steps                  | Config file removal **and** a manual `sysctl -w` re-push — file removal alone is not a complete rollback     |
 | Avoid disabling security parameters casually | `tcp_syncookies`, `randomize_va_space`, etc. should only be changed with clear justification and peer review |
-| Validate after every reboot | Some persistence issues only surface after a real reboot, not just `sysctl --system` |
+| Validate after every reboot                  | Some persistence issues only surface after a real reboot, not just `sysctl --system`                         |
 
 ---
 
@@ -475,17 +475,17 @@ Following these procedures helps administrators maintain **performance, security
 # 15. Contact Information
 
 | **Name** | **Email** |
-|---|---|
-| Sahil | `<email>` |
+| -------- | --------- |
+| Sahil    | `<email>` |
 
 ---
 
 # 16. References
 
-| **Topic** | **Description** |
-|---|---|
-| [sysctl man page](https://man7.org/linux/man-pages/man8/sysctl.8.html) | `sysctl` command reference |
-| [sysctl.d man page](https://man7.org/linux/man-pages/man5/sysctl.d.5.html) | `sysctl.d` configuration reference |
-| [Ubuntu Server documentation](https://ubuntu.com/server/docs) | Official Ubuntu Server documentation |
+| **Topic**                                                                                                    | **Description**                                  |
+| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
+| [sysctl man page](https://man7.org/linux/man-pages/man8/sysctl.8.html)                                       | `sysctl` command reference                       |
+| [sysctl.d man page](https://man7.org/linux/man-pages/man5/sysctl.d.5.html)                                   | `sysctl.d` configuration reference               |
+| [Ubuntu Server documentation](https://ubuntu.com/server/docs)                                                | Official Ubuntu Server documentation             |
 | [Application Template](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Application-Template) | Documentation format/index followed for this SOP |
-| [Software Template](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Software-Template) | Documentation format/index followed for this SOP |
+| [Software Template](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Software-Template)       | Documentation format/index followed for this SOP |
