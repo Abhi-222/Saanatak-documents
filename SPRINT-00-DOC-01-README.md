@@ -10,7 +10,7 @@
 
 | Author | Created On | Version | Last Updated | L0 Reviewer | L1 Reviewer | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|-------------|-------------|
-| Sahil | 29-08-26 | v1.0 | | | | |
+| Sahil | 28-08-26 | v1.0 |28-08-26| `Diviya M`| `Aayush Verma` | `Varun` |
 
 ---
 
@@ -301,7 +301,7 @@ Use:
 
 | Name | Email ID |
 |------|----------|
-| Sahil | |
+| Sahil | `<email>`|
 
 ---
 
