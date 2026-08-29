@@ -6,7 +6,7 @@
 
 | **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | -------------------- | ------------------- | ---------------- | ---------------- | ---------------- |
-| Sahil | 28-08-2026 | 1.0 | Sahil | 28-08-2026 | | | |
+| Sahil | 28-08-2026 | 1.0 | Sahil | 28-08-2026 | `Diviya M` | `Ayush Verma` | `Varun` |
 
 ---
 
@@ -66,7 +66,7 @@ React JS is required in modern application development because it addresses seve
 
 | **Name** | **Email** |
 | -------- | --------- |
-| Sahil | |
+| Sahil | | `<email>` |
 
 ---
 
