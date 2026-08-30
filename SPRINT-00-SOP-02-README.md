@@ -8,7 +8,7 @@
 
 | **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | --------------- |
-| Sahil      | 27-08-26       | 1.0         | Sahil               | 27-08-26           | `Vishal`        | `Diviya M`      | `Varun`         |
+| Sahil      | 27-08-26       | 1.0         | Sahil               | 27-08-26           | `Vishal`        | `Diviya M`      | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -384,7 +384,7 @@ Following these procedures helps developers maintain **reliability, reproducibil
 
 | **Name** | **Email** |
 | -------- | --------- |
-| Sahil    | `<email>` |
+| Sahil    | `sahil.butola.snaatak@mygurukulam.co` |
 
 ---
 
