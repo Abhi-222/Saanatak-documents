@@ -9,7 +9,7 @@
 
 | Author | Created On | Version | Last Updated | L0 Reviewer | L1 Reviewer | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|-------------|-------------|
-| Sahil | 28-08-26 | v1.0 |28-08-26| `Diviya M`| `Aayush Verma` | `Varun` |
+| Sahil | 28-08-26 | v1.0 |28-08-26| `Diviya M`| `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -300,7 +300,7 @@ Use:
 
 | Name | Email ID |
 |------|----------|
-| Sahil | `<email>`|
+| Sahil | `sahil.butola.snaatak@mygurukulam.co`|
 
 ---
 
