@@ -8,7 +8,7 @@
 
 | **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | --------------- |
-| Sahil      | 24-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Ayush Verma`   | `Varun`         |
+| Sahil      | 24-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Ayush Verma`   | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -476,7 +476,7 @@ Following these procedures helps administrators maintain **performance, security
 
 | **Name** | **Email** |
 | -------- | --------- |
-| Sahil    | `<email>` |
+| Sahil    | `sahil.butola.snaatak@mygurukulam.co` |
 
 ---
 
