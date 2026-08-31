@@ -1,6 +1,7 @@
-<img width="1774" height="887" alt="SOP for sysctl banner" src="https://github.com/Abhi-222/Saanatak-documents/blob/main/sprint-00-sop1-banner.png?raw=true" />
+<img width="1774" height="887" alt="sprint-00-sop1-banner" src="https://github.com/user-attachments/assets/3c9a955d-37e8-4df4-9509-ca92ca2dcdf8" />
 
 # SOP: Linux | Kernel Parameter Management Using sysctl
+<img width="1774" height="887" alt="sprint-00-sop1-banner" src="https://github.com/user-attachments/assets/8cb23d4a-bc34-40f6-a6de-4f0cbf76c1eb" />
 
 ---
 
