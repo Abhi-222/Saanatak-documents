@@ -80,9 +80,6 @@ React JS is required in modern application development because it addresses seve
 | JSX (JavaScript XML) | Allows writing HTML-like syntax within JavaScript, making UI code more readable and intuitive. |
 | One-Way Data Binding | Data flows in a single direction (parent to child), making the application more predictable and easier to debug. |
 | Hooks | Functions like `useState` and `useEffect` allow functional components to manage state and lifecycle behavior without needing class components. |
-| Rich Ecosystem | Supported by a large number of libraries and tools such as React Router (routing), Redux/Context API (state management), and Next.js (server-side rendering). |
-| Declarative UI | Developers describe what the UI should look like for a given state, and React handles the DOM updates automatically. |
-| Cross-Platform Support | With React Native, the same concepts can be extended to build mobile applications. |
 
 ---
 
