@@ -170,27 +170,18 @@ pip install -r requirements.txt --upgrade
 pip freeze > requirements.txt
 ```
 
-### Configuration
+<details>
+<summary><strong>Screenshot - pip freeze output</strong></summary>
 
-```text
-Captures every installed package with its exact version,
-regardless of whether it is imported by the project code.
-```
+<img width="535" height="248" alt="image-5" src="https://github.com/user-attachments/assets/8b72b158-1ad4-4125-ae6b-b437d5792b90" />
+
+</details>
 
 ### Verification
 
 ```bash
 cat requirements.txt
 ```
-
-Expected:
-
-```text
-flask==2.3.2
-requests==2.31.0
-numpy==1.26.4
-```
-
 <details>
 <summary><strong>Screenshot - pip freeze output</strong></summary>
 
