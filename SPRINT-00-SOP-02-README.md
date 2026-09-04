@@ -131,6 +131,13 @@ pip install -r requirements.txt
 pip install -r requirements.txt --no-cache-dir
 ```
 
+<details>
+<summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
+
+<img width="1440" height="639" alt="image-2" src="https://github.com/user-attachments/assets/ddffe3be-7e68-4166-8fb2-ad4dbe47d3a1" />
+
+</details>
+
 ---
 
 ## Step 6.4: Upgrade existing packages to match requirements.txt
