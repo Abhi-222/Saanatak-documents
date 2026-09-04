@@ -1,6 +1,4 @@
-# SOP: Linux | Kernel Parameter Management Using sysctl
-<img width="1774" height="887" alt="sprint-00-sop1-banner" src="https://github.com/user-attachments/assets/8cb23d4a-bc34-40f6-a6de-4f0cbf76c1eb" />
-
+# Common Stack | Operating System | Ubuntu | SOP for Sysctl 
 ---
 
 # Author Table
@@ -96,54 +94,6 @@ These procedures help maintain **system stability, security posture, performance
 | System Administrator / DevOps Engineer | Executes the checks, applies and persists parameter changes, and attaches screenshots as evidence |
 | Application Owner                      | Confirms the tuning values required for the application/workload                                  |
 | Reviewer (L0/L1/L2)                    | Reviews the completed SOP checklist, risk assessment, and evidence before sign-off                |
-
----
-
-# 5. Procedure Overview
-
-The diagram below summarizes the end-to-end flow followed in this SOP — from viewing the current value through to validation and, if needed, rollback.
-
-```mermaid
-flowchart TD
-    A[Start SOP] --> B[View Current Parameter Value]
-    B --> C[Backup sysctl.conf and sysctl.d]
-    C --> D[Apply Change Temporarily<br/>sysctl -w]
-    D --> E{Behavior as<br/>expected?}
-    E -- No --> F[Revert temporary value<br/>sysctl -w back to original]
-    E -- Yes --> G[Persist Change<br/>/etc/sysctl.d/*.conf]
-    F --> B
-    G --> H[Reload Config<br/>sysctl --system]
-    H --> I[Validate: Value + Reboot Test]
-    I --> J{Validation<br/>passed?}
-    J -- No --> K[Rollback Procedure]
-    J -- Yes --> L[Attach Screenshots<br/>& Close SOP]
-    K --> B
-```
-
-> [!NOTE]
-> Each decision point above maps to a numbered section below: viewing (Section 6), applying (Section 7), persisting (Section 8), rollback (Section 9), and validation (Section 10).
-
-The diagram below shows how a temporary (runtime) change relates to a persisted (boot-time) change, and why restoring a config file alone does not reset the live value.
-
-```mermaid
-flowchart LR
-    subgraph S1["Runtime Layer (Temporary)"]
-        A1["sysctl -w param=value"]
-        A2["/proc/sys/... (live kernel)"]
-        A1 --> A2
-    end
-    subgraph S2["Persistent Layer (Boot-time)"]
-        B1["/etc/sysctl.d/99-custom-tuning.conf"]
-        B2["sysctl -p / sysctl --system"]
-        B1 --> B2
-    end
-
-    B2 -. "writes value into" .-> A2
-    A2 -. "config restore alone does NOT reset this" .-> A2
-```
-
-> [!NOTE]
-> Restoring or deleting a config file only changes what gets loaded on the **next** read. It does **not** automatically push a new value into the already-running kernel (`A2` above). Rollback must explicitly re-push the original value with `sysctl -w` — see Section 9.
 
 ---
 
