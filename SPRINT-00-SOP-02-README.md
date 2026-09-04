@@ -20,14 +20,13 @@
    - [3.3 Tools Used](#33-tools-used)
 4. [Install Dependencies from requirements.txt](#4-install-dependencies-from-requirementstxt)
 5. [Generate requirements.txt](#5-generate-requirementstxt)
-6. [Environment Isolation (PEP 668)](#6-environment-isolation-pep-668)
-7. [Validation](#7-validation)
-8. [Use Cases](#8-use-cases)
-9. [Troubleshooting](#9-troubleshooting)
-10. [Best Practices](#10-best-practices)
-11. [Conclusion](#11-conclusion)
-12. [Contact Information](#12-contact-information)
-13. [References](#13-references)
+6. [Validation](#6-validation)
+7. [Use Cases](#7-use-cases)
+8. [Troubleshooting](#8-troubleshooting)
+9. [Best Practices](#9-best-practices)
+10. [Conclusion](#10-conclusion)
+11. [Contact Information](#11-contact-information)
+12. [References](#12-references)
 
 ---
 
@@ -57,30 +56,30 @@ These procedures help maintain **environment consistency, reproducible builds, a
 ### 3.1 Access & Permissions
 
 | **Prerequisite** | **Details**                                                                  |
-| ---------------- | ---------------------------------------------------------------------------- |
-| Terminal Access  | SSH/terminal access to the target machine                                    |
-| Privileges       | `sudo` access to install system packages (`python3-venv`, `python3-pip`)     |
-| Project Access   | Access to the project directory containing (or requiring) `requirements.txt` |
+| ----------------- | ------------------------------------------------------------------------------ |
+| Terminal Access   | SSH/terminal access to the target machine                                      |
+| Privileges        | `sudo` access to install system packages (`python3-venv`, `python3-pip`)       |
+| Project Access    | Access to the project directory containing (or requiring) `requirements.txt`   |
 
 ### 3.2 System Requirements
 
-| **Requirement**   | **Details**                                                  |
-| ----------------- | ------------------------------------------------------------ |
-| OS & Access       | Ubuntu any version  with SSH/terminal access                       |
-| Required Packages | `python3`, `python3-venv`, `python3-pip`                     |
-| Permissions       | `sudo` access where required                                 |
-| Configuration     | An active Python virtual environment (required on Ubuntu 24) |
+| **Requirement**    | **Details**                                                   |
+| -------------------- | ---------------------------------------------------------------- |
+| OS & Access         | Ubuntu 24.04+ with SSH/terminal access                          |
+| Required Packages   | `python3`, `python3-venv`, `python3-pip`                        |
+| Permissions         | `sudo` access where required                                    |
+| Configuration       | An active Python virtual environment (required on Ubuntu 24)    |
 
 ### 3.3 Tools Used
 
-| **Command/File**   | **Purpose**                                                           |
-| ------------------ | --------------------------------------------------------------------- |
-| `pip`              | Installs, upgrades, and manages Python packages                       |
-| `python3 -m venv`  | Creates an isolated Python virtual environment                        |
-| `requirements.txt` | Declares a project's Python dependencies and versions                 |
-| `pip freeze`       | Captures the full set of installed packages and versions              |
-| `pipreqs`          | Generates a requirements file based only on imports used in the code  |
-| `pip check`        | Verifies there are no dependency conflicts in the current environment |
+| **Command/File**    | **Purpose**                                                            |
+| --------------------- | -------------------------------------------------------------------------- |
+| `pip`                | Installs, upgrades, and manages Python packages                            |
+| `python3 -m venv`    | Creates an isolated Python virtual environment                             |
+| `requirements.txt`   | Declares a project's Python dependencies and versions                      |
+| `pip freeze`         | Captures the full set of installed packages and versions                   |
+| `pipreqs`            | Generates a requirements file based only on imports used in the code       |
+| `pip check`          | Verifies there are no dependency conflicts in the current environment      |
 
 ---
 
@@ -190,7 +189,9 @@ pipreqs . --force
 
 </details>
 
-# 7. Validation
+---
+
+# 6. Validation
 
 ### Validate Installed Packages
 
@@ -233,63 +234,61 @@ pip check
 
 ### Final Checklist
 
-| **Step** | **Command**                                        | **Purpose**                                              |
-| -------- | -------------------------------------------------- | -------------------------------------------------------- |
-| 4.1      | `python3 -m venv venv && source venv/bin/activate` | Create and activate an isolated environment              |
-| 4.2      | `pip install -r requirements.txt`                  | Install all listed dependencies                          |
-| 4.3      | `pip install -r requirements.txt --no-cache-dir`   | Force a fresh download, bypassing pip's cache            |
-| 4.4      | `pip install -r requirements.txt --upgrade`        | Upgrade installed packages to match requirements.txt     |
-| 5.1      | `pip freeze > requirements.txt`                    | Snapshot every installed package and version             |
-| 5.2      | `pipreqs . --force`                                | Generate a file based only on packages actually imported |
-| 7.1      | `pip list`                                         | List all packages installed in the venv                  |
-| 7.2      | `pip freeze \| diff requirements.txt -`            | No diff output                                           |
-| 7.3      | `pip check`                                        | No broken dependency messages                            |
-
-> [!NOTE]
-> Ubuntu 24.04 enforces [PEP 668](https://peps.python.org/pep-0668/), which marks the system Python as "externally managed" and blocks `pip install` from running outside a virtual environment:
-
-> `pip install --break-system-packages` bypasses this protection but is not recommended outside throwaway or test systems.
+| **Step** | **Command**                                          | **Purpose**                                                |
+| -------- | ----------------------------------------------------- | ------------------------------------------------------------ |
+| 4.1      | `python3 -m venv venv && source venv/bin/activate`    | Create and activate an isolated environment                  |
+| 4.2      | `pip install -r requirements.txt`                     | Install all listed dependencies                               |
+| 4.3      | `pip install -r requirements.txt --no-cache-dir`      | Force a fresh download, bypassing pip's cache                 |
+| 4.4      | `pip install -r requirements.txt --upgrade`           | Upgrade installed packages to match requirements.txt           |
+| 5.1      | `pip freeze > requirements.txt`                       | Snapshot every installed package and version                   |
+| 5.2      | `pipreqs . --force`                                   | Generate a file based only on packages actually imported       |
+| 6.1      | `pip list`                                            | List all packages installed in the venv                        |
+| 6.2      | `pip freeze \| diff requirements.txt -`               | No diff output                                                  |
+| 6.3      | `pip check`                                           | No broken dependency messages                                  |
 
 ---
 
-# 8. Use Cases
+# 7. Use Cases
 
 | **Scenario**                                    | **Commands / Actions**                  |
-| ----------------------------------------------- | --------------------------------------- |
-| Setting up a new dev environment                | `pip install -r requirements.txt`       |
-| Capturing current environment state             | `pip freeze > requirements.txt`         |
-| Generating file from actual imports only        | `pipreqs . --force`                     |
-| Checking for dependency conflicts               | `pip check`                             |
-| Confirming environment matches requirements.txt | `pip freeze \| diff requirements.txt -` |
+| ------------------------------------------------- | ------------------------------------------ |
+| Setting up a new dev environment                 | `pip install -r requirements.txt`         |
+| Capturing current environment state              | `pip freeze > requirements.txt`           |
+| Generating file from actual imports only         | `pipreqs . --force`                       |
+| Checking for dependency conflicts                | `pip check`                               |
+| Confirming environment matches requirements.txt  | `pip freeze \| diff requirements.txt -`   |
 
 ---
 
-# 9. Troubleshooting
+# 8. Troubleshooting
 
-| **Issue**                                       | **Cause**                                                         | **Solution**                                               |
-| ----------------------------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------- |
-| `error: externally-managed-environment`         | Ubuntu 24 blocks pip installs outside a venv (PEP 668)            | Activate a virtual environment before installing           |
-| `Could not find a version that satisfies...`    | Package/version does not exist or is unavailable                  | Verify package name/version on PyPI                        |
-| Dependency version conflict                     | Two packages require incompatible versions of a shared dependency | Run `pip check`; adjust version pins in `requirements.txt` |
-| Installed packages don't match requirements.txt | Wrong virtual environment active, or file not regenerated         | Activate the correct venv; regenerate with `pip freeze`    |
-| `pip: command not found`                        | pip not installed or not on PATH                                  | Install pip or use `python3 -m pip` instead                |
-| Slow or failed downloads                        | Network/proxy issues or corrupted cache                           | Retry with `--no-cache-dir`; check network/proxy settings  |
+| **Issue**                                        | **Cause**                                                           | **Solution**                                                 |
+| --------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `error: externally-managed-environment`            | Ubuntu 24 blocks pip installs outside a venv (PEP 668)                  | Activate a virtual environment before installing                  |
+| `Could not find a version that satisfies...`       | Package/version does not exist or is unavailable                        | Verify package name/version on PyPI                                |
+| Dependency version conflict                        | Two packages require incompatible versions of a shared dependency        | Run `pip check`; adjust version pins in `requirements.txt`         |
+| Installed packages don't match requirements.txt    | Wrong virtual environment active, or file not regenerated               | Activate the correct venv; regenerate with `pip freeze`            |
+| `pip: command not found`                           | pip not installed or not on PATH                                        | Install pip or use `python3 -m pip` instead                        |
+| Slow or failed downloads                           | Network/proxy issues or corrupted cache                                 | Retry with `--no-cache-dir`; check network/proxy settings          |
 
----
-
-# 10. Best Practices
-
-| **Best Practice**                        | **Description**                                                                                 |
-| ---------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| Always use a virtual environment         | Avoids Ubuntu 24's externally-managed-environment restriction and prevents dependency conflicts |
-| Pin exact versions for production        | Use `==` in `requirements.txt` to ensure reproducible builds                                    |
-| Regenerate requirements.txt deliberately | Use `pipreqs` for imports-only files rather than full `pip freeze` dumps where possible         |
-| Run `pip check` after installs           | Catches broken or conflicting dependencies early                                                |
-| Keep requirements.txt in version control | Provides an auditable, shared source of truth for the team                                      |
+> [!NOTE]
+> Ubuntu 24.04 enforces [PEP 668](https://peps.python.org/pep-0668/), which marks the system Python as "externally managed" and blocks `pip install` from running outside a virtual environment (`error: externally-managed-environment`). `pip install --break-system-packages` bypasses this protection but is not recommended outside throwaway or test systems.
 
 ---
 
-# 11. Conclusion
+# 9. Best Practices
+
+| **Best Practice**                          | **Description**                                                                                    |
+| --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Always use a virtual environment             | Avoids Ubuntu 24's externally-managed-environment restriction and prevents dependency conflicts       |
+| Pin exact versions for production            | Use `==` in `requirements.txt` to ensure reproducible builds                                          |
+| Regenerate requirements.txt deliberately     | Use `pipreqs` for imports-only files rather than full `pip freeze` dumps where possible               |
+| Run `pip check` after installs               | Catches broken or conflicting dependencies early                                                       |
+| Keep requirements.txt in version control     | Provides an auditable, shared source of truth for the team                                             |
+
+---
+
+# 10. Conclusion
 
 This SOP provides a standardized approach to installing, generating, and troubleshooting Python dependencies using `requirements.txt` on Ubuntu 24.04.
 
@@ -297,19 +296,19 @@ Following these procedures helps developers maintain **reliability, reproducibil
 
 ---
 
-# 12. Contact Information
+# 11. Contact Information
 
-| **Name** | **Email**                             |
-| -------- | ------------------------------------- |
-| Sahil    | `sahil.butola.snaatak@mygurukulam.co` |
+| **Name** | **Email**                              |
+| ---------- | ------------------------------------------ |
+| Sahil      | `sahil.butola.snaatak@mygurukulam.co`      |
 
 ---
 
-# 13. References
+# 12. References
 
-| **Topic**                                                                                    | **Description**                        |
-| -------------------------------------------------------------------------------------------- | -------------------------------------- |
-| [pip Documentation](https://pip.pypa.io/en/stable/)                                          | Official pip documentation             |
-| [requirements.txt Format](https://pip.pypa.io/en/stable/reference/requirements-file-format/) | requirements.txt file format reference |
-| [pipreqs](https://pypi.org/project/pipreqs/)                                                 | pipreqs documentation                  |
-| [PEP 668](https://peps.python.org/pep-0668/)                                                 | Externally managed Python environments |
+| **Topic**                                                                                     | **Description**                          |
+| -------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [pip Documentation](https://pip.pypa.io/en/stable/)                                                | Official pip documentation                     |
+| [requirements.txt Format](https://pip.pypa.io/en/stable/reference/requirements-file-format/)       | requirements.txt file format reference         |
+| [pipreqs](https://pypi.org/project/pipreqs/)                                                       | pipreqs documentation                          |
+| [PEP 668](https://peps.python.org/pep-0668/)                                                       | Externally managed Python environments         |
