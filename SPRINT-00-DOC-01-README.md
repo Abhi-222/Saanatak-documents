@@ -202,7 +202,7 @@ cd my-app
 <details>
 <summary><strong>Screenshot - Inside the project directory</strong></summary>
 
-<img width="582" height="100" alt="image-1" src="https://github.com/user-attachments/assets/df7b708d-193a-40f6-a823-f108fcc93f03" />
+<img width="1376" height="62" alt="Screenshot 2026-09-04 at 7 43 36 PM" src="https://github.com/user-attachments/assets/f3a98ae5-16fc-4979-b1c3-5a5fc9ec3ee8" />
 
 
 
