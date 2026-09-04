@@ -35,7 +35,6 @@
 # 1. Introduction
 
 React JS is an open-source JavaScript library maintained by Meta, used for building fast and interactive user interfaces, primarily for single-page applications (SPAs).
-
 This document provides a basic procedure to install and configure a React JS application on a Linux system.
 
 ---
@@ -50,6 +49,41 @@ The purpose of this document is to provide a simple procedure to:
 - Verify the React installation
 - Run the React development server
 - Perform basic maintenance and troubleshooting
+
+---
+
+# 2. What is React JS
+
+React JS is a component-based JavaScript library used to build user interfaces. Instead of manipulating the browser's DOM directly, React uses a **Virtual DOM** to track changes and update only the parts of the actual DOM that have changed, improving performance.
+
+Applications built with React are structured as a tree of components — small, independent, and reusable pieces of UI (buttons, forms, cards, etc.) that manage their own logic and rendering, and can be composed together to build complex interfaces.
+
+---
+
+# 3. Why React JS is Required
+
+React JS is required in modern application development because it addresses several common front-end challenges:
+
+- **Faster UI updates** — the Virtual DOM minimizes expensive direct DOM operations.
+- **Reusability** — components can be reused across different parts of an application, reducing duplication.
+- **Maintainability** — breaking UI into components makes large applications easier to manage and debug.
+- **Strong ecosystem** — a large community, extensive libraries, and tooling support (React Router, Redux, Next.js, etc.).
+- **Industry adoption** — widely used, making it easier to hire talent and find support/resources.
+
+---
+
+# 4. Key Features of React JS
+
+| **Feature** | **Description** |
+| ----------- | ---------------- |
+| Virtual DOM | Maintains a lightweight copy of the real DOM in memory and updates only changed elements, improving rendering performance. |
+| Component-Based Architecture | UI is broken into independent, reusable components, making development modular and easier to maintain. |
+| JSX (JavaScript XML) | Allows writing HTML-like syntax within JavaScript, making UI code more readable and intuitive. |
+| One-Way Data Binding | Data flows in a single direction (parent to child), making the application more predictable and easier to debug. |
+| Hooks | Functions like `useState` and `useEffect` allow functional components to manage state and lifecycle behavior without needing class components. |
+| Rich Ecosystem | Supported by a large number of libraries and tools such as React Router (routing), Redux/Context API (state management), and Next.js (server-side rendering). |
+| Declarative UI | Developers describe what the UI should look like for a given state, and React handles the DOM updates automatically. |
+| Cross-Platform Support | With React Native, the same concepts can be extended to build mobile applications. |
 
 ---
 
@@ -123,14 +157,14 @@ Use `npx` to create a new React project using Create React App.
 
 Move into the newly created project folder.
 
-    cd my-app
-
 ---
 
 ## Step 6: Start the Development Server
 
 Run the React application locally.
 
+    
+    cd my-app
     npm start
 
 ---
@@ -143,10 +177,6 @@ Verify that Node.js has been installed successfully.
 
     node -v
 
-Expected output:
-
-    v18.x.x
-
 ---
 
 ## Step 2: Check npm Version
@@ -154,10 +184,6 @@ Expected output:
 Verify the npm installation.
 
     npm -v
-
-Expected output:
-
-    9.x.x
 
 ---
 
@@ -189,25 +215,7 @@ The `whereis` command displays common locations related to Node.js.
 
 ---
 
-## Step 3: Test Node.js
-
-Run a simple Node.js command to confirm that the runtime is working.
-
-    node -e "console.log('Node.js is working')"
-
-Expected output:
-
-    Node.js is working
-
----
-
 # 8. Maintenance
-
-## 8.1 Upgrade npm
-
-npm can be upgraded when required.
-
-    sudo npm install -g npm@latest
 
 ## 8.2 Install React Packages
 
@@ -263,36 +271,6 @@ Create an optimized production build of the React application.
 React JS can be installed easily on Linux by first setting up Node.js and npm.
 
 After installation, the setup should be verified by checking Node.js and npm versions and confirming that the development server runs successfully, ensuring the system is ready for React application development.
-
----
-
-# 12. FAQs
-
-### Q1. Is React JS free to use?
-
-Yes, React JS is free and open-source.
-
-### Q2. What is npm?
-
-npm (Node Package Manager) is used to install and manage JavaScript packages, including React and its dependencies.
-
-### Q3. How can I check whether Node.js is installed?
-
-Use:
-
-    node -v
-
-### Q4. How can I create a new React application?
-
-Use:
-
-    npx create-react-app my-app
-
-### Q5. How can I run the React application?
-
-Use:
-
-    npm start
 
 ---
 
