@@ -1,11 +1,12 @@
 # SOP: Python | Dependency Management Using requirements.txt
+
 ---
 
 # Author Table
 
-| **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-| ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | --------------- |
-| Sahil      | 27-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Aayush Verma`| `Mahesh Kumar / Varun` |
+| **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer**        |
+| ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | ---------------------- |
+| Sahil      | 27-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Aayush Verma`  | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -17,16 +18,16 @@
    - [3.1 Access & Permissions](#31-access--permissions)
    - [3.2 System Requirements](#32-system-requirements)
    - [3.3 Tools Used](#33-tools-used)
-6. [Install Dependencies from requirements.txt](#6-install-dependencies-from-requirementstxt)
-7. [Generate requirements.txt](#7-generate-requirementstxt)
-8. [Environment Isolation (PEP 668)](#8-environment-isolation-pep-668)
-9. [Validation](#9-validation)
-10. [Use Cases](#10-use-cases)
-11. [Troubleshooting](#11-troubleshooting)
-12. [Best Practices](#12-best-practices)
-13. [Conclusion](#13-conclusion)
-14. [Contact Information](#14-contact-information)
-15. [References](#15-references)
+4. [Install Dependencies from requirements.txt](#6-install-dependencies-from-requirementstxt)
+5. [Generate requirements.txt](#7-generate-requirementstxt)
+6. [Environment Isolation (PEP 668)](#8-environment-isolation-pep-668)
+7. [Validation](#9-validation)
+8. [Use Cases](#10-use-cases)
+9. [Troubleshooting](#11-troubleshooting)
+10. [Best Practices](#12-best-practices)
+11. [Conclusion](#13-conclusion)
+12. [Contact Information](#14-contact-information)
+13. [References](#15-references)
 
 ---
 
@@ -50,6 +51,8 @@ The purpose of this SOP is to provide a standardized procedure for:
 These procedures help maintain **environment consistency, reproducible builds, and operational reliability** across development, CI, and production systems.
 
 ---
+
+# 3. What, Why, Key-Characteristics
 
 # 3. Prerequisites
 
@@ -85,20 +88,10 @@ These procedures help maintain **environment consistency, reproducible builds, a
 
 # 6. Install Dependencies from requirements.txt
 
-**Quick reference**
-
-| **Step** | **Command**                                        | **Purpose**                                          |
-| -------- | -------------------------------------------------- | ---------------------------------------------------- |
-| 6.1      | `python3 -m venv venv && source venv/bin/activate` | Create and activate an isolated environment          |
-| 6.2      | `pip install -r requirements.txt`                  | Install all listed dependencies                      |
-| 6.3      | `pip install -r requirements.txt --no-cache-dir`   | Force a fresh download, bypassing pip's cache        |
-| 6.4      | `pip install -r requirements.txt --upgrade`        | Upgrade installed packages to match requirements.txt |
-
 ## Step 6.1: Create and activate a virtual environment
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3 -m venv venv && source venv/bin/activate
 ```
 
 <details>
@@ -157,13 +150,6 @@ pip install -r requirements.txt --upgrade
 
 # 7. Generate requirements.txt
 
-**Quick reference**
-
-| **Step** | **Command**                     | **Purpose**                                              |
-| -------- | ------------------------------- | -------------------------------------------------------- |
-| 7.1      | `pip freeze > requirements.txt` | Snapshot every installed package and version             |
-| 7.2      | `pipreqs . --force`             | Generate a file based only on packages actually imported |
-
 ## Step 7.1: Generate a full environment snapshot
 
 ```bash
@@ -182,6 +168,7 @@ pip freeze > requirements.txt
 ```bash
 cat requirements.txt
 ```
+
 <details>
 <summary><strong>Screenshot - pip freeze output</strong></summary>
 
@@ -205,36 +192,6 @@ pipreqs . --force
 
 </details>
 
----
-
-# 8. Environment Isolation (PEP 668)
-
-## Step 8.1: Understand the externally-managed-environment error
-
-```bash
-pip install -r requirements.txt
-```
-
-Outside a virtual environment on Ubuntu 24.04, this fails with:
-
-```text
-error: externally-managed-environment
-```
-
-<details>
-<summary><strong>Screenshot - externally-managed-environment error</strong></summary>
-
-<img width="1440" height="335" alt="image-7" src="https://github.com/user-attachments/assets/50835b6b-8ea8-4820-8d4a-578a291efb72" />
-
-</details>
-
----
-
-> [!NOTE]
-> Ubuntu 24.04 enforces PEP 668, blocking `pip install` into the system Python by default. Always activate a virtual environment before installing dependencies. Using `--break-system-packages` bypasses this protection and is not recommended outside throwaway or test systems.
-
----
-
 # 9. Validation
 
 ### Validate Installed Packages
@@ -242,6 +199,7 @@ error: externally-managed-environment
 ```bash
 pip list
 ```
+
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
@@ -254,6 +212,7 @@ pip list
 ```bash
 pip freeze | diff requirements.txt -
 ```
+
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
@@ -266,6 +225,7 @@ pip freeze | diff requirements.txt -
 ```bash
 pip check
 ```
+
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
@@ -273,15 +233,21 @@ pip check
 
 </details>
 
-### Final Validation Checklist
+### Final Checklist
 
-| **Validation**                                 | **Expected Result**                                   |
-| ---------------------------------------------- | ----------------------------------------------------- |
-| Virtual environment active                     | Shell prompt prefixed with `(venv)`                   |
-| `pip install -r requirements.txt` completes    | No errors, all packages installed                     |
-| `pip check`                                    | No broken dependency messages                         |
-| `pip freeze` output matches `requirements.txt` | No diff output                                        |
-| Screenshots                                    | Attached at their respective placeholders as evidence |
+| **Step** | **Command**                                        | **Purpose**                                              |
+| -------- | -------------------------------------------------- | -------------------------------------------------------- | -------------- |
+| 6.1      | `python3 -m venv venv && source venv/bin/activate` | Create and activate an isolated environment              |
+| 6.2      | `pip install -r requirements.txt`                  | Install all listed dependencies                          |
+| 6.3      | `pip install -r requirements.txt --no-cache-dir`   | Force a fresh download, bypassing pip's cache            |
+| 6.4      | `pip install -r requirements.txt --upgrade`        | Upgrade installed packages to match requirements.txt     |
+| -------- | -------------------------------                    | ----------------------------------------------------     |
+| 7.1      | `pip freeze > requirements.txt`                    | Snapshot every installed package and version             |
+| 7.2      | `pipreqs . --force`                                | Generate a file based only on packages actually imported |
+| -------- | -------------------------------                    | ----------------------------------------------------     |
+| 9.1.     | `pip list`                                         | list all the packages installed in the venv              |
+| 9.2      | `pip freeze                                        | diff requirements.txt -`                                 | No diff output |
+| 9.3      | `pip check`                                        | No broken dependency messages                            |
 
 ---
 
@@ -310,6 +276,11 @@ pip check
 
 ---
 
+> [!NOTE]
+> Ubuntu 24.04 enforces PEP 668, blocking `pip install` into the system Python by default. Always activate a virtual environment before installing dependencies. Using `--break-system-packages` bypasses this protection and is not recommended outside throwaway or test systems.
+
+---
+
 # 12. Best Practices
 
 | **Best Practice**                        | **Description**                                                                                 |
@@ -332,8 +303,8 @@ Following these procedures helps developers maintain **reliability, reproducibil
 
 # 14. Contact Information
 
-| **Name** | **Email** |
-| -------- | --------- |
+| **Name** | **Email**                             |
+| -------- | ------------------------------------- |
 | Sahil    | `sahil.butola.snaatak@mygurukulam.co` |
 
 ---
