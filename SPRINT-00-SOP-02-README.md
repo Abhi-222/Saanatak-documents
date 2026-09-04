@@ -113,7 +113,7 @@ python3 -m venv venv && source venv/bin/activate
 <details>
 <summary><strong>Screenshot - Virtual environment activated</strong></summary>
 
-<img width="582" height="100" alt="image-1" src="https://github.com/user-attachments/assets/df7b708d-193a-40f6-a823-f108fcc93f03" />
+<img width="830" height="62" alt="Screenshot 2026-09-04 at 11 50 53 PM" src="https://github.com/user-attachments/assets/1827d3c2-cab1-4771-abd5-d8a6bf833ab1" />
 
 </details>
 
@@ -128,7 +128,7 @@ pip install -r requirements.txt
 <details>
 <summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
 
-<img width="1440" height="639" alt="image-2" src="https://github.com/user-attachments/assets/ddffe3be-7e68-4166-8fb2-ad4dbe47d3a1" />
+<img width="1401" height="690" alt="Screenshot 2026-09-04 at 11 51 25 PM" src="https://github.com/user-attachments/assets/67764302-465e-4dc4-9448-59563f3bd552" />
 
 </details>
 
@@ -143,7 +143,7 @@ pip install -r requirements.txt --no-cache-dir
 <details>
 <summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
 
-<img width="1440" height="639" alt="image-2" src="https://github.com/user-attachments/assets/ddffe3be-7e68-4166-8fb2-ad4dbe47d3a1" />
+<img width="1401" height="234" alt="Screenshot 2026-09-04 at 11 52 03 PM" src="https://github.com/user-attachments/assets/833fbf72-dfa3-4a2f-a2fa-d6f2b7aabccc" />
 
 </details>
 
@@ -158,7 +158,7 @@ pip install -r requirements.txt --upgrade
 <details>
 <summary><strong>Screenshot - Packages upgraded</strong></summary>
 
-<img width="1137" height="222" alt="image-4" src="https://github.com/user-attachments/assets/b3a1c392-7ac1-4ccb-beff-24f2182dd414" />
+<img width="1401" height="224" alt="Screenshot 2026-09-04 at 11 52 45 PM" src="https://github.com/user-attachments/assets/4cc61e46-d355-4729-adc0-d8737eab674f" />
 
 </details>
 
@@ -175,7 +175,7 @@ pip freeze > requirements.txt
 <details>
 <summary><strong>Screenshot - pip freeze output</strong></summary>
 
-<img width="535" height="248" alt="image-5" src="https://github.com/user-attachments/assets/8b72b158-1ad4-4125-ae6b-b437d5792b90" />
+<img width="772" height="275" alt="Screenshot 2026-09-04 at 11 54 49 PM" src="https://github.com/user-attachments/assets/efcc14bd-94d2-4f5b-ae1c-18e04655a7cd" />
 
 </details>
 
@@ -188,7 +188,7 @@ cat requirements.txt
 <details>
 <summary><strong>Screenshot - pip freeze output</strong></summary>
 
-<img width="535" height="248" alt="image-5" src="https://github.com/user-attachments/assets/8b72b158-1ad4-4125-ae6b-b437d5792b90" />
+<img width="772" height="234" alt="Screenshot 2026-09-04 at 11 55 00 PM" src="https://github.com/user-attachments/assets/40a5e98c-d878-439a-8673-180528430b54" />
 
 </details>
 
@@ -204,7 +204,7 @@ pipreqs . --force
 <details>
 <summary><strong>Screenshot - pipreqs output</strong></summary>
 
-<img width="977" height="897" alt="image-6" src="https://github.com/user-attachments/assets/9fe5f1f5-7a2e-4dc1-8d6e-9307e443fcbe" />
+<img width="1416" height="525" alt="Screenshot 2026-09-04 at 11 57 38 PM" src="https://github.com/user-attachments/assets/54064709-2eac-4629-a8b3-dc7cdda9ee73" />
 
 </details>
 
@@ -221,7 +221,7 @@ pip list
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
-<img width="573" height="96" alt="image-8" src="https://github.com/user-attachments/assets/8c94b8e8-6e51-405a-a022-68e30973c6f8" />
+<img width="480" height="333" alt="Screenshot 2026-09-04 at 11 58 15 PM" src="https://github.com/user-attachments/assets/198da34e-ac6c-435a-9ea2-7ee569dfb6fe" />
 
 </details>
 
@@ -234,7 +234,7 @@ pip freeze | diff requirements.txt -
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
-<img width="573" height="96" alt="image-8" src="https://github.com/user-attachments/assets/8c94b8e8-6e51-405a-a022-68e30973c6f8" />
+<img width="794" height="333" alt="Screenshot 2026-09-04 at 11 58 39 PM" src="https://github.com/user-attachments/assets/debfa458-648c-4496-8f16-14b05fc905e4" />
 
 </details>
 
@@ -247,7 +247,7 @@ pip check
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
-<img width="573" height="96" alt="image-8" src="https://github.com/user-attachments/assets/8c94b8e8-6e51-405a-a022-68e30973c6f8" />
+<img width="612" height="115" alt="Screenshot 2026-09-04 at 11 58 58 PM" src="https://github.com/user-attachments/assets/e40e689b-c465-499a-a38d-83572c663450" />
 
 </details>
 
