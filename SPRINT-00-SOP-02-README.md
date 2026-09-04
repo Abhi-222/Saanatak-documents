@@ -110,7 +110,7 @@ Expected output:
 ```
 
 <details>
-<summary>📸 <strong>Screenshot - Virtual environment activated</strong></summary>
+<summary><strong>Screenshot - Virtual environment activated</strong></summary>
 
 <img width="582" height="100" alt="image-1" src="https://github.com/user-attachments/assets/df7b708d-193a-40f6-a823-f108fcc93f03" />
 
@@ -125,7 +125,7 @@ pip install -r requirements.txt
 ```
 
 <details>
-<summary>📸 <strong>Screenshot - Dependencies installed successfully</strong></summary>
+<summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
 
 <img width="1440" height="639" alt="image-2" src="https://github.com/user-attachments/assets/ddffe3be-7e68-4166-8fb2-ad4dbe47d3a1" />
 
@@ -148,7 +148,7 @@ pip install -r requirements.txt --upgrade
 ```
 
 <details>
-<summary>📸 <strong>Screenshot - Packages upgraded</strong></summary>
+<summary><strong>Screenshot - Packages upgraded</strong></summary>
 
 <img width="1137" height="222" alt="image-4" src="https://github.com/user-attachments/assets/b3a1c392-7ac1-4ccb-beff-24f2182dd414" />
 
@@ -193,7 +193,7 @@ numpy==1.26.4
 ```
 
 <details>
-<summary>📸 <strong>Screenshot - pip freeze output</strong></summary>
+<summary><strong>Screenshot - pip freeze output</strong></summary>
 
 <img width="535" height="248" alt="image-5" src="https://github.com/user-attachments/assets/8b72b158-1ad4-4125-ae6b-b437d5792b90" />
 
@@ -209,7 +209,7 @@ pipreqs . --force
 ```
 
 <details>
-<summary>📸 <strong>Screenshot - pipreqs output</strong></summary>
+<summary><strong>Screenshot - pipreqs output</strong></summary>
 
 <img width="977" height="897" alt="image-6" src="https://github.com/user-attachments/assets/9fe5f1f5-7a2e-4dc1-8d6e-9307e443fcbe" />
 
@@ -232,7 +232,7 @@ error: externally-managed-environment
 ```
 
 <details>
-<summary>📸 <strong>Screenshot - externally-managed-environment error</strong></summary>
+<summary><strong>Screenshot - externally-managed-environment error</strong></summary>
 
 <img width="1440" height="335" alt="image-7" src="https://github.com/user-attachments/assets/50835b6b-8ea8-4820-8d4a-578a291efb72" />
 
@@ -280,7 +280,7 @@ pip check
 **Expected:** `No broken requirements found.`
 
 <details>
-<summary>📸 <strong>Screenshot - validation output</strong></summary>
+<summary><strong>Screenshot - validation output</strong></summary>
 
 <img width="573" height="96" alt="image-8" src="https://github.com/user-attachments/assets/8c94b8e8-6e51-405a-a022-68e30973c6f8" />
 
