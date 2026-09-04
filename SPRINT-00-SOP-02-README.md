@@ -14,19 +14,23 @@
 
 1. [Introduction](#1-introduction)
 2. [Purpose](#2-purpose)
-3. [Prerequisites](#3-prerequisites)
-   - [3.1 Access & Permissions](#31-access--permissions)
-   - [3.2 System Requirements](#32-system-requirements)
-   - [3.3 Tools Used](#33-tools-used)
-4. [Install Dependencies from requirements.txt](#4-install-dependencies-from-requirementstxt)
-5. [Generate requirements.txt](#5-generate-requirementstxt)
-6. [Validation](#6-validation)
-7. [Use Cases](#7-use-cases)
-8. [Troubleshooting](#8-troubleshooting)
-9. [Best Practices](#9-best-practices)
-10. [Conclusion](#10-conclusion)
-11. [Contact Information](#11-contact-information)
-12. [References](#12-references)
+3. [What, Why & Key Features](#3-what-why--key-features)
+   - [3.1 What](#31-what)
+   - [3.2 Why](#32-why)
+   - [3.3 Key Features](#33-key-features)
+4. [Prerequisites](#4-prerequisites)
+   - [4.1 Access & Permissions](#41-access--permissions)
+   - [4.2 System Requirements](#42-system-requirements)
+   - [4.3 Tools Used](#43-tools-used)
+5. [Install Dependencies from requirements.txt](#5-install-dependencies-from-requirementstxt)
+6. [Generate requirements.txt](#6-generate-requirementstxt)
+7. [Validation](#7-validation)
+8. [Use Cases](#8-use-cases)
+9. [Troubleshooting](#9-troubleshooting)
+10. [Best Practices](#10-best-practices)
+11. [Conclusion](#11-conclusion)
+12. [Contact Information](#12-contact-information)
+13. [References](#13-references)
 
 ---
 
@@ -51,9 +55,36 @@ These procedures help maintain **environment consistency, reproducible builds, a
 
 ---
 
-# 3. Prerequisites
+# 3. What, Why & Key Features
 
-### 3.1 Access & Permissions
+### 3.1 What
+
+- `requirements.txt` is a plain-text file that lists a Python project's dependencies, each pinned to a specific (or minimum) version.
+- It is consumed by `pip install -r requirements.txt` to recreate the exact same set of packages on any machine — locally, in CI, or in production.
+
+### 3.2 Why
+
+- Ensures every developer, build server, and deployment target runs the same package versions, eliminating "works on my machine" issues.
+- Makes environments reproducible and auditable, since the file can be committed to version control alongside the code that depends on it.
+- Speeds up onboarding — a new contributor can stand up a working environment with a single command.
+- Supports safe upgrades and rollbacks by making version changes explicit and reviewable.
+
+### 3.3 Key Features
+
+| **Feature**                     | **Description**                                                                 |
+| ---------------------------------- | ------------------------------------------------------------------------------------ |
+| Version pinning                    | Exact (`==`) or range-based version constraints per package                          |
+| Reproducibility                    | Same file installs an identical set of packages on any machine                       |
+| Two generation modes               | `pip freeze` (full snapshot) or `pipreqs` (imports-only)                             |
+| Conflict detection                 | `pip check` flags incompatible dependency versions before they cause failures        |
+| Environment-isolation friendly     | Designed to be installed inside a virtual environment, not the system Python         |
+| Plain text & VCS-friendly          | Easy to diff, review, and track changes to in Git                                    |
+
+---
+
+# 4. Prerequisites
+
+### 4.1 Access & Permissions
 
 | **Prerequisite** | **Details**                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
@@ -61,7 +92,7 @@ These procedures help maintain **environment consistency, reproducible builds, a
 | Privileges        | `sudo` access to install system packages (`python3-venv`, `python3-pip`)       |
 | Project Access    | Access to the project directory containing (or requiring) `requirements.txt`   |
 
-### 3.2 System Requirements
+### 4.2 System Requirements
 
 | **Requirement**    | **Details**                                                   |
 | -------------------- | ---------------------------------------------------------------- |
@@ -70,7 +101,7 @@ These procedures help maintain **environment consistency, reproducible builds, a
 | Permissions         | `sudo` access where required                                    |
 | Configuration       | An active Python virtual environment (required on Ubuntu 24)    |
 
-### 3.3 Tools Used
+### 4.3 Tools Used
 
 | **Command/File**    | **Purpose**                                                            |
 | --------------------- | -------------------------------------------------------------------------- |
@@ -83,9 +114,9 @@ These procedures help maintain **environment consistency, reproducible builds, a
 
 ---
 
-# 4. Install Dependencies from requirements.txt
+# 5. Install Dependencies from requirements.txt
 
-## Step 4.1: Create and activate a virtual environment
+## Step 5.1: Create and activate a virtual environment
 
 ```bash
 python3 -m venv venv && source venv/bin/activate
@@ -100,7 +131,7 @@ python3 -m venv venv && source venv/bin/activate
 
 ---
 
-## Step 4.2: Install all listed packages
+## Step 5.2: Install all listed packages
 
 ```bash
 pip install -r requirements.txt
@@ -115,7 +146,7 @@ pip install -r requirements.txt
 
 ---
 
-## Step 4.3: Install without cached packages
+## Step 5.3: Install without cached packages
 
 ```bash
 pip install -r requirements.txt --no-cache-dir
@@ -130,7 +161,7 @@ pip install -r requirements.txt --no-cache-dir
 
 ---
 
-## Step 4.4: Upgrade existing packages to match requirements.txt
+## Step 5.4: Upgrade existing packages to match requirements.txt
 
 ```bash
 pip install -r requirements.txt --upgrade
@@ -145,9 +176,9 @@ pip install -r requirements.txt --upgrade
 
 ---
 
-# 5. Generate requirements.txt
+# 6. Generate requirements.txt
 
-## Step 5.1: Generate a full environment snapshot
+## Step 6.1: Generate a full environment snapshot
 
 ```bash
 pip freeze > requirements.txt
@@ -175,7 +206,7 @@ cat requirements.txt
 
 ---
 
-## Step 5.2: Generate based only on imported packages
+## Step 6.2: Generate based only on imported packages
 
 ```bash
 pip install pipreqs
@@ -191,7 +222,7 @@ pipreqs . --force
 
 ---
 
-# 6. Validation
+# 7. Validation
 
 ### Validate Installed Packages
 
@@ -236,19 +267,19 @@ pip check
 
 | **Step** | **Command**                                          | **Purpose**                                                |
 | -------- | ----------------------------------------------------- | ------------------------------------------------------------ |
-| 4.1      | `python3 -m venv venv && source venv/bin/activate`    | Create and activate an isolated environment                  |
-| 4.2      | `pip install -r requirements.txt`                     | Install all listed dependencies                               |
-| 4.3      | `pip install -r requirements.txt --no-cache-dir`      | Force a fresh download, bypassing pip's cache                 |
-| 4.4      | `pip install -r requirements.txt --upgrade`           | Upgrade installed packages to match requirements.txt           |
-| 5.1      | `pip freeze > requirements.txt`                       | Snapshot every installed package and version                   |
-| 5.2      | `pipreqs . --force`                                   | Generate a file based only on packages actually imported       |
-| 6.1      | `pip list`                                            | List all packages installed in the venv                        |
-| 6.2      | `pip freeze \| diff requirements.txt -`               | No diff output                                                  |
-| 6.3      | `pip check`                                           | No broken dependency messages                                  |
+| 5.1      | `python3 -m venv venv && source venv/bin/activate`    | Create and activate an isolated environment                  |
+| 5.2      | `pip install -r requirements.txt`                     | Install all listed dependencies                               |
+| 5.3      | `pip install -r requirements.txt --no-cache-dir`      | Force a fresh download, bypassing pip's cache                 |
+| 5.4      | `pip install -r requirements.txt --upgrade`           | Upgrade installed packages to match requirements.txt           |
+| 6.1      | `pip freeze > requirements.txt`                       | Snapshot every installed package and version                   |
+| 6.2      | `pipreqs . --force`                                   | Generate a file based only on packages actually imported       |
+| 7.1      | `pip list`                                            | List all packages installed in the venv                        |
+| 7.2      | `pip freeze \| diff requirements.txt -`               | No diff output                                                  |
+| 7.3      | `pip check`                                           | No broken dependency messages                                  |
 
 ---
 
-# 7. Use Cases
+# 8. Use Cases
 
 | **Scenario**                                    | **Commands / Actions**                  |
 | ------------------------------------------------- | ------------------------------------------ |
@@ -260,7 +291,7 @@ pip check
 
 ---
 
-# 8. Troubleshooting
+# 9. Troubleshooting
 
 | **Issue**                                        | **Cause**                                                           | **Solution**                                                 |
 | --------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -276,7 +307,7 @@ pip check
 
 ---
 
-# 9. Best Practices
+# 10. Best Practices
 
 | **Best Practice**                          | **Description**                                                                                    |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -288,7 +319,7 @@ pip check
 
 ---
 
-# 10. Conclusion
+# 11. Conclusion
 
 This SOP provides a standardized approach to installing, generating, and troubleshooting Python dependencies using `requirements.txt` on Ubuntu 24.04.
 
@@ -296,7 +327,7 @@ Following these procedures helps developers maintain **reliability, reproducibil
 
 ---
 
-# 11. Contact Information
+# 12. Contact Information
 
 | **Name** | **Email**                              |
 | ---------- | ------------------------------------------ |
@@ -304,7 +335,7 @@ Following these procedures helps developers maintain **reliability, reproducibil
 
 ---
 
-# 12. References
+# 13. References
 
 | **Topic**                                                                                     | **Description**                          |
 | -------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
