@@ -17,7 +17,6 @@
    - [3.1 Access & Permissions](#31-access--permissions)
    - [3.2 System Requirements](#32-system-requirements)
    - [3.3 Tools Used](#33-tools-used)
-4. [Roles & Responsibilities](#4-roles--responsibilities)
 6. [Install Dependencies from requirements.txt](#6-install-dependencies-from-requirementstxt)
 7. [Generate requirements.txt](#7-generate-requirementstxt)
 8. [Environment Isolation (PEP 668)](#8-environment-isolation-pep-668)
