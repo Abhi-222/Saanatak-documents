@@ -85,29 +85,6 @@ These procedures help maintain **environment consistency, reproducible builds, a
 
 ---
 
-# 5. Procedure Overview
-
-The diagram below summarizes the end-to-end flow followed in this SOP — from environment setup through installation, generation, and validation.
-
-```mermaid
-flowchart TD
-    A[Start SOP] --> B[Create & activate<br/>virtual environment]
-    B --> C[Install dependencies<br/>from requirements.txt]
-    C --> D{Install<br/>successful?}
-    D -- No --> E[Troubleshoot<br/>Section 11]
-    E --> C
-    D -- Yes --> F[Generate/update<br/>requirements.txt]
-    F --> G[Validate Configuration]
-    G --> H{Validation<br/>passed?}
-    H -- No --> E
-    H -- Yes --> I[Attach Screenshots<br/>& Close SOP]
-```
-
-> [!NOTE]
-> Each decision point above maps to a numbered section below: installation (Section 6), generation (Section 7), environment isolation (Section 8), and validation (Section 9).
-
----
-
 # 6. Install Dependencies from requirements.txt
 
 **Quick reference**
