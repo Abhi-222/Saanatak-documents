@@ -21,7 +21,6 @@
 4. [Prerequisites](#4-prerequisites)
    - [4.1 Access & Permissions](#41-access--permissions)
    - [4.2 System Requirements](#42-system-requirements)
-   - [4.3 Tools Used](#43-tools-used)
 5. [Install Dependencies from requirements.txt](#5-install-dependencies-from-requirementstxt)
 6. [Generate requirements.txt](#6-generate-requirementstxt)
 7. [Validation](#7-validation)
@@ -100,17 +99,6 @@ These procedures help maintain **environment consistency, reproducible builds, a
 | Required Packages   | `python3`, `python3-venv`, `python3-pip`                        |
 | Permissions         | `sudo` access where required                                    |
 | Configuration       | An active Python virtual environment (required on Ubuntu 24)    |
-
-### 4.3 Tools Used
-
-| **Command/File**    | **Purpose**                                                            |
-| --------------------- | -------------------------------------------------------------------------- |
-| `pip`                | Installs, upgrades, and manages Python packages                            |
-| `python3 -m venv`    | Creates an isolated Python virtual environment                             |
-| `requirements.txt`   | Declares a project's Python dependencies and versions                      |
-| `pip freeze`         | Captures the full set of installed packages and versions                   |
-| `pipreqs`            | Generates a requirements file based only on imports used in the code       |
-| `pip check`          | Verifies there are no dependency conflicts in the current environment      |
 
 ---
 
