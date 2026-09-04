@@ -230,14 +230,6 @@ error: externally-managed-environment
 
 ---
 
-## Step 8.2: Resolve using a virtual environment (recommended)
-
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
 > [!NOTE]
 > Ubuntu 24.04 enforces PEP 668, blocking `pip install` into the system Python by default. Always activate a virtual environment before installing dependencies. Using `--break-system-packages` bypasses this protection and is not recommended outside throwaway or test systems.
 
@@ -250,25 +242,30 @@ pip install -r requirements.txt
 ```bash
 pip list
 ```
+<details>
+<summary><strong>Screenshot - validation output</strong></summary>
 
-**Expected:** All packages listed in `requirements.txt` appear with matching versions.
+<img width="573" height="96" alt="image-8" src="https://github.com/user-attachments/assets/8c94b8e8-6e51-405a-a022-68e30973c6f8" />
+
+</details>
 
 ### Validate Against requirements.txt
 
 ```bash
 pip freeze | diff requirements.txt -
 ```
+<details>
+<summary><strong>Screenshot - validation output</strong></summary>
 
-**Expected:** No output — installed environment matches `requirements.txt` exactly.
+<img width="573" height="96" alt="image-8" src="https://github.com/user-attachments/assets/8c94b8e8-6e51-405a-a022-68e30973c6f8" />
+
+</details>
 
 ### Validate No Dependency Conflicts
 
 ```bash
 pip check
 ```
-
-**Expected:** `No broken requirements found.`
-
 <details>
 <summary><strong>Screenshot - validation output</strong></summary>
 
