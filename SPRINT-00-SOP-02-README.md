@@ -1,5 +1,4 @@
-# SOP: Python | Dependency Management Using requirements.txt
-
+# Common Stack | Applications | Python | SOP's for requirements.txt
 ---
 
 # Author Table
