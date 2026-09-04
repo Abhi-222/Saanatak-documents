@@ -70,7 +70,6 @@ These procedures help maintain **environment consistency, reproducible builds, a
 | OS & Access       | Ubuntu 24.04+ with SSH/terminal access                       |
 | Required Packages | `python3`, `python3-venv`, `python3-pip`                     |
 | Permissions       | `sudo` access where required                                 |
-| Network           | Internet access to PyPI (or internal package mirror)         |
 | Configuration     | An active Python virtual environment (required on Ubuntu 24) |
 
 ### 3.3 Tools Used
@@ -83,16 +82,6 @@ These procedures help maintain **environment consistency, reproducible builds, a
 | `pip freeze`       | Captures the full set of installed packages and versions              |
 | `pipreqs`          | Generates a requirements file based only on imports used in the code  |
 | `pip check`        | Verifies there are no dependency conflicts in the current environment |
-
----
-
-# 4. Roles & Responsibilities
-
-| **Role**                    | **Responsibility**                                                                                |
-| --------------------------- | ------------------------------------------------------------------------------------------------- |
-| Developer / DevOps Engineer | Installs dependencies, generates/updates `requirements.txt`, and attaches screenshots as evidence |
-| Project Maintainer          | Confirms which packages and version constraints belong in `requirements.txt`                      |
-| Reviewer (L0/L1/L2)         | Reviews the completed SOP checklist and evidence before sign-off                                  |
 
 ---
 
