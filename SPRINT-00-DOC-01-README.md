@@ -1,7 +1,4 @@
 # Common Stack | React JS | Installation Guide
-<p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" width="150"/>
-</p>
 
 ---
 
@@ -17,18 +14,20 @@
 
 1. [Introduction](#1-introduction)
 2. [Purpose](#2-purpose)
-3. [Prerequisites](#3-prerequisites)
-4. [System Requirements](#4-system-requirements)
-5. [React JS Installation](#5-react-js-installation)
-6. [Verification](#6-verification)
-7. [Environment Configuration](#7-environment-configuration)
-8. [Maintenance](#8-maintenance)
-9. [Troubleshooting](#9-troubleshooting)
-10. [Quick Commands](#10-quick-commands)
-11. [Conclusion](#11-conclusion)
-12. [FAQs](#12-faqs)
-13. [Contact Information](#13-contact-information)
-14. [References](#14-references)
+3. [What is React JS](#3-what-is-react-js)
+4. [Why React JS is Required](#4-why-react-js-is-required)
+5. [Key Features of React JS](#5-key-features-of-react-js)
+6. [Prerequisites](#6-prerequisites)
+7. [System Requirements](#7-system-requirements)
+8. [React JS Installation](#8-react-js-installation)
+9. [Verification](#9-verification)
+10. [Environment Configuration](#10-environment-configuration)
+11. [Maintenance](#11-maintenance)
+12. [Troubleshooting](#12-troubleshooting)
+13. [Quick Commands](#13-quick-commands)
+14. [Conclusion](#14-conclusion)
+15. [Contact Information](#15-contact-information)
+16. [References](#16-references)
 
 ---
 
@@ -52,7 +51,7 @@ The purpose of this document is to provide a simple procedure to:
 
 ---
 
-# 2. What is React JS
+# 3. What is React JS
 
 React JS is a component-based JavaScript library used to build user interfaces. Instead of manipulating the browser's DOM directly, React uses a **Virtual DOM** to track changes and update only the parts of the actual DOM that have changed, improving performance.
 
@@ -60,7 +59,7 @@ Applications built with React are structured as a tree of components — small, 
 
 ---
 
-# 3. Why React JS is Required
+# 4. Why React JS is Required
 
 React JS is required in modern application development because it addresses several common front-end challenges:
 
@@ -72,7 +71,7 @@ React JS is required in modern application development because it addresses seve
 
 ---
 
-# 4. Key Features of React JS
+# 5. Key Features of React JS
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -87,7 +86,7 @@ React JS is required in modern application development because it addresses seve
 
 ---
 
-# 3. Prerequisites
+# 6. Prerequisites
 
 Before starting the installation, ensure the following are available:
 
@@ -99,7 +98,7 @@ Before starting the installation, ensure the following are available:
 
 ---
 
-# 4. System Requirements
+# 7. System Requirements
 
 | Requirement | Minimum Recommendation |
 |-------------|-------------------------|
@@ -119,13 +118,23 @@ Before starting the installation, ensure the following are available:
 
 ---
 
-# 5. React JS Installation
+# 8. React JS Installation
 
 ## Step 1: Update Package Repository
 
 Update the package information before installing Node.js.
 
-    sudo apt update
+```bash
+sudo apt update
+```
+
+<details>
+<summary><strong>Screenshot - Package repository updated</strong></summary>
+
+<img width="740" height="225" alt="Screenshot 2026-09-04 at 6 27 19 PM" src="https://github.com/user-attachments/assets/a47be994-98f3-4bc5-80d0-b58e354b8f5a" />
+
+
+</details>
 
 ---
 
@@ -133,7 +142,17 @@ Update the package information before installing Node.js.
 
 Install Node.js, which includes npm (Node Package Manager).
 
-    sudo apt install nodejs -y
+```bash
+sudo apt install nodejs -y
+```
+
+<details>
+<summary><strong>Screenshot - Node.js installed</strong></summary>
+
+<img width="1046" height="371" alt="Screenshot 2026-09-04 at 6 27 40 PM" src="https://github.com/user-attachments/assets/19cacc15-586e-4a16-ad11-f0f6bbe60a4b" />
+
+
+</details>
 
 ---
 
@@ -141,7 +160,17 @@ Install Node.js, which includes npm (Node Package Manager).
 
 Install npm separately if it was not installed along with Node.js.
 
-    sudo apt install npm -y
+```bash
+sudo apt install npm -y
+```
+
+<details>
+<summary><strong>Screenshot - npm installed</strong></summary>
+
+<img width="1046" height="575" alt="Screenshot 2026-09-04 at 6 28 51 PM" src="https://github.com/user-attachments/assets/720efa93-ad78-4484-949f-a3a769678acb" />
+
+
+</details>
 
 ---
 
@@ -149,7 +178,16 @@ Install npm separately if it was not installed along with Node.js.
 
 Use `npx` to create a new React project using Create React App.
 
-    npx create-react-app my-app
+```bash
+npx create-react-app my-app
+```
+<details>
+<summary><strong>Screenshot - React application created</strong></summary>
+
+<img width="936" height="464" alt="Screenshot 2026-09-04 at 6 31 18 PM" src="https://github.com/user-attachments/assets/babd5127-95c5-4cf9-b64c-d0c0a7b248ea" />
+
+
+</details>
 
 ---
 
@@ -157,33 +195,58 @@ Use `npx` to create a new React project using Create React App.
 
 Move into the newly created project folder.
 
+```bash
+cd my-app
+```
+
+<details>
+<summary><strong>Screenshot - Inside the project directory</strong></summary>
+
+<img width="582" height="100" alt="image-1" src="https://github.com/user-attachments/assets/df7b708d-193a-40f6-a823-f108fcc93f03" />
+
+
+
+</details>
+
 ---
 
 ## Step 6: Start the Development Server
 
 Run the React application locally.
 
-    
-    cd my-app
-    npm start
+```bash
+npm start
+```
+
+<details>
+<summary><strong>Screenshot - Development server started</strong></summary>
+
+<img width="466" height="209" alt="Screenshot 2026-09-04 at 6 32 03 PM" src="https://github.com/user-attachments/assets/a92f876a-6181-42ec-8ca2-472bb128d377" />
+
+
+</details>
 
 ---
 
-# 6. Verification
+# 9. Verification
 
-## Step 1: Check Node.js Version
+## Step 2: Check node, npm nd mpx  Version
 
-Verify that Node.js has been installed successfully.
+Verify the  installation.
 
-    node -v
+```bash
+node --version
+npm --version
+npx --version
+```
 
----
+<details>
+<summary><strong>Screenshot - npm version output</strong></summary>
 
-## Step 2: Check npm Version
+<img width="371" height="108" alt="Screenshot 2026-09-04 at 6 29 54 PM" src="https://github.com/user-attachments/assets/e6ea6a83-69ce-4645-a3bc-ce7fbd58db9a" />
 
-Verify the npm installation.
 
-    npm -v
+</details>
 
 ---
 
@@ -191,51 +254,79 @@ Verify the npm installation.
 
 Open a browser and navigate to:
 
-    http://localhost:3000
+    http://<ec2-public-ip-address>:3000
 
-Expected output: The default React welcome page is displayed.
+<details>
+<summary><strong>Screenshot - React app running in browser</strong></summary>
+
+<img width="1376" height="777" alt="Screenshot 2026-09-04 at 7 35 56 PM" src="https://github.com/user-attachments/assets/1c6a20df-49bc-4cbf-857d-ea9e65f11e73" />
+
+</details>
 
 ---
 
-# 7. Environment Configuration
+# 10. Environment Configuration
 
 ## Step 1: Check Node.js Path
 
 Use the following command to identify the Node.js executable location.
 
-    which node
-
----
+```bash
+which node
+```
 
 ## Step 2: Locate Node.js Installation
 
 The `whereis` command displays common locations related to Node.js.
 
-    whereis node
+```bash
+whereis node
+```
+
+<details>
+<summary><strong>Screenshot - Node.js installation locations</strong></summary>
+
+<img width="622" height="97" alt="Screenshot 2026-09-04 at 6 33 22 PM" src="https://github.com/user-attachments/assets/1f64c3e4-fefd-4e50-8239-ac21e88224bf" />
+
+</details>
 
 ---
 
-# 8. Maintenance
+# 11. Maintenance
 
-## 8.2 Install React Packages
+## Step 2: Install React Packages
 
 Additional packages can be installed using npm.
 
-    npm install <package-name>
+```bash
+npm install <package-name>
+```
 
-Example:
+<details>
+<summary><strong>Screenshot - Package installed via npm</strong></summary>
 
-    npm install axios
+<img width="505" height="273" alt="Screenshot 2026-09-04 at 6 48 22 PM" src="https://github.com/user-attachments/assets/de8bd39d-80a6-47e7-b38f-13cbb7ddbcd5" />
 
-## 8.3 Build for Production
+</details>
+
+## Step 3: Build for Production
 
 Create an optimized production build of the React application.
 
-    npm run build
+```bash
+npm run build
+```
+
+<details>
+<summary><strong>Screenshot - Production build output</strong></summary>
+
+<img width="601" height="455" alt="Screenshot 2026-09-04 at 6 48 54 PM" src="https://github.com/user-attachments/assets/9c69e4ea-7da8-4045-bd4c-cb4abbd84a10" />
+
+</details>
 
 ---
 
-# 9. Troubleshooting
+# 12. Troubleshooting
 
 | Issue | Possible Cause | Solution |
 |-------|-----------------|----------|
@@ -248,7 +339,7 @@ Create an optimized production build of the React application.
 
 ---
 
-# 10. Quick Commands
+# 13. Quick Commands
 
 | Task | Command |
 |------|---------|
@@ -266,7 +357,7 @@ Create an optimized production build of the React application.
 
 ---
 
-# 11. Conclusion
+# 14. Conclusion
 
 React JS can be installed easily on Linux by first setting up Node.js and npm.
 
@@ -274,7 +365,7 @@ After installation, the setup should be verified by checking Node.js and npm ver
 
 ---
 
-# 13. Contact Information
+# 15. Contact Information
 
 | Name | Email ID |
 |------|----------|
@@ -282,7 +373,7 @@ After installation, the setup should be verified by checking Node.js and npm ver
 
 ---
 
-# 14. References
+# 16. References
 
 | Resource | Description |
 |----------|--------------|
@@ -291,4 +382,3 @@ After installation, the setup should be verified by checking Node.js and npm ver
 | [npm Documentation](https://docs.npmjs.com/) | Official npm documentation |
 | [Create React App Documentation](https://create-react-app.dev/) | Official Create React App documentation |
 
----
