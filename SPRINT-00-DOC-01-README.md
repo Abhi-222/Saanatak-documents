@@ -1,4 +1,4 @@
-# Common Stack | React JS | Installation Guide
+# Common Stack | Applications | React JS | Installation Guide
 
 ---
 
