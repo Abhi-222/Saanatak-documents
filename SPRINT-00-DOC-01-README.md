@@ -230,7 +230,7 @@ npm start
 
 # 9. Verification
 
-## Step 2: Check node, npm nd mpx  Version
+## Step 1: Check node, npm nd mpx  Version
 
 Verify the  installation.
 
@@ -250,7 +250,7 @@ npx --version
 
 ---
 
-## Step 3: Verify React Application is Running
+## Step 2: Verify React Application is Running
 
 Open a browser and navigate to:
 
