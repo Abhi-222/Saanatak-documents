@@ -101,12 +101,6 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-Expected output:
-
-```text
-(venv) user@host:~/project$
-```
-
 <details>
 <summary><strong>Screenshot - Virtual environment activated</strong></summary>
 
