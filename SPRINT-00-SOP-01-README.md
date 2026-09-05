@@ -6,7 +6,7 @@
 
 | **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | --------------- |
-| Sahil      | 24-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Ayush Verma`   | `Mahesh Kumar / Varun` |
+| Sahil      | 24-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Aayush Verma`   | `Mahesh Kumar / Varun` |
 
 ---
 
