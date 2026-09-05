@@ -2,9 +2,9 @@
 
 ## Author Table
 
-| **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-|---|---|---|---|---|---|---|---|
-| Sahil Butola | 30-08-2026 | 1.0 | Sahil Butola | 30-08-2026 | Diviya M. | Aayush Verma | Mahesh / Varun Kumar |
+| **Author**   | **Created On** | **Version** | **Last Edited On**    | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
+|--------------|----------------|-------------|-----------------------|-----------------|-----------------|------------------|
+| Sahil Butola | 30-08-2026     | 1.0         | 04-09-2026            | Divya M.        | Aayush Verma    | Mahesh / Varun Kumar |
 
 ## Table of Contents
 
