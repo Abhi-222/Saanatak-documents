@@ -101,6 +101,12 @@ Download and run the `.pkg` installer, choosing the build that matches your chip
 ```bash
 brew install go
 ```
+<details>
+<summary>Screenshot: Environment Variables dialog</summary>
+
+<img width="1076" height="743" alt="Screenshot 2026-09-05 at 5 57 45 PM" src="https://github.com/user-attachments/assets/dbd8e8bc-41d5-4ea7-aee5-20951beead33" />
+
+</details>
 
 > **Note:** Homebrew installs Go under its own prefix (`/opt/homebrew` on Apple Silicon, `/usr/local` on Intel Macs), which differs from the official installer's `/usr/local/go`. If both are installed at different times, this can cause version conflicts — run `which go` and `go version` to confirm which one is active on `PATH`.
 
@@ -110,6 +116,12 @@ brew install go
 which go
 go version
 ```
+<details>
+<summary>Screenshot: Environment Variables dialog</summary>
+
+<img width="507" height="128" alt="Screenshot 2026-09-05 at 5 58 47 PM" src="https://github.com/user-attachments/assets/d447c93b-9c63-479c-b5cf-97826718dbd7" />
+
+</details>
 
 If `go` is not found, add it to your shell profile (`~/.zshrc` by default on modern macOS, or `~/.bash_profile`/`~/.bashrc` if using bash):
 
@@ -129,6 +141,11 @@ wget https://go.dev/dl/${GO_VERSION}.linux-${ARCH}.tar.gz
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-${ARCH}.tar.gz
 ```
+<details>
+<summary><strong>Screenshot - verified runtime value</strong></summary>
+
+<img width="1438" height="443" alt="Screenshot 2026-09-05 at 5 17 28 PM" src="https://github.com/user-attachments/assets/e84dd056-1334-4cb0-bbe4-a6f7765f597e" />
+</details>
 
 Add Go to `PATH` permanently by appending it to your shell profile, then reload the shell:
 
@@ -136,7 +153,6 @@ Add Go to `PATH` permanently by appending it to your shell profile, then reload 
 echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
-
 > **Note:** If your default shell is zsh (`echo $SHELL` to check), use `~/.zshrc` instead of `~/.bashrc`.
 
 ## Verifying the Installation
@@ -145,13 +161,25 @@ source ~/.bashrc
 go version
 ```
 
-<img width="402" height="92" alt="image" src="https://github.com/user-attachments/assets/cc4dd0a8-7612-4380-b45e-e115be6d0992" />
+<details>
+<summary><strong>Screenshot - verified runtime value</strong></summary>
+
+<img width="342" height="78" alt="Screenshot 2026-09-05 at 5 18 52 PM" src="https://github.com/user-attachments/assets/ac84f5a7-8ddd-47ae-8eb0-a719ee5afee4" />
+
+</details>
 
 It's also useful to confirm the environment Go is picking up, particularly when troubleshooting `PATH` or `GOROOT`/`GOPATH` issues:
 
 ```bash
 go env
 ```
+<details>
+<summary><strong>Screenshot - verified runtime value</strong></summary>
+
+<img width="1396" height="638" alt="Screenshot 2026-09-05 at 5 19 25 PM" src="https://github.com/user-attachments/assets/6f6757cb-6931-4118-b395-de9d8b3150f4" />
+
+
+</details>
 
 ## Setting Up the Go Workspace
 
@@ -159,6 +187,13 @@ go env
 mkdir my-go-app && cd my-go-app
 go mod init example.com/my-go-app
 ```
+<details>
+<summary><strong>Screenshot - verified runtime value</strong></summary>
+
+<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 20 02 PM" src="https://github.com/user-attachments/assets/2414c03e-1583-4e03-b7b4-1fe29fdad48a" />
+
+
+</details>
 
 This creates a `go.mod` file that tracks the module name and dependencies.
 
@@ -183,16 +218,25 @@ func main() {
 ```bash
 go run main.go
 ```
+<details>
+<summary><strong>Screenshot - verified runtime value</strong></summary>
 
-```text
-Hello, Go!
-```
+<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 22 34 PM" src="https://github.com/user-attachments/assets/871a164c-86d2-414a-86e9-948f66e7baf0" />
+
+</details>
 
 Build a standalone binary with:
 
 ```bash
 go build -o my-go-app
 ```
+<details>
+<summary><strong>Screenshot - verified runtime value</strong></summary>
+
+<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 23 55 PM" src="https://github.com/user-attachments/assets/71f56b7a-54c6-435c-917b-d1891389e230" />
+
+
+</details>
 
 ## Common Installation Issues
 
