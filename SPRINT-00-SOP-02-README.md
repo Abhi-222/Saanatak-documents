@@ -1,4 +1,5 @@
 # Common Stack | Applications | Python | SOP's for requirements.txt
+
 ---
 
 # Author Table
@@ -33,9 +34,9 @@
 
 # 1. Introduction
 
-This SOP provides a structured guide to **installing dependencies from `requirements.txt`**, **generating a `requirements.txt` file**, and **troubleshooting dependency issues** in Python projects on **Ubuntu 24.04**.
+This SOP provides a structured guide to **installing dependencies from `requirements.txt`**, **generating a `requirements.txt` file**, and **troubleshooting dependency issues** in Python projects on **Linux systems** (Ubuntu, Debian, and other distributions).
 
-It covers the required setup, installation steps, dependency file generation, verification, validation, and troubleshooting needed to keep Python environments consistent and reproducible.
+It covers the required setup, installation steps, dependency file generation, verification, validation, and troubleshooting needed to keep Python environments consistent and reproducible, regardless of which Linux distribution or version is in use.
 
 ---
 
@@ -46,9 +47,9 @@ The purpose of this SOP is to provide a standardized procedure for:
 - Installing all project dependencies listed in `requirements.txt`
 - Generating a `requirements.txt` file from an existing environment or from project imports only
 - Verifying installed packages match the declared dependency list
-- Resolving common dependency installation failures, including Ubuntu 24's externally-managed-environment restriction
+- Resolving common dependency installation failures, including the externally-managed-environment restriction enforced by some Linux distributions
 
-These procedures help maintain **environment consistency, reproducible builds, and operational reliability** across development, CI, and production systems.
+These procedures help maintain **environment consistency, reproducible builds, and operational reliability** across development, CI, and production systems, on any Linux-based machine.
 
 ---
 
@@ -90,17 +91,21 @@ Rather than installing each dependency one by one, a single command — `pip ins
 | **Prerequisite** | **Details**                                                                  |
 | ----------------- | ------------------------------------------------------------------------------ |
 | Terminal Access   | SSH/terminal access to the target machine                                      |
-| Privileges        | `sudo` access to install system packages (`python3-venv`, `python3-pip`)       |
+| Privileges        | `sudo` access, only needed if `python3-venv` / `python3-pip` are not already installed |
 | Project Access    | Access to the project directory containing (or requiring) `requirements.txt`   |
 
 ### 6.2 System Requirements
 
-| **Requirement**    | **Details**                                                   |
+This SOP has no strict version requirement — it works on virtually any Linux distribution, as long as the bare minimum below is met.
+
+| **Requirement**    | **Minimum**                                                   |
 | -------------------- | ---------------------------------------------------------------- |
-| OS & Access         | Ubuntu 24.04+ with SSH/terminal access                          |
+| OS                  | Any Linux distribution (Ubuntu, Debian, RHEL-based, etc.) with Python 3 installed |
+| RAM                 | 512 MB or higher                                                 |
+| Disk Space          | Minimal — only enough free space for the packages being installed |
 | Required Packages   | `python3`, `python3-venv`, `python3-pip`                        |
-| Permissions         | `sudo` access where required                                    |
-| Configuration       | An active Python virtual environment (required on Ubuntu 24)    |
+| Permissions         | `sudo` access, only where required to install the above packages |
+| Configuration       | An active Python virtual environment (recommended everywhere; required only on systems that enforce PEP 668 — see Section 11) |
 
 ---
 
@@ -285,7 +290,7 @@ pip check
 
 | **Issue**                                        | **Cause**                                                           | **Solution**                                                 |
 | --------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
-| `error: externally-managed-environment`            | Ubuntu 24 blocks pip installs outside a venv (PEP 668)                  | Activate a virtual environment before installing                  |
+| `error: externally-managed-environment`            | Some Linux distributions block pip installs outside a venv (PEP 668)   | Activate a virtual environment before installing                  |
 | `Could not find a version that satisfies...`       | Package/version does not exist or is unavailable                        | Verify package name/version on PyPI                                |
 | Dependency version conflict                        | Two packages require incompatible versions of a shared dependency        | Run `pip check`; adjust version pins in `requirements.txt`         |
 | Installed packages don't match requirements.txt    | Wrong virtual environment active, or file not regenerated               | Activate the correct venv; regenerate with `pip freeze`            |
@@ -293,7 +298,7 @@ pip check
 | Slow or failed downloads                           | Network/proxy issues or corrupted cache                                 | Retry with `--no-cache-dir`; check network/proxy settings          |
 
 > [!NOTE]
-> Ubuntu 24.04 enforces [PEP 668](https://peps.python.org/pep-0668/), which marks the system Python as "externally managed" and blocks `pip install` from running outside a virtual environment (`error: externally-managed-environment`). `pip install --break-system-packages` bypasses this protection but is not recommended outside throwaway or test systems.
+> Some Linux distributions enforce [PEP 668](https://peps.python.org/pep-0668/), which marks the system Python as "externally managed" and blocks `pip install` from running outside a virtual environment (`error: externally-managed-environment`). This is common on newer distribution releases but is not universal, so check your own system rather than assuming it applies. `pip install --break-system-packages` bypasses this protection but is not recommended outside throwaway or test systems.
 
 ---
 
@@ -301,7 +306,7 @@ pip check
 
 | **Best Practice**                          | **Description**                                                                                    |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Always use a virtual environment             | Avoids Ubuntu 24's externally-managed-environment restriction and prevents dependency conflicts       |
+| Always use a virtual environment             | Avoids the externally-managed-environment restriction on systems that enforce it, and prevents dependency conflicts |
 | Pin exact versions for production            | Use `==` in `requirements.txt` to ensure reproducible builds                                          |
 | Regenerate requirements.txt deliberately     | Use `pipreqs` for imports-only files rather than full `pip freeze` dumps where possible               |
 | Run `pip check` after installs               | Catches broken or conflicting dependencies early                                                       |
@@ -311,9 +316,9 @@ pip check
 
 # 13. Conclusion
 
-This SOP provides a standardized approach to installing, generating, and troubleshooting Python dependencies using `requirements.txt` on Ubuntu 24.04.
+This SOP provides a standardized approach to installing, generating, and troubleshooting Python dependencies using `requirements.txt` on any Linux-based system.
 
-Following these procedures helps developers maintain **reliability, reproducibility, and operational stability**, while providing a consistent, evidence-backed approach to configuration, validation, and troubleshooting — including Ubuntu 24's PEP 668 environment restrictions.
+Following these procedures helps developers maintain **reliability, reproducibility, and operational stability**, while providing a consistent, evidence-backed approach to configuration, validation, and troubleshooting — including the externally-managed-environment restriction found on some distributions.
 
 ---
 
