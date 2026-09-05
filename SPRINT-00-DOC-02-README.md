@@ -6,7 +6,7 @@
 
 | Author | Created On | Version | Last Updated | L0 Reviewer | L1 Reviewer | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|-------------|-------------|
-| Sahil | 05-09-26 | v1.0 | 05-09-26 | `Diviya M` | `Aayush Verma` | `Mahesh Kumar / Varun` |
+| Sahil | 31-08-26 | v1.0 | 02-09-26 | `Divya M` | `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -142,7 +142,7 @@ Jinja templating allows Ansible Roles to generate dynamic, environment-specific 
 
 | Name | Email ID |
 |------|----------|
-| Sahil | `sahil.butola.snaatak@mygurukulam.co` |
+| Sahil | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
 
 ---
 
