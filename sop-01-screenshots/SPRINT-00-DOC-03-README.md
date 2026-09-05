@@ -1,4 +1,4 @@
-# Common Stack | Applications | Golang | Installation Guide Documentation
+# Common Stack | Applications | Golang | Installation Guide
 
 ## Author Table
 
@@ -100,9 +100,9 @@ Download and run the `.pkg` installer, choosing the build that matches your chip
 brew install go
 ```
 <details>
-<summary>Screenshot: Environment Variables dialog</summary>
+<summary>Screenshot: Homebrew install output</summary>
 
-<img width="1076" height="743" alt="Screenshot 2026-09-05 at 5 57 45 PM" src="https://github.com/user-attachments/assets/dbd8e8bc-41d5-4ea7-aee5-20951beead33" />
+<img width="1076" height="743" alt="Screenshot 2026-09-05 at 5 57 45 PM" src="https://github.com/user-attachments/assets/dbd8e8bc-41d5-4ea7-aee5-20951beead33" />
 
 </details>
 
@@ -115,9 +115,9 @@ which go
 go version
 ```
 <details>
-<summary>Screenshot: Environment Variables dialog</summary>
+<summary>Screenshot: which go and go version output</summary>
 
-<img width="507" height="128" alt="Screenshot 2026-09-05 at 5 58 47 PM" src="https://github.com/user-attachments/assets/d447c93b-9c63-479c-b5cf-97826718dbd7" />
+<img width="507" height="128" alt="Screenshot 2026-09-05 at 5 58 47 PM" src="https://github.com/user-attachments/assets/d447c93b-9c63-479c-b5cf-97826718dbd7" />
 
 </details>
 
@@ -135,14 +135,21 @@ Download the latest stable release for your architecture (`amd64` or `arm64`):
 ```bash
 GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
 ARCH=$(dpkg --print-architecture 2>/dev/null || uname -m)
+case "$ARCH" in
+  x86_64) ARCH=amd64 ;;
+  aarch64) ARCH=arm64 ;;
+esac
 wget https://go.dev/dl/${GO_VERSION}.linux-${ARCH}.tar.gz
 sudo rm -rf /usr/local/go
 sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-${ARCH}.tar.gz
 ```
-<details>
-<summary><strong>Screenshot - verified runtime value</strong></summary>
 
-<img width="1438" height="443" alt="Screenshot 2026-09-05 at 5 17 28 PM" src="https://github.com/user-attachments/assets/e84dd056-1334-4cb0-bbe4-a6f7765f597e" />
+**Note:** `dpkg --print-architecture` (Debian/Ubuntu) already returns `amd64`/`arm64` directly. The fallback `uname -m` (used on RHEL, Fedora, Arch, and other non-Debian distros) instead returns `x86_64`/`aarch64`, which don't match Go's release filenames — the `case` statement above maps them to the correct names before building the download URL.
+
+<details>
+<summary><strong>Screenshot: Go archive downloaded and extracted</strong></summary>
+
+<img width="1438" height="443" alt="Screenshot 2026-09-05 at 5 17 28 PM" src="https://github.com/user-attachments/assets/e84dd056-1334-4cb0-bbe4-a6f7765f597e" />
 </details>
 
 Add Go to `PATH` permanently by appending it to your shell profile, then reload the shell:
@@ -160,9 +167,9 @@ go version
 ```
 
 <details>
-<summary><strong>Screenshot - verified runtime value</strong></summary>
+<summary><strong>Screenshot: go version output</strong></summary>
 
-<img width="342" height="78" alt="Screenshot 2026-09-05 at 5 18 52 PM" src="https://github.com/user-attachments/assets/ac84f5a7-8ddd-47ae-8eb0-a719ee5afee4" />
+<img width="342" height="78" alt="Screenshot 2026-09-05 at 5 18 52 PM" src="https://github.com/user-attachments/assets/ac84f5a7-8ddd-47ae-8eb0-a719ee5afee4" />
 
 </details>
 
@@ -172,10 +179,9 @@ It's also useful to confirm the environment Go is picking up, particularly when 
 go env
 ```
 <details>
-<summary><strong>Screenshot - verified runtime value</strong></summary>
+<summary><strong>Screenshot: go env output</strong></summary>
 
-<img width="1396" height="638" alt="Screenshot 2026-09-05 at 5 19 25 PM" src="https://github.com/user-attachments/assets/6f6757cb-6931-4118-b395-de9d8b3150f4" />
-
+<img width="1396" height="638" alt="Screenshot 2026-09-05 at 5 19 25 PM" src="https://github.com/user-attachments/assets/6f6757cb-6931-4118-b395-de9d8b3150f4" />
 
 </details>
 
@@ -186,10 +192,9 @@ mkdir my-go-app && cd my-go-app
 go mod init example.com/my-go-app
 ```
 <details>
-<summary><strong>Screenshot - verified runtime value</strong></summary>
+<summary><strong>Screenshot: go mod init output (go.mod created)</strong></summary>
 
-<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 20 02 PM" src="https://github.com/user-attachments/assets/2414c03e-1583-4e03-b7b4-1fe29fdad48a" />
-
+<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 20 02 PM" src="https://github.com/user-attachments/assets/2414c03e-1583-4e03-b7b4-1fe29fdad48a" />
 
 </details>
 
@@ -217,9 +222,9 @@ func main() {
 go run main.go
 ```
 <details>
-<summary><strong>Screenshot - verified runtime value</strong></summary>
+<summary><strong>Screenshot: go run main.go output</strong></summary>
 
-<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 22 34 PM" src="https://github.com/user-attachments/assets/871a164c-86d2-414a-86e9-948f66e7baf0" />
+<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 22 34 PM" src="https://github.com/user-attachments/assets/871a164c-86d2-414a-86e9-948f66e7baf0" />
 
 </details>
 
@@ -229,10 +234,9 @@ Build a standalone binary with:
 go build -o my-go-app
 ```
 <details>
-<summary><strong>Screenshot - verified runtime value</strong></summary>
+<summary><strong>Screenshot: go build output (binary created)</strong></summary>
 
-<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 23 55 PM" src="https://github.com/user-attachments/assets/71f56b7a-54c6-435c-917b-d1891389e230" />
-
+<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 23 55 PM" src="https://github.com/user-attachments/assets/71f56b7a-54c6-435c-917b-d1891389e230" />
 
 </details>
 
