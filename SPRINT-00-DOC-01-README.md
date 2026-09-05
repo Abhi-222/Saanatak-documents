@@ -6,7 +6,7 @@
 
 | Author | Created On | Version | Last Updated  | L0 Reviewer | L1 Reviewer    | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|----------------|-------------|
-| Sahil  | 28-08-26   | v1.0    |  28-08-26     | `Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
+| Sahil  | 28-08-26   | v1.0    |  04-09-26     | `Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -128,8 +128,7 @@ sudo apt update
 <details>
 <summary><strong>Screenshot - Package repository updated</strong></summary>
 
-<img width="740" height="225" alt="Screenshot 2026-09-04 at 6 27 19 PM" src="https://github.com/user-attachments/assets/a47be994-98f3-4bc5-80d0-b58e354b8f5a" />
-
+<img width="740" height="225" alt="Screenshot 2026-09-04 at 6 27 19 PM" src="https://github.com/user-attachments/assets/a47be994-98f3-4bc5-80d0-b58e354b8f5a" />
 
 </details>
 
@@ -146,8 +145,7 @@ sudo apt install nodejs -y
 <details>
 <summary><strong>Screenshot - Node.js installed</strong></summary>
 
-<img width="1046" height="371" alt="Screenshot 2026-09-04 at 6 27 40 PM" src="https://github.com/user-attachments/assets/19cacc15-586e-4a16-ad11-f0f6bbe60a4b" />
-
+<img width="1046" height="371" alt="Screenshot 2026-09-04 at 6 27 40 PM" src="https://github.com/user-attachments/assets/19cacc15-586e-4a16-ad11-f0f6bbe60a4b" />
 
 </details>
 
@@ -164,8 +162,7 @@ sudo apt install npm -y
 <details>
 <summary><strong>Screenshot - npm installed</strong></summary>
 
-<img width="1046" height="575" alt="Screenshot 2026-09-04 at 6 28 51 PM" src="https://github.com/user-attachments/assets/720efa93-ad78-4484-949f-a3a769678acb" />
-
+<img width="1046" height="575" alt="Screenshot 2026-09-04 at 6 28 51 PM" src="https://github.com/user-attachments/assets/720efa93-ad78-4484-949f-a3a769678acb" />
 
 </details>
 
@@ -181,8 +178,7 @@ npx create-react-app my-app
 <details>
 <summary><strong>Screenshot - React application created</strong></summary>
 
-<img width="936" height="464" alt="Screenshot 2026-09-04 at 6 31 18 PM" src="https://github.com/user-attachments/assets/babd5127-95c5-4cf9-b64c-d0c0a7b248ea" />
-
+<img width="936" height="464" alt="Screenshot 2026-09-04 at 6 31 18 PM" src="https://github.com/user-attachments/assets/babd5127-95c5-4cf9-b64c-d0c0a7b248ea" />
 
 </details>
 
@@ -199,9 +195,7 @@ cd my-app
 <details>
 <summary><strong>Screenshot - Inside the project directory</strong></summary>
 
-<img width="1376" height="62" alt="Screenshot 2026-09-04 at 7 43 36 PM" src="https://github.com/user-attachments/assets/f3a98ae5-16fc-4979-b1c3-5a5fc9ec3ee8" />
-
-
+<img width="1376" height="62" alt="Screenshot 2026-09-04 at 7 43 36 PM" src="https://github.com/user-attachments/assets/f3a98ae5-16fc-4979-b1c3-5a5fc9ec3ee8" />
 
 </details>
 
@@ -218,8 +212,7 @@ npm start
 <details>
 <summary><strong>Screenshot - Development server started</strong></summary>
 
-<img width="466" height="209" alt="Screenshot 2026-09-04 at 6 32 03 PM" src="https://github.com/user-attachments/assets/a92f876a-6181-42ec-8ca2-472bb128d377" />
-
+<img width="466" height="209" alt="Screenshot 2026-09-04 at 6 32 03 PM" src="https://github.com/user-attachments/assets/a92f876a-6181-42ec-8ca2-472bb128d377" />
 
 </details>
 
@@ -227,9 +220,9 @@ npm start
 
 # 9. Verification
 
-## Step 1: Check node, npm nd mpx  Version
+## Step 1: Check Node.js, npm, and npx Versions
 
-Verify the  installation.
+Verify the Node.js, npm, and npx installations.
 
 ```bash
 node --version
@@ -238,10 +231,9 @@ npx --version
 ```
 
 <details>
-<summary><strong>Screenshot - npm version output</strong></summary>
+<summary><strong>Screenshot - Node.js, npm, and npx version output</strong></summary>
 
-<img width="371" height="108" alt="Screenshot 2026-09-04 at 6 29 54 PM" src="https://github.com/user-attachments/assets/e6ea6a83-69ce-4645-a3bc-ce7fbd58db9a" />
-
+<img width="371" height="108" alt="Screenshot 2026-09-04 at 6 29 54 PM" src="https://github.com/user-attachments/assets/e6ea6a83-69ce-4645-a3bc-ce7fbd58db9a" />
 
 </details>
 
@@ -256,7 +248,7 @@ Open a browser and navigate to:
 <details>
 <summary><strong>Screenshot - React app running in browser</strong></summary>
 
-<img width="1376" height="777" alt="Screenshot 2026-09-04 at 7 35 56 PM" src="https://github.com/user-attachments/assets/1c6a20df-49bc-4cbf-857d-ea9e65f11e73" />
+<img width="1376" height="777" alt="Screenshot 2026-09-04 at 7 35 56 PM" src="https://github.com/user-attachments/assets/1c6a20df-49bc-4cbf-857d-ea9e65f11e73" />
 
 </details>
 
@@ -272,6 +264,15 @@ Use the following command to identify the Node.js executable location.
 which node
 ```
 
+<details>
+<summary><strong>Screenshot - Node.js executable path</strong></summary>
+
+<img width="622" height="97" alt="PLACEHOLDER - add screenshot" src="" />
+
+</details>
+
+---
+
 ## Step 2: Locate Node.js Installation
 
 The `whereis` command displays common locations related to Node.js.
@@ -283,7 +284,7 @@ whereis node
 <details>
 <summary><strong>Screenshot - Node.js installation locations</strong></summary>
 
-<img width="622" height="97" alt="Screenshot 2026-09-04 at 6 33 22 PM" src="https://github.com/user-attachments/assets/1f64c3e4-fefd-4e50-8239-ac21e88224bf" />
+<img width="622" height="97" alt="Screenshot 2026-09-04 at 6 33 22 PM" src="https://github.com/user-attachments/assets/1f64c3e4-fefd-4e50-8239-ac21e88224bf" />
 
 </details>
 
@@ -302,7 +303,7 @@ npm install <package-name>
 <details>
 <summary><strong>Screenshot - Package installed via npm</strong></summary>
 
-<img width="505" height="273" alt="Screenshot 2026-09-04 at 6 48 22 PM" src="https://github.com/user-attachments/assets/de8bd39d-80a6-47e7-b38f-13cbb7ddbcd5" />
+<img width="505" height="273" alt="Screenshot 2026-09-04 at 6 48 22 PM" src="https://github.com/user-attachments/assets/de8bd39d-80a6-47e7-b38f-13cbb7ddbcd5" />
 
 </details>
 
@@ -317,7 +318,7 @@ npm run build
 <details>
 <summary><strong>Screenshot - Production build output</strong></summary>
 
-<img width="601" height="455" alt="Screenshot 2026-09-04 at 6 48 54 PM" src="https://github.com/user-attachments/assets/9c69e4ea-7da8-4045-bd4c-cb4abbd84a10" />
+<img width="601" height="455" alt="Screenshot 2026-09-04 at 6 48 54 PM" src="https://github.com/user-attachments/assets/9c69e4ea-7da8-4045-bd4c-cb4abbd84a10" />
 
 </details>
 
@@ -345,6 +346,7 @@ npm run build
 | Install npm | `sudo apt install npm -y` |
 | Check Node.js version | `node -v` |
 | Check npm version | `npm -v` |
+| Check npx version | `npx -v` |
 | Create React app | `npx create-react-app my-app` |
 | Start development server | `npm start` |
 | Build for production | `npm run build` |
@@ -378,4 +380,3 @@ After installation, the setup should be verified by checking Node.js and npm ver
 | [Node.js Official Website](https://nodejs.org/) | Official Node.js website |
 | [npm Documentation](https://docs.npmjs.com/) | Official npm documentation |
 | [Create React App Documentation](https://create-react-app.dev/) | Official Create React App documentation |
-
