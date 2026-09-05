@@ -4,7 +4,7 @@
 
 | **Author**   | **Created On** | **Version** | **Last Edited On**    | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 |--------------|----------------|-------------|-----------------------|-----------------|-----------------|------------------|
-| Sahil Butola | 30-08-2026     | 1.0         | 04-09-2026            | Divya M.        | Aayush Verma    | Mahesh / Varun Kumar |
+| Sahil Butola | 30-08-2026     | 1.1         | 05-09-2026            | Divya M.        | Aayush Verma    | Mahesh Kumar |
 
 ## Table of Contents
 
@@ -19,10 +19,11 @@
 9. [Setting Up the Go Workspace](#setting-up-the-go-workspace)
 10. [Writing and Running a First Go Program](#writing-and-running-a-first-go-program)
 11. [Common Installation Issues](#common-installation-issues)
-12. [Best Practices](#best-practices)
-13. [Conclusion](#conclusion)
-14. [Contact Information](#contact-information)
-15. [References](#references)
+12. [Uninstalling Go](#uninstalling-go)
+13. [Best Practices](#best-practices)
+14. [Conclusion](#conclusion)
+15. [Contact Information](#contact-information)
+16. [References](#references)
 
 ## Introduction
 
@@ -54,12 +55,13 @@ Go is a statically typed, compiled language. A Go installation includes the comp
 - Windows 10+, macOS 11+, or a common Linux distribution.
 - Administrator or `sudo` access.
 - Internet connection and ~500 MB free disk space.
+- Know your machine's architecture (`amd64`/`x86_64` or `arm64`) before downloading — Apple Silicon Macs, Windows on ARM, and many newer Linux servers use `arm64`, not `amd64`. Check with `uname -m` on macOS/Linux.
 
 ## Installing Go on Windows
 
 ### Step 1: Download and Run the Installer
 
-Download the `.msi` installer from the official downloads page and run it, accepting the default settings.
+Download the `.msi` installer from the official downloads page and run it, accepting the default settings. Choose the `amd64` or `arm64` installer to match your machine's architecture.
 
 <details>
 <summary>Screenshot: Go downloads page</summary>
@@ -92,7 +94,7 @@ The installer adds Go to `PATH` automatically. This can be confirmed manually if
 
 ### Option 1: Official Installer
 
-Download and run the `.pkg` installer. It installs Go to `/usr/local/go` and updates the shell path.
+Download and run the `.pkg` installer, choosing the build that matches your chip (Intel = `amd64`, Apple Silicon = `arm64`). It installs Go to `/usr/local/go` and updates the shell path.
 
 ### Option 2: Homebrew
 
@@ -100,17 +102,42 @@ Download and run the `.pkg` installer. It installs Go to `/usr/local/go` and upd
 brew install go
 ```
 
-## Installing Go on Linux
+> **Note:** Homebrew installs Go under its own prefix (`/opt/homebrew` on Apple Silicon, `/usr/local` on Intel Macs), which differs from the official installer's `/usr/local/go`. If both are installed at different times, this can cause version conflicts — run `which go` and `go version` to confirm which one is active on `PATH`.
+
+### Verify the PATH Variable
 
 ```bash
-wget https://go.dev/dl/go1.23.0.linux-amd64.tar.gz
+which go
+go version
+```
+
+If `go` is not found, add it to your shell profile (`~/.zshrc` by default on modern macOS, or `~/.bash_profile`/`~/.bashrc` if using bash):
+
+```bash
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+source ~/.zshrc
+```
+
+## Installing Go on Linux
+
+Download the latest stable release for your architecture (`amd64` or `arm64`):
+
+```bash
+GO_VERSION=$(curl -s https://go.dev/VERSION?m=text | head -n 1)
+ARCH=$(dpkg --print-architecture 2>/dev/null || uname -m)
+wget https://go.dev/dl/${GO_VERSION}.linux-${ARCH}.tar.gz
 sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf go1.23.0.linux-amd64.tar.gz
-export PATH=$PATH:/usr/local/go/bin
+sudo tar -C /usr/local -xzf ${GO_VERSION}.linux-${ARCH}.tar.gz
+```
+
+Add Go to `PATH` permanently by appending it to your shell profile, then reload the shell:
+
+```bash
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc
 source ~/.bashrc
 ```
 
-Replace the version number with the latest release.
+> **Note:** If your default shell is zsh (`echo $SHELL` to check), use `~/.zshrc` instead of `~/.bashrc`.
 
 ## Verifying the Installation
 
@@ -120,6 +147,11 @@ go version
 
 <img width="402" height="92" alt="image" src="https://github.com/user-attachments/assets/cc4dd0a8-7612-4380-b45e-e115be6d0992" />
 
+It's also useful to confirm the environment Go is picking up, particularly when troubleshooting `PATH` or `GOROOT`/`GOPATH` issues:
+
+```bash
+go env
+```
 
 ## Setting Up the Go Workspace
 
@@ -166,18 +198,38 @@ go build -o my-go-app
 
 | Issue | Resolution |
 |-------|------------|
-| `go: command not found` | Add the Go `bin` directory to `PATH` and reload the shell |
+| `go: command not found` | Add the Go `bin` directory to `PATH` in your shell profile (`.bashrc`/`.zshrc`) and reload the shell |
 | Old version after upgrade | Remove the old Go directory before extracting the new one |
 | Permission denied on install | Run with `sudo` or as administrator |
 | `go.mod` errors | Re-run `go mod init` in the project directory |
+| Wrong architecture binary ("exec format error") | Re-download using the correct `amd64`/`arm64` build for your machine |
+| Unsure which Go is active | Run `which go` (macOS/Linux) or `where go` (Windows) and `go env GOROOT` to confirm the install location being used |
+
+## Uninstalling Go
+
+**Windows:** Use "Add or Remove Programs" and remove the Go entry, or re-run the `.msi` installer and choose Uninstall.
+
+**macOS:**
+```bash
+sudo rm -rf /usr/local/go
+# If installed via Homebrew instead:
+brew uninstall go
+```
+
+**Linux:**
+```bash
+sudo rm -rf /usr/local/go
+```
+Then remove the corresponding `PATH` line from `~/.bashrc` or `~/.zshrc`.
 
 ## Best Practices
 
 - Install the latest stable release from the official source.
+- Confirm your OS and CPU architecture before downloading (`amd64` vs `arm64`).
 - Remove older versions before installing a new one.
 - Use Go modules (`go.mod`) instead of `GOPATH`.
 - Keep the toolchain updated for security fixes.
-- Run `go version` after every install or upgrade.
+- Run `go version` and `go env` after every install or upgrade.
 
 ## Conclusion
 
