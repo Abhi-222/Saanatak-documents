@@ -165,7 +165,7 @@ go build -o my-go-app
 ## Common Installation Issues
 
 | Issue | Resolution |
-|---|---|
+|-------|------------|
 | `go: command not found` | Add the Go `bin` directory to `PATH` and reload the shell |
 | Old version after upgrade | Remove the old Go directory before extracting the new one |
 | Permission denied on install | Run with `sudo` or as administrator |
@@ -185,14 +185,14 @@ Go installs quickly on Windows, macOS, and Linux through official installers, pa
 
 ## Contact Information
 
-| Name | Email |
-|---|---|
+| Name         | Email |
+|--------------|-------|
 | Sahil Butola | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
 
 ## References
 
 | Reference | Link |
-|---|---|
+|-----------|------|
 | Go Downloads | https://go.dev/dl/ |
 | Go Installation Docs | https://go.dev/doc/install |
 | Go Modules Reference | https://go.dev/ref/mod |
