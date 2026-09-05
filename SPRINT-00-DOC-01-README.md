@@ -4,9 +4,9 @@
 
 # Author Table
 
-| Author | Created On | Version | Last Updated | L0 Reviewer | L1 Reviewer | L2 Reviewer |
-|--------|------------|---------|---------------|-------------|-------------|-------------|
-| Sahil | 28-08-26 | v1.0 |28-08-26| `Diviya M`| `Aayush Verma` | `Mahesh Kumar / Varun` |
+| Author | Created On | Version | Last Updated  | L0 Reviewer | L1 Reviewer    | L2 Reviewer |
+|--------|------------|---------|---------------|-------------|----------------|-------------|
+| Sahil  | 28-08-26   | v1.0    |  28-08-26     | `Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -366,7 +366,7 @@ After installation, the setup should be verified by checking Node.js and npm ver
 
 | Name | Email ID |
 |------|----------|
-| Sahil | `sahil.butola.snaatak@mygurukulam.co`|
+| Sahil | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co)|
 
 ---
 
