@@ -256,31 +256,15 @@ Open a browser and navigate to:
 
 # 10. Environment Configuration
 
-## Step 1: Check Node.js Path
+## Step : Check Node.js Path and information related to  Node.js Installation path
 
-Use the following command to identify the Node.js executable location.
+Use the `which node` command to identify the Node.js executable location. The `whereis` command displays common locations related to Node.js.
+
 
 ```bash
 which node
-```
-
-<details>
-<summary><strong>Screenshot - Node.js executable path</strong></summary>
-
-<img width="622" height="97" alt="PLACEHOLDER - add screenshot" src="" />
-
-</details>
-
----
-
-## Step 2: Locate Node.js Installation
-
-The `whereis` command displays common locations related to Node.js.
-
-```bash
 whereis node
 ```
-
 <details>
 <summary><strong>Screenshot - Node.js installation locations</strong></summary>
 
@@ -292,7 +276,7 @@ whereis node
 
 # 11. Maintenance
 
-## Step 2: Install React Packages
+## Step 1: Install React Packages
 
 Additional packages can be installed using npm.
 
@@ -307,7 +291,7 @@ npm install <package-name>
 
 </details>
 
-## Step 3: Build for Production
+## Step 2: Build for Production
 
 Create an optimized production build of the React application.
 
