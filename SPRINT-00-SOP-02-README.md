@@ -3,9 +3,9 @@
 
 # Author Table
 
-| **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer**        |
-| ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | ---------------------- |
-| Sahil      | 27-08-26       | 1.0         | Sahil               | 27-08-26           | `Divya M`      | `Aayush Verma`  | `Mahesh Kumar / Varun` |
+| **Author** | **Created On** | **Version** | **Last Updated ** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer**        |
+| ---------- | -------------- | ----------- | ------------------ | --------------- | --------------- | ---------------------- |
+| Sahil      | 27-08-26       | 1.0         | 03-09-26           | `Divya M`      | `Aayush Verma`  | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -321,7 +321,7 @@ Following these procedures helps developers maintain **reliability, reproducibil
 
 | **Name** | **Email**                              |
 | ---------- | ------------------------------------------ |
-| Sahil      | `sahil.butola.snaatak@mygurukulam.co`      |
+| Sahil      | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co)|
 
 ---
 
