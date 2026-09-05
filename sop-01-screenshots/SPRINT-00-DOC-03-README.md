@@ -68,14 +68,12 @@ Download the `.msi` installer from the official downloads page and run it, accep
 
 <img width="1522" height="1310" alt="image" src="https://github.com/user-attachments/assets/63464441-3824-482f-81e7-f5d6595210c2" />
 
-<img width="1502" height="1192" alt="image" src="https://github.com/user-attachments/assets/5b64b84b-284c-423d-802c-1fd0ddd786aa" />
-
 </details>
 
 <details>
 <summary>Screenshot: Go setup wizard</summary>
 
-<img width="529" height="63" alt="WhatsApp Image 2026-09-05 at 18 57 11" src="https://github.com/user-attachments/assets/f1a01569-8157-4c4d-a1fe-1e8397ae9a52" />
+<img width="622" height="497" alt="643209360-d65e5cff-faa7-4b46-b8ae-a9223554d466" src="https://github.com/user-attachments/assets/0bd8d39a-2437-4df4-a5b3-cf94636ffb58" />
 
 </details>
 
@@ -86,7 +84,7 @@ The installer adds Go to `PATH` automatically. This can be confirmed manually if
 <details>
 <summary>Screenshot: Environment Variables dialog</summary>
 
-<img width="722" height="157" alt="image" src="https://github.com/user-attachments/assets/5e62e21f-da49-48ea-90ce-1ca8c4cf46a4" />
+<img width="529" height="63" alt="WhatsApp Image 2026-09-05 at 18 57 11" src="https://github.com/user-attachments/assets/dfffb69b-f517-4fa1-8010-3a9f0e13443f" />
 
 </details>
 
