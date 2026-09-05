@@ -97,12 +97,13 @@ Before starting the installation, ensure the following are available:
 
 # 7. System Requirements
 
-| Requirement | Minimum Recommendation |
+This SOP has no strict OS version requirement — Node.js runs on virtually any Linux distribution. The table below reflects the bare minimum needed to install Node.js/npm and run a React development server, not a strict production sizing.
+
+| Requirement | Minimum |
 |-------------|-------------------------|
-| RAM | 4 GB or higher |
-| Disk Space | 5 GB or higher |
-| Operating System | Ubuntu / Debian / Linux |
-| Internet | Required |
+| RAM | 1 GB (2 GB+ recommended for smoother builds) |
+| Disk Space | ~1 GB free (more as `node_modules` and build output grow) |
+| Operating System | Any Linux distribution (Ubuntu, Debian, Fedora, and similar) |
 | Privileges | Sudo access |
 
 ### Important Ports
@@ -256,15 +257,15 @@ Open a browser and navigate to:
 
 # 10. Environment Configuration
 
-## Step : Check Node.js Path and information related to  Node.js Installation path
+## Step 1: Check Node.js Path and Installation Location
 
 Use the `which node` command to identify the Node.js executable location. The `whereis` command displays common locations related to Node.js.
-
 
 ```bash
 which node
 whereis node
 ```
+
 <details>
 <summary><strong>Screenshot - Node.js installation locations</strong></summary>
 
