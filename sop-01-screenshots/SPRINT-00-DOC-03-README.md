@@ -75,7 +75,7 @@ Download the `.msi` installer from the official downloads page and run it, accep
 <details>
 <summary>Screenshot: Go setup wizard</summary>
 
-<img width="622" height="497" alt="image" src="https://github.com/user-attachments/assets/d65e5cff-faa7-4b46-b8ae-a9223554d466" />
+<img width="529" height="63" alt="WhatsApp Image 2026-09-05 at 18 57 11" src="https://github.com/user-attachments/assets/f1a01569-8157-4c4d-a1fe-1e8397ae9a52" />
 
 </details>
 
