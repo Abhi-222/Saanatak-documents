@@ -1,12 +1,12 @@
-# Common Stack | Operating System | Ubuntu | SOP for Sysctl
+# Common Stack | Operating System | Linux | SOP for Sysctl
 
 ---
 
 # Author Table
 
-| **Author** | **Created On** | **Version** | **Last Updated By** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-| ---------- | -------------- | ----------- | ------------------- | ------------------ | --------------- | --------------- | --------------- |
-| Sahil      | 24-08-26       | 1.0         | Sahil               | 27-08-26           | `Diviya M`      | `Aayush Verma`   | `Mahesh Kumar / Varun` |
+| **Author** | **Created On** | **Version** |**Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
+| ---------- | -------------- | ----------- |------------------ | --------------- | --------------- | --------------- |
+| Sahil      | 24-08-26       | 1.0         | 03-09-26          | `Divya M`      | `Aayush Verma`   | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -20,7 +20,6 @@
 6. [Prerequisites](#6-prerequisites)
    - [6.1 Access & Permissions](#61-access--permissions)
    - [6.2 System Requirements](#62-system-requirements)
-   - [6.3 Tools Used](#63-tools-used)
 7. [View Kernel Parameters](#7-view-kernel-parameters)
 8. [Apply Kernel Parameters (Temporary)](#8-apply-kernel-parameters-temporary)
 9. [Persist Kernel Parameters (Permanent)](#9-persist-kernel-parameters-permanent)
@@ -38,7 +37,7 @@
 
 # 1. Introduction
 
-This SOP provides a structured guide to viewing, applying, and persisting **kernel parameter changes** using `sysctl` on **Linux (Ubuntu 22.04/24.04 LTS)** servers, for the purpose of performance or security tuning.
+This SOP provides a structured guide to viewing, applying, and persisting **kernel parameter changes** using `sysctl` on **Linux servers**, for the purpose of performance or security tuning. It applies across most major distributions and is not tied to a specific OS version.
 
 It covers the required checks, configuration steps, verification, validation, rollback, and troubleshooting needed to keep kernel-level tuning consistent, auditable, and reversible across environments.
 
@@ -89,33 +88,22 @@ Values changed with `sysctl` at runtime only affect the live, running kernel. Fo
 
 # 6. Prerequisites
 
+This SOP has no strict OS version requirement — it works on virtually any Linux distribution that includes `sysctl` (part of the `procps` package), including **Ubuntu, Debian, RHEL/CentOS/Rocky, Fedora, and similar systems**.
+
 ### 6.1 Access & Permissions
 
-| **Prerequisite**   | **Details**                                                                                      |
-| ------------------ | ------------------------------------------------------------------------------------------------ |
-| SSH Access         | SSH access to the target server                                                                  |
-| Privileges         | `sudo` / root privileges to view and modify kernel parameters                                    |
-| Edit Access        | Access to edit files under `/etc/sysctl.d/` and `/etc/sysctl.conf`                               |
-| Out-of-band Access | Console/out-of-band access available in case a networking parameter change causes an SSH lockout |
+| **Prerequisite**   | **Details**                                                                                        |
+| ------------------ | --------------------------------------------------------------------------------------------------- |
+| Access             | SSH/terminal access with `sudo`/root privileges to view, modify, and persist kernel parameters      |
+| Out-of-band Access | Console/out-of-band access recommended, in case a networking parameter change causes an SSH lockout |
 
 ### 6.2 System Requirements
 
-| **Requirement**   | **Details**                                                                             |
-| ----------------- | --------------------------------------------------------------------------------------- |
-| OS & Access       | Ubuntu Server 22.04 LTS or 24.04 LTS with SSH/terminal access                           |
-| Required Packages | `procps` (provides `sysctl`, pre-installed on most distros)                             |
-| Permissions       | `sudo`/root access where required                                                       |
-| Backup Space      | Sufficient space to back up existing `sysctl.conf` and `sysctl.d` before making changes |
-
-### 6.3 Tools Used
-
-| **Command/File**                | **Purpose**                                                                                        |
-| ------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `sysctl`                        | Views and modifies kernel parameters at runtime                                                    |
-| `/proc/sys/`                    | Virtual filesystem exposing live kernel parameters                                                 |
-| `/etc/sysctl.conf`              | Main persistent sysctl configuration file                                                          |
-| `/etc/sysctl.d/*.conf`          | Modular, isolated persistent configuration files (recommended over editing `sysctl.conf` directly) |
-| `sysctl -p` / `sysctl --system` | Applies/reloads persisted configuration without a reboot                                           |
+| **Requirement**   | **Minimum**                                                                              |
+| ----------------- | --------------------------------------------------------------------------------------------- |
+| OS                | Any Linux distribution with `sysctl` available (pre-installed on most distros via `procps`)   |
+| Permissions       | `sudo`/root access where required                                                             |
+| Backup Space      | Minimal — just enough free space to back up the existing `sysctl.conf` and `sysctl.d` directory before making changes |
 
 ---
 
@@ -132,19 +120,18 @@ cat /proc/sys/net/ipv4/ip_forward       # read directly from proc
 ```
 
 <details>
-<summary><strong>Screenshot - kernel parameter values</strong></summary>
+<summary><strong>Screenshot - full parameter list (sysctl -a)</strong></summary>
 
-<img width="825" height="608" alt="Screenshot 2026-09-05 at 2 14 45 AM" src="https://github.com/user-attachments/assets/b74a9777-e748-47b0-988c-0596e4249e6d" />
+<img width="825" height="608" alt="Screenshot 2026-09-05 at 2 14 45 AM" src="https://github.com/user-attachments/assets/b74a9777-e748-47b0-988c-0596e4249e6d" />
 
 </details>
 
 <details>
-<summary><strong>Screenshot - kernel parameter values</strong></summary>
+<summary><strong>Screenshot - specific parameter value</strong></summary>
 
-<img width="825" height="95" alt="Screenshot 2026-09-05 at 2 15 47 AM" src="https://github.com/user-attachments/assets/9bfa162a-928a-40ce-a53c-357522bde63c" />
+<img width="825" height="95" alt="Screenshot 2026-09-05 at 2 15 47 AM" src="https://github.com/user-attachments/assets/9bfa162a-928a-40ce-a53c-357522bde63c" />
 
 </details>
-
 
 ---
 
@@ -159,7 +146,7 @@ sudo sysctl -a | grep swappiness
 <details>
 <summary><strong>Screenshot - keyword search output</strong></summary>
 
-<img width="825" height="95" alt="Screenshot 2026-09-05 at 2 16 03 AM" src="https://github.com/user-attachments/assets/d810ff2b-1465-4b4b-be32-7a055e85c2f5" />
+<img width="825" height="95" alt="Screenshot 2026-09-05 at 2 16 03 AM" src="https://github.com/user-attachments/assets/d810ff2b-1465-4b4b-be32-7a055e85c2f5" />
 
 </details>
 
@@ -188,7 +175,7 @@ Take the backup **before** making any change — it's required for a clean rollb
 <details>
 <summary><strong>Screenshot - backup and applied value</strong></summary>
 
-<img width="825" height="147" alt="Screenshot 2026-09-05 at 2 18 21 AM" src="https://github.com/user-attachments/assets/35bfcbfa-ed97-408f-9453-9bbac5562857" />
+<img width="825" height="147" alt="Screenshot 2026-09-05 at 2 18 21 AM" src="https://github.com/user-attachments/assets/35bfcbfa-ed97-408f-9453-9bbac5562857" />
 
 </details>
 
@@ -205,7 +192,7 @@ sysctl vm.swappiness
 <details>
 <summary><strong>Screenshot - verified runtime value</strong></summary>
 
-<img width="825" height="147" alt="Screenshot 2026-09-05 at 2 19 29 AM" src="https://github.com/user-attachments/assets/1def1d73-ec7a-4adf-a912-db677ba20d95" />
+<img width="825" height="147" alt="Screenshot 2026-09-05 at 2 19 29 AM" src="https://github.com/user-attachments/assets/1def1d73-ec7a-4adf-a912-db677ba20d95" />
 
 </details>
 
@@ -232,7 +219,7 @@ Use a dedicated file under `/etc/sysctl.d/` instead of editing `/etc/sysctl.conf
 <details>
 <summary><strong>Screenshot - config file contents</strong></summary>
 
-<img width="825" height="147" alt="Screenshot 2026-09-05 at 2 20 08 AM" src="https://github.com/user-attachments/assets/0f8d53f8-8af4-42c1-947a-493a8b7c7929" />
+<img width="825" height="147" alt="Screenshot 2026-09-05 at 2 20 08 AM" src="https://github.com/user-attachments/assets/0f8d53f8-8af4-42c1-947a-493a8b7c7929" />
 
 </details>
 
@@ -248,7 +235,7 @@ sudo sysctl --system
 <details>
 <summary><strong>Screenshot - config applied and reloaded</strong></summary>
 
-<img width="825" height="346" alt="Screenshot 2026-09-05 at 2 21 25 AM" src="https://github.com/user-attachments/assets/279c2842-7734-46c1-94e6-eaea36039f58" />
+<img width="825" height="346" alt="Screenshot 2026-09-05 at 2 21 25 AM" src="https://github.com/user-attachments/assets/279c2842-7734-46c1-94e6-eaea36039f58" />
 
 </details>
 
@@ -267,12 +254,12 @@ If a persisted change causes unexpected behaviour, revert as follows. **Restorin
 | 5        | Reboot and confirm the value holds long-term               | `sudo reboot`                                                                |
 
 > [!NOTE]
-> If `grep` finds no value for a parameter in the backup, it was only ever a kernel default — use Ubuntu's standard default (`vm.swappiness=60`, `net.ipv4.ip_forward=0`), or for `fs.file-max`, let it recalculate on reboot rather than guessing a fixed number.
+> If `grep` finds no value for a parameter in the backup, it was only ever a kernel default — use the common Linux default for most distributions (`vm.swappiness=60`, `net.ipv4.ip_forward=0`), or for `fs.file-max`, let it recalculate on reboot rather than guessing a fixed number.
 
 <details>
 <summary><strong>Screenshot - rollback confirmation</strong></summary>
 
-<img width="907" height="417" alt="Screenshot 2026-09-05 at 2 24 20 AM" src="https://github.com/user-attachments/assets/f733fc64-49d4-43eb-9279-3e99f997807c" />
+<img width="907" height="417" alt="Screenshot 2026-09-05 at 2 24 20 AM" src="https://github.com/user-attachments/assets/f733fc64-49d4-43eb-9279-3e99f997807c" />
 
 </details>
 
@@ -283,13 +270,13 @@ If a persisted change causes unexpected behaviour, revert as follows. **Restorin
 ```bash
 sysctl vm.swappiness net.ipv4.ip_forward fs.file-max
 ```
-<details>
-<summary><strong>Screenshot - rollback confirmation</strong></summary>
 
-<img width="713" height="95" alt="Screenshot 2026-09-05 at 2 44 16 AM" src="https://github.com/user-attachments/assets/0b163dbe-9af8-4bdf-bce3-d89b2edd1602" />
+<details>
+<summary><strong>Screenshot - validation output</strong></summary>
+
+<img width="713" height="95" alt="Screenshot 2026-09-05 at 2 44 16 AM" src="https://github.com/user-attachments/assets/0b163dbe-9af8-4bdf-bce3-d89b2edd1602" />
 
 </details>
-
 
 **Expected:** Values match the intended settings — immediately after applying, after `sudo sysctl --system`, and again after `sudo reboot`.
 
@@ -363,7 +350,7 @@ sysctl vm.swappiness net.ipv4.ip_forward fs.file-max
 
 # 16. Conclusion
 
-This SOP provides a standardized approach to viewing, applying, and persisting kernel parameters using `sysctl` on Ubuntu servers.
+This SOP provides a standardized approach to viewing, applying, and persisting kernel parameters using `sysctl` on Linux servers, regardless of distribution.
 
 Following these procedures helps administrators maintain **performance, security posture, and operational stability**, while providing a consistent, evidence-backed approach to configuration, validation, rollback, and troubleshooting. In particular, treating rollback as a two-part process — config removal plus a manual live re-push — closes a gap that a file-only rollback would otherwise miss.
 
@@ -373,7 +360,7 @@ Following these procedures helps administrators maintain **performance, security
 
 | **Name** | **Email** |
 | -------- | --------- |
-| Sahil    | `sahil.butola.snaatak@mygurukulam.co` |
+| Sahil    | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) ( |
 
 ---
 
@@ -383,6 +370,6 @@ Following these procedures helps administrators maintain **performance, security
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
 | [sysctl man page](https://man7.org/linux/man-pages/man8/sysctl.8.html)                                       | `sysctl` command reference                       |
 | [sysctl.d man page](https://man7.org/linux/man-pages/man5/sysctl.d.5.html)                                   | `sysctl.d` configuration reference               |
-| [Ubuntu Server documentation](https://ubuntu.com/server/docs)                                                | Official Ubuntu Server documentation             |
+| [Ubuntu Server documentation](https://ubuntu.com/server/docs)                                                | Example distribution-specific documentation (Ubuntu Server) |
 | [Application Template](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Application-Template) | Documentation format/index followed for this SOP |
 | [Software Template](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Software-Template)       | Documentation format/index followed for this SOP |
