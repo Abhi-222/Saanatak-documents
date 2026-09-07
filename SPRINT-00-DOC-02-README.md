@@ -13,7 +13,6 @@
 # Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Purpose](#2-purpose)
 3. [What is Jinja Templating](#3-what-is-jinja-templating)
 4. [Why Jinja Templating is Used](#4-why-jinja-templating-is-used)
 5. [Key Features / Concepts](#5-key-features--concepts)
@@ -31,17 +30,6 @@
 Jinja is the templating engine used by Ansible to generate dynamic content — configuration files, variable values, and conditional logic — at runtime, based on variables and facts gathered from the target hosts.
 
 This document explains the concept of Jinja templating and how it is used within the context of an Ansible Role.
-
----
-
-# 2. Purpose
-
-The purpose of this document is to explain:
-
-- What Jinja templating is
-- Why it is used in Ansible
-- The core concepts and syntax behind it
-- How Jinja templates fit into the structure of an Ansible Role
 
 ---
 
