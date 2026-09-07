@@ -4,7 +4,7 @@
 
 | **Author**   | **Created On** | **Version** | **Last Edited On**    | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 |--------------|----------------|-------------|-----------------------|-----------------|-----------------|------------------|
-| Sahil Butola | 30-08-2026     | 1.1         | 05-09-2026            | Divya M.        | Aayush Verma    | Mahesh Kumar |
+| Sahil Butola | 30-08-2026     | 1.0         | 05-09-2026            | Divya M.        | Aayush Verma    | Mahesh Kumar |
 
 ## Table of Contents
 
@@ -25,12 +25,18 @@
 
 ## Introduction
 
-Go, also known as Golang, is an open-source language developed by Google, used for backend services, CLI tools, and networked applications.
-This guide covers installing Go on Windows, macOS, and Linux, verifying the setup, and running a first program.
+Go, also known as Golang, is a free and open-source programming language created by Google. It's popular for building backend systems, command-line tools, and applications that communicate over networks. This guide shows you how to install Go on Windows, macOS, and Linux, and how to check that it's installed correctly.
 
 ## What Is Go?
 
-Go is a statically typed, compiled language. A Go installation includes the compiler, standard library, and CLI tools, all accessed through the `go` command.
+Go is a programming language where code is checked for errors before it runs (statically typed) and then converted into a program your computer can run directly (compiled). When you install Go, you get everything you need — the compiler, a set of ready-to-use tools, and a library of pre-built code — all accessible through a single command called go.
+
+## Why Go is required?
+
+-**Fast compilation** – Code turns into a ready-to-run program in seconds.
+-**Built-in concurrency** – Handling multiple tasks at once is easy with goroutines.
+-**Static binaries** – Produces one self-contained file — no extra installs needed to run it.
+-**Cross-platform** – You can build a version for another OS without leaving your machine.
 
 | Component | Purpose |
 |---|---|
@@ -39,20 +45,12 @@ Go is a statically typed, compiled language. A Go installation includes the comp
 | `GOROOT` | Directory where Go itself is installed |
 | Go modules | Dependency management for Go projects |
 
-## Why Is Go Used?
-
-| Reason | Description |
-|---|---|
-| Fast compilation | Compiles directly to native machine code |
-| Built-in concurrency | Goroutines make concurrent code simple |
-| Static binaries | Single executable, no external runtime |
-| Cross-platform | Builds binaries for other OS from one machine |
 
 ## Prerequisites
 
 - Windows 10+, macOS 11+, or a common Linux distribution.
 - Administrator or `sudo` access.
-- Internet connection and ~500 MB free disk space.
+- ~500 MB free disk space.
 - Know your machine's architecture (`amd64`/`x86_64` or `arm64`) before downloading — Apple Silicon Macs, Windows on ARM, and many newer Linux servers use `arm64`, not `amd64`. Check with `uname -m` on macOS/Linux.
 
 ## Installing Go on Windows
@@ -197,16 +195,15 @@ go env
 
 ## Best Practices
 
-- Install the latest stable release from the official source.
-- Confirm your OS and CPU architecture before downloading (`amd64` vs `arm64`).
-- Remove older versions before installing a new one.
-- Use Go modules (`go.mod`) instead of `GOPATH`.
-- Keep the toolchain updated for security fixes.
-- Run `go version` and `go env` after every install or upgrade.
+-**Download from the official source** – Always get Go from the official website to avoid outdated or unsafe versions.
+-**Match your system type** – Check whether your computer uses amd64 or arm64 before downloading, so you install the right version.
+-**Remove old versions first** – Uninstall any previous Go version before installing a new one to avoid conflicts.
+-**Use Go modules** – Manage your project dependencies with go.mod instead of the older GOPATH method.
+-**Verify after installing** – Run go version to confirm Go is installed correctly and ready to use.
 
 ## Conclusion
 
-Go installs quickly on Windows, macOS, and Linux through official installers, package managers, or manual extraction. Running `go version` and `go mod init` afterward gives a working foundation to start building applications.
+Go can be installed easily on Windows, macOS, or Linux using official installers, package managers, or manual setup — whichever suits your system best. Once installed, running a couple of quick checks confirms everything is working correctly, leaving you with a solid foundation ready to start building Go applications.
 
 ## Contact Information
 
