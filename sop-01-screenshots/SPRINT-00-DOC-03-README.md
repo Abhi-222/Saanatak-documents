@@ -83,62 +83,132 @@ Go is a programming language where code is checked for errors before it runs (st
 ## 7. Installation and Verification on Required OS
 
 <details>
-<summary><strong>Linux</strong></summary>
+<summary><strong>macOS</strong></summary>
 
-
-
-Step 1: Download and Extract
+### Step 1: Download and Extract
 
 ```bash
-curl -LO https://go.dev/dl/go1.26.2.darwin-arm64.tar.gzsudo rm -rf /usr/local/go
+curl -LO https://go.dev/dl/go1.26.2.darwin-arm64.tar.gz
 sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.26.2.darwin-arm64.tar.gz
 ```
 
-<details> <summary>Screenshot: Go archive downloaded and extracted</summary>
-<img width="1437" height="223" alt="Screenshot 2026-09-08 at 3 12 17 AM" src="https://github.com/user-attachments/assets/792556f7-3c00-452f-92b3-fbccf942ba48" />
+<details>
+<summary>Screenshot: Go archive downloaded and extracted</summary>
+<img width="1437" height="223" alt="Screenshot 2026-09-08 at 3 12 17 AM" src="https://github.com/user-attachments/assets/792556f7-3c00-452f-92b3-fbccf942ba48" />
 </details>
 
-Step 2: Set the PATH
+### Step 2: Set the PATH
 
 ```bash
-sudo tar -C /usr/local -xzf go1.26.2.darwin-arm64.tar.gzsource ~/.bashrc
 export PATH=$PATH:/usr/local/go/bin
 source ~/.zshrc
 ```
 
-<details> <summary>Screenshot: PATH exported and shell reloaded</summary> 
-<img width="1437" height="63" alt="Screenshot 2026-09-08 at 3 12 20 AM" src="https://github.com/user-attachments/assets/23e64882-5762-44e9-9da7-c2fb743158d3" />
+<details>
+<summary>Screenshot: PATH exported and shell reloaded</summary>
+<img width="1437" height="63" alt="Screenshot 2026-09-08 at 3 12 20 AM" src="https://github.com/user-attachments/assets/23e64882-5762-44e9-9da7-c2fb743158d3" />
 </details>
 
-Step 3: Verify the Installation
+### Step 3: Verify the Installation
 
 ```bash
 go version
 ```
 
-<details> <summary>Screenshot: go version output</summary> 
-<img width="1437" height="44" alt="Screenshot 2026-09-08 at 3 12 44 AM" src="https://github.com/user-attachments/assets/ab32f7f2-4a44-48d2-8d21-135cc98dde84" />
+<details>
+<summary>Screenshot: go version output</summary>
+<img width="1437" height="44" alt="Screenshot 2026-09-08 at 3 12 44 AM" src="https://github.com/user-attachments/assets/ab32f7f2-4a44-48d2-8d21-135cc98dde84" />
 </details>
-
 </details>
-
-
 
 
 <details>
-  
-<summary><strong>Macos</strong></summary>
+<summary><strong>Linux</strong></summary>
 
-Your content goes here — text, code blocks, images, anything.
+### Step 1: Download and Extract
 
+```bash
+wget https://go.dev/dl/go1.23.0.darwin-amd64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.23.0.darwin-amd64.tar.gz
+```
+<details>
+<summary>Screenshot: Go archive downloaded and extracted</summary>
+<img width="1431" height="353" alt="Screenshot 2026-09-08 at 1 36 22 AM" src="https://github.com/user-attachments/assets/4c934e28-c02e-4156-a08e-4c91708efa4f" />
 </details>
+
+### Step 2: Set the PATH
+
+```bash
+export PATH=$PATH:/usr/local/go/bin
+source ~/.zshrc
+```
+<details>
+<summary>Screenshot: PATH exported and shell reloaded</summary>
+<img width="545" height="69" alt="Screenshot 2026-09-08 at 1 37 14 AM" src="https://github.com/user-attachments/assets/a7f15525-2355-4834-8518-4943b8636e7e" />
+</details>
+
+### Step 3: Verify the Installation
+
+```bash
+go version
+```
+<details>
+<summary>Screenshot: go version output</summary>
+<img width="545" height="69" alt="Screenshot 2026-09-08 at 1 37 40 AM" src="https://github.com/user-attachments/assets/d5dded88-c516-440e-b810-e77bd6a87589" />
+</details>
+</details>
+
+
 
 <details>
 <summary><strong>Windows</strong></summary>
 
-Your content goes here — text, code blocks, images, anything.
+### Step 1: Download and Extract
+
+```bash
+curl -LO https://go.dev/dl/go1.26.2.darwin-arm64.tar.gz
+sudo rm -rf /usr/local/go
+sudo tar -C /usr/local -xzf go1.26.2.darwin-arm64.tar.gz
+```
+
+<details>
+<summary>Screenshot: Go archive downloaded and extracted</summary>
+
+<img width="1437" height="223" alt="Screenshot 2026-09-08 at 3 12 17 AM" src="https://github.com/user-attachments/assets/792556f7-3c00-452f-92b3-fbccf942ba48" />
 
 </details>
+
+### Step 2: Set the PATH
+
+```bash
+export PATH=$PATH:/usr/local/go/bin
+source ~/.zshrc
+```
+
+<details>
+<summary>Screenshot: PATH exported and shell reloaded</summary>
+
+<img width="1437" height="63" alt="Screenshot 2026-09-08 at 3 12 20 AM" src="https://github.com/user-attachments/assets/23e64882-5762-44e9-9da7-c2fb743158d3" />
+
+</details>
+
+### Step 3: Verify the Installation
+
+```bash
+go version
+```
+
+<details>
+<summary>Screenshot: go version output</summary>
+
+<img width="1437" height="44" alt="Screenshot 2026-09-08 at 3 12 44 AM" src="https://github.com/user-attachments/assets/ab32f7f2-4a44-48d2-8d21-135cc98dde84" />
+
+</details>
+</details>
+
+
 
 ---
 
