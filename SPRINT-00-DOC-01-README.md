@@ -94,7 +94,7 @@ This SOP has no strict OS version requirement — Node.js runs on virtually any 
 
 # 8. React JS Installation
 
-# Step 1: Update Package Repository
+### Step 1: Update Package Repository
 
 Update the package information before installing Node.js.
 
@@ -111,7 +111,7 @@ sudo apt update
 
 ---
 
-# Step 2: Install Node.js
+### Step 2: Install Node.js
 
 Install Node.js, which includes npm (Node Package Manager).
 
@@ -128,7 +128,7 @@ sudo apt install nodejs -y
 
 ---
 
-# Step 3: Install npm (if not already installed)
+### Step 3: Install npm (if not already installed)
 
 Install npm separately if it was not installed along with Node.js.
 
@@ -145,7 +145,7 @@ sudo apt install npm -y
 
 ---
 
-# Step 4: Create a New React Application
+### Step 4: Create a New React Application
 
 Use `npx` to create a new React project using Create React App.
 
@@ -161,7 +161,7 @@ npx create-react-app my-app
 
 ---
 
-# Step 5: Navigate to the Project Directory
+### Step 5: Navigate to the Project Directory
 
 Move into the newly created project folder.
 
@@ -178,7 +178,7 @@ cd my-app
 
 ---
 
-# Step 6: Start the Development Server
+### Step 6: Start the Development Server
 
 Run the React application locally.
 
