@@ -213,13 +213,9 @@ go env
 ## Best Practices
 
 -**Download from the official source** – Always get Go from the official website to avoid outdated or unsafe versions.
-
 -**Match your system type** – Check whether your computer uses amd64 or arm64 before downloading, so you install the right version.
-
 -**Remove old versions first** – Uninstall any previous Go version before installing a new one to avoid conflicts.
-
 -**Use Go modules** – Manage your project dependencies with go.mod instead of the older GOPATH method.
-
 -**Verify after installing** – Run go version to confirm Go is installed correctly and ready to use.
 
 ---
