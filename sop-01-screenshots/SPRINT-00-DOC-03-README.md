@@ -11,43 +11,45 @@
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [What Is Go?](#what-is-go)
-3. [Why Is Go Used?](#why-is-go-used)
-4. [Prerequisites](#prerequisites)
-5. [Installing Go on Windows](#installing-go-on-windows)
-6. [Installing Go on macOS](#installing-go-on-macos)
-7. [Installing Go on Linux](#installing-go-on-linux)
-8. [Verifying the Installation](#verifying-the-installation)
-11. [Common Installation Issues](#common-installation-issues)
-12. [Uninstalling Go](#uninstalling-go)
-13. [Best Practices](#best-practices)
-14. [Conclusion](#conclusion)
-15. [Contact Information](#contact-information)
-16. [References](#references)
+1. [Introduction](#1-introduction)
+2. [What Is Go?](#2-what-is-go)
+3. [Why Go is Required](#3-why-go-is-required)
+4. [Core Components](#4-core-components)
+5. [Prerequisites](#5-prerequisites)
+6. [Installing Go on Windows](#6-installing-go-on-windows)
+7. [Installing Go on macOS](#7-installing-go-on-macos)
+8. [Installing Go on Linux](#8-installing-go-on-linux)
+9. [Verifying the Installation](#9-verifying-the-installation)
+10. [Common Installation Issues](#10-common-installation-issues)
+11. [Best Practices](#11-best-practices)
+12. [Conclusion](#12-conclusion)
+13. [Contact Information](#13-contact-information)
+14. [References](#14-references)
 
 ---
 
-## Introduction
+## 1. Introduction
 
 Go, also known as Golang, is a free and open-source programming language created by Google. It's popular for building backend systems, command-line tools, and applications that communicate over networks. This guide shows you how to install Go on Windows, macOS, and Linux, and how to check that it's installed correctly.
 
 ---
 
-## What Is Go?
+## 2. What Is Go?
 
-Go is a programming language where code is checked for errors before it runs (statically typed) and then converted into a program your computer can run directly (compiled). When you install Go, you get everything you need — the compiler, a set of ready-to-use tools, and a library of pre-built code — all accessible through a single command called go.
+Go is a programming language where code is checked for errors before it runs (statically typed) and then converted into a program your computer can run directly (compiled). When you install Go, you get everything you need — the compiler, a set of ready-to-use tools, and a library of pre-built code — all accessible through a single command called `go`.
+
+---
+
+## 3. Why Go is Required
+
+- **Fast compilation** – Code turns into a ready-to-run program in seconds.
+- **Built-in concurrency** – Handling multiple tasks at once is easy with goroutines.
+- **Static binaries** – Produces one self-contained file — no extra installs needed to run it.
+- **Cross-platform** – You can build a version for another OS without leaving your machine.
 
 ---
 
-## Why Go is required?
-
--**Fast compilation** – Code turns into a ready-to-run program in seconds.
--**Built-in concurrency** – Handling multiple tasks at once is easy with goroutines.
--**Static binaries** – Produces one self-contained file — no extra installs needed to run it.
--**Cross-platform** – You can build a version for another OS without leaving your machine.
-
----
+## 4. Core Components
 
 | Component | Purpose |
 |---|---|
@@ -58,7 +60,7 @@ Go is a programming language where code is checked for errors before it runs (st
 
 ---
 
-## Prerequisites
+## 5. Prerequisites
 
 - Windows 10+, macOS 11+, or a common Linux distribution.
 - Administrator or `sudo` access.
@@ -67,7 +69,7 @@ Go is a programming language where code is checked for errors before it runs (st
 
 ---
 
-## Installing Go on Windows
+## 6. Installing Go on Windows
 
 ### Step 1: Download and Run the Installer
 
@@ -98,7 +100,9 @@ The installer adds Go to `PATH` automatically. This can be confirmed manually if
 
 </details>
 
-## Installing Go on macOS
+---
+
+## 7. Installing Go on macOS
 
 ### Option 1: Official Installer
 
@@ -138,7 +142,9 @@ echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
 source ~/.zshrc
 ```
 
-## Installing Go on Linux
+---
+
+## 8. Installing Go on Linux
 
 Download the latest stable release for your architecture (`amd64` or `arm64`):
 
@@ -170,7 +176,9 @@ source ~/.bashrc
 ```
 > **Note:** If your default shell is zsh (`echo $SHELL` to check), use `~/.zshrc` instead of `~/.bashrc`.
 
-## Verifying the Installation
+---
+
+## 9. Verifying the Installation
 
 ```bash
 go version
@@ -197,7 +205,7 @@ go env
 
 ---
 
-## Common Installation Issues
+## 10. Common Installation Issues
 
 | Issue | Resolution |
 |-------|------------|
@@ -210,27 +218,23 @@ go env
 
 ---
 
-## Best Practices
+## 11. Best Practices
 
--**Download from the official source** – Always get Go from the official website to avoid outdated or unsafe versions.
-
--**Match your system type** – Check whether your computer uses amd64 or arm64 before downloading, so you install the right version.
-
--**Remove old versions first** – Uninstall any previous Go version before installing a new one to avoid conflicts.
-
--**Use Go modules** – Manage your project dependencies with go.mod instead of the older GOPATH method.
-
--**Verify after installing** – Run go version to confirm Go is installed correctly and ready to use.
+- **Download from the official source** – Always get Go from the official website to avoid outdated or unsafe versions.
+- **Match your system type** – Check whether your computer uses amd64 or arm64 before downloading, so you install the right version.
+- **Remove old versions first** – Uninstall any previous Go version before installing a new one to avoid conflicts.
+- **Use Go modules** – Manage your project dependencies with go.mod instead of the older GOPATH method.
+- **Verify after installing** – Run go version to confirm Go is installed correctly and ready to use.
 
 ---
 
-## Conclusion
+## 12. Conclusion
 
 Go can be installed easily on Windows, macOS, or Linux using official installers, package managers, or manual setup — whichever suits your system best. Once installed, running a couple of quick checks confirms everything is working correctly, leaving you with a solid foundation ready to start building Go applications.
 
 ---
 
-## Contact Information
+## 13. Contact Information
 
 | Name         | Email |
 |--------------|-------|
@@ -238,7 +242,7 @@ Go can be installed easily on Windows, macOS, or Linux using official installers
 
 ---
 
-## References
+## 14. References
 
 | Reference | Link |
 |-----------|------|
