@@ -13,18 +13,16 @@
 # Table of Contents
 
 1. [Introduction](#1-introduction)
-3. [What is React JS](#3-what-is-react-js)
-4. [Why React JS is Required](#4-why-react-js-is-required)
-5. [Key Features of React JS](#5-key-features-of-react-js)
-6. [Prerequisites](#6-prerequisites)
-7. [System Requirements](#7-system-requirements)
-8. [React JS Installation](#8-react-js-installation)
-9. [Verification](#9-verification)
-13. [Quick Commands](#13-quick-commands)    
-12. [Troubleshooting](#12-troubleshooting)
-14. [Conclusion](#14-conclusion)
-15. [Contact Information](#15-contact-information)
-16. [References](#16-references)
+2. [What is React JS](#2-what-is-react-js)
+3. [Why React JS is Required](#3-why-react-js-is-required)
+4. [Key Features of React JS](#4-key-features-of-react-js)
+5. [Prerequisites and System Requirements](#5-prerequisites-and-system-requirements)
+6. [React JS Installation and Verification](#6-react-js-installation-and-verification)
+7. [Quick Commands](#7-quick-commands)
+8. [Troubleshooting](#8-troubleshooting)
+9. [Conclusion](#9-conclusion)
+10. [Contact Information](#10-contact-information)
+11. [References](#11-references)
 
 ---
 
@@ -35,13 +33,13 @@ This document provides a basic procedure to install and configure a React JS app
 
 ---
 
-# 3. What is React JS
+# 2. What is React JS
 
 ReactJS is a JavaScript library for building user interfaces out of reusable components. It's especially known for making single-page applications (SPAs) fast and efficient by updating only the parts of the page that change.
 
 ---
 
-# 4. Why React JS is Required
+# 3. Why React JS is Required
 
 React JS is required in modern application development because it addresses several common front-end challenges:
 
@@ -52,36 +50,27 @@ React JS is required in modern application development because it addresses seve
   
 ---
 
-# 5. Key Features of React JS
+# 4. Key Features of React JS
 
 - **Virtual DOM** – React keeps a lightweight copy of the actual webpage in memory. When something changes, it only updates that specific part instead of reloading the whole page — making apps faster.
 - **Component-Based Architecture** – The UI is built from small, independent pieces called components. Each one can be reused and maintained separately, like building with blocks.
 - **JSX (JavaScript XML)** – Lets you write HTML-like code directly inside JavaScript, so building and reading UI code feels more natural.
 - **One-Way Data Binding** – Data flows in a single direction — from parent components to child components. This makes it easier to track where data comes from and fix bugs.
 - **Hooks** – Special functions like useState and useEffect let simple (functional) components handle data and behavior over time, without needing more complex class-based components.
-
+- 
 ---
 
-# 6. Prerequisites
-
-Before starting the installation, ensure the following are available:
-
-- Linux system such as Ubuntu or Debian
-- Terminal access
-- Sudo privileges
-- Basic Linux command-line knowledge
-
----
-
-# 7. System Requirements
+# 5. Prerequisites and System Requirements
 
 This SOP has no strict OS version requirement — Node.js runs on virtually any Linux distribution. The table below reflects the bare minimum needed to install Node.js/npm and run a React development server, not a strict production sizing.
 
 | Requirement | Minimum |
 |-------------|-------------------------|
+| Operating System | Any Linux distribution (Ubuntu, Debian, Fedora, and similar) |
+| Sudo Privileges | Required for system-level installation |
 | RAM | 1 GB (2 GB+ recommended for smoother builds) |
 | Disk Space | ~1 GB free (more as `node_modules` and build output grow) |
-| Operating System | Any Linux distribution (Ubuntu, Debian, Fedora, and similar) |
+
 
 ### Important Ports
 
@@ -92,7 +81,7 @@ This SOP has no strict OS version requirement — Node.js runs on virtually any 
 
 ---
 
-# 8. React JS Installation and Verification
+# 6. React JS Installation and Verification
 
 ### Step 1: Update Package Repository
 
@@ -229,7 +218,7 @@ Open a browser and navigate to:
 
 ---
 
-# 13. Quick Commands
+# 7. Quick Commands
 
 | Task | Command |
 |------|---------|
@@ -244,7 +233,7 @@ Open a browser and navigate to:
 
 --
 
-# 12. Troubleshooting
+# 8. Troubleshooting
 
 | Issue | Possible Cause | Solution |
 |-------|-----------------|----------|
@@ -253,7 +242,7 @@ Open a browser and navigate to:
 
 ---
 
-# 14. Conclusion
+# 9. Conclusion
 
 React JS can be installed easily on Linux by first setting up Node.js and npm.
 
@@ -261,7 +250,7 @@ After installation, the setup should be verified by checking Node.js and npm ver
 
 ---
 
-# 15. Contact Information
+# 10. Contact Information
 
 | Name | Email ID |
 |------|----------|
@@ -269,7 +258,7 @@ After installation, the setup should be verified by checking Node.js and npm ver
 
 ---
 
-# 16. References
+# 11. References
 
 | Resource | Description |
 |----------|--------------|
