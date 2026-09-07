@@ -229,7 +229,7 @@ Open a browser and navigate to:
 | Create React app | `npx create-react-app my-app` |
 | Start development server | `npm start` |
 
---
+---
 
 # 8. Troubleshooting
 
