@@ -1,10 +1,13 @@
 # Common Stack | Applications | Golang | Installation Guide
+---
 
 ## Author Table
 
 | **Author**   | **Created On** | **Version** | **Last Edited On**    | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 |--------------|----------------|-------------|-----------------------|-----------------|-----------------|------------------|
 | Sahil Butola | 30-08-2026     | 1.0         | 05-09-2026            | Divya M.        | Aayush Verma    | Mahesh Kumar |
+
+---
 
 ## Table of Contents
 
@@ -23,13 +26,19 @@
 15. [Contact Information](#contact-information)
 16. [References](#references)
 
+---
+
 ## Introduction
 
 Go, also known as Golang, is a free and open-source programming language created by Google. It's popular for building backend systems, command-line tools, and applications that communicate over networks. This guide shows you how to install Go on Windows, macOS, and Linux, and how to check that it's installed correctly.
 
+---
+
 ## What Is Go?
 
 Go is a programming language where code is checked for errors before it runs (statically typed) and then converted into a program your computer can run directly (compiled). When you install Go, you get everything you need — the compiler, a set of ready-to-use tools, and a library of pre-built code — all accessible through a single command called go.
+
+---
 
 ## Why Go is required?
 
@@ -38,6 +47,8 @@ Go is a programming language where code is checked for errors before it runs (st
 -**Static binaries** – Produces one self-contained file — no extra installs needed to run it.
 -**Cross-platform** – You can build a version for another OS without leaving your machine.
 
+---
+
 | Component | Purpose |
 |---|---|
 | `go` | CLI tool to build, run, and manage Go code |
@@ -45,6 +56,7 @@ Go is a programming language where code is checked for errors before it runs (st
 | `GOROOT` | Directory where Go itself is installed |
 | Go modules | Dependency management for Go projects |
 
+---
 
 ## Prerequisites
 
@@ -52,6 +64,8 @@ Go is a programming language where code is checked for errors before it runs (st
 - Administrator or `sudo` access.
 - ~500 MB free disk space.
 - Know your machine's architecture (`amd64`/`x86_64` or `arm64`) before downloading — Apple Silicon Macs, Windows on ARM, and many newer Linux servers use `arm64`, not `amd64`. Check with `uname -m` on macOS/Linux.
+
+---
 
 ## Installing Go on Windows
 
@@ -181,6 +195,8 @@ go env
 
 </details>
 
+---
+
 ## Common Installation Issues
 
 | Issue | Resolution |
@@ -192,24 +208,35 @@ go env
 | Wrong architecture binary ("exec format error") | Re-download using the correct `amd64`/`arm64` build for your machine |
 | Unsure which Go is active | Run `which go` (macOS/Linux) or `where go` (Windows) and `go env GOROOT` to confirm the install location being used |
 
+---
 
 ## Best Practices
 
 -**Download from the official source** – Always get Go from the official website to avoid outdated or unsafe versions.
+
 -**Match your system type** – Check whether your computer uses amd64 or arm64 before downloading, so you install the right version.
+
 -**Remove old versions first** – Uninstall any previous Go version before installing a new one to avoid conflicts.
+
 -**Use Go modules** – Manage your project dependencies with go.mod instead of the older GOPATH method.
+
 -**Verify after installing** – Run go version to confirm Go is installed correctly and ready to use.
+
+---
 
 ## Conclusion
 
 Go can be installed easily on Windows, macOS, or Linux using official installers, package managers, or manual setup — whichever suits your system best. Once installed, running a couple of quick checks confirms everything is working correctly, leaving you with a solid foundation ready to start building Go applications.
+
+---
 
 ## Contact Information
 
 | Name         | Email |
 |--------------|-------|
 | Sahil Butola | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
+
+---
 
 ## References
 
