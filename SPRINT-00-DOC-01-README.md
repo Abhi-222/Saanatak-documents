@@ -197,7 +197,7 @@ npm start
 
 # 9. Verification
 
-# Step 1: Check Node.js, npm, and npx Versions
+### Step 1: Check Node.js, npm, and npx Versions
 
 Verify the Node.js, npm, and npx installations.
 
@@ -216,7 +216,7 @@ npx --version
 
 ---
 
-# Step 2: Verify React Application is Running
+### Step 2: Verify React Application is Running
 
 Open a browser and navigate to:
 
