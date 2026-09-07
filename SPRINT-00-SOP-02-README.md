@@ -13,7 +13,6 @@
 # Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Purpose](#2-purpose)
 3. [What is requirements.txt](#3-what-is-requirementstxt)
 4. [Why requirements.txt is Required](#4-why-requirementstxt-is-required)
 5. [Key Features of requirements.txt](#5-key-features-of-requirementstxt)
@@ -40,19 +39,6 @@ It covers the required setup, installation steps, dependency file generation, ve
 
 ---
 
-# 2. Purpose
-
-The purpose of this SOP is to provide a standardized procedure for:
-
-- Installing all project dependencies listed in `requirements.txt`
-- Generating a `requirements.txt` file from an existing environment or from project imports only
-- Verifying installed packages match the declared dependency list
-- Resolving common dependency installation failures, including the externally-managed-environment restriction enforced by some Linux distributions
-
-These procedures help maintain **environment consistency, reproducible builds, and operational reliability** across development, CI, and production systems, on any Linux-based machine.
-
----
-
 # 3. What is requirements.txt
 
 `requirements.txt` is a plain-text file used in Python projects to declare the external packages a project depends on, along with their versions. Each line typically specifies a package name and an optional version constraint (e.g., `Flask==2.3.0`), and the file is read by `pip` to install those exact packages into an environment.
@@ -65,7 +51,6 @@ Rather than installing each dependency one by one, a single command — `pip ins
 
 - **Reproducibility** — every environment (developer machine, CI server, production) installs the exact same package versions, avoiding "works on my machine" issues.
 - **Faster onboarding** — new contributors can set up a working environment with a single install command instead of hunting down dependencies manually.
-- **Auditability** — since the file is plain text, it can be committed to version control, diffed, and reviewed alongside code changes.
 - **Safer upgrades** — version changes are explicit and reviewable rather than silent, making it easier to roll back if an upgrade breaks something.
 - **CI/CD reliability** — build and deployment pipelines can install a known, consistent dependency set on every run.
 
@@ -104,7 +89,6 @@ This SOP has no strict version requirement — it works on virtually any Linux d
 | RAM                 | 512 MB or higher                                                 |
 | Disk Space          | Minimal — only enough free space for the packages being installed |
 | Required Packages   | `python3`, `python3-venv`, `python3-pip`                        |
-| Permissions         | `sudo` access, only where required to install the above packages |
 | Configuration       | An active Python virtual environment (recommended everywhere; required only on systems that enforce PEP 668 — see Section 11) |
 
 ---
@@ -258,20 +242,6 @@ pip check
 
 </details>
 
-### Final Checklist
-
-| **Step** | **Command**                                          | **Purpose**                                                |
-| -------- | ----------------------------------------------------- | ------------------------------------------------------------ |
-| 7.1      | `python3 -m venv venv && source venv/bin/activate`    | Create and activate an isolated environment                  |
-| 7.2      | `pip install -r requirements.txt`                     | Install all listed dependencies                               |
-| 7.3      | `pip install -r requirements.txt --no-cache-dir`      | Force a fresh download, bypassing pip's cache                 |
-| 7.4      | `pip install -r requirements.txt --upgrade`           | Upgrade installed packages to match requirements.txt           |
-| 8.1      | `pip freeze > requirements.txt`                       | Snapshot every installed package and version                   |
-| 8.2      | `pipreqs . --force`                                   | Generate a file based only on packages actually imported       |
-| 9.1      | `pip list`                                            | List all packages installed in the venv                        |
-| 9.2      | `pip freeze \| diff requirements.txt -`               | No diff output                                                  |
-| 9.3      | `pip check`                                           | No broken dependency messages                                  |
-
 ---
 
 # 10. Use Cases
@@ -291,14 +261,9 @@ pip check
 | **Issue**                                        | **Cause**                                                           | **Solution**                                                 |
 | --------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `error: externally-managed-environment`            | Some Linux distributions block pip installs outside a venv (PEP 668)   | Activate a virtual environment before installing                  |
-| `Could not find a version that satisfies...`       | Package/version does not exist or is unavailable                        | Verify package name/version on PyPI                                |
-| Dependency version conflict                        | Two packages require incompatible versions of a shared dependency        | Run `pip check`; adjust version pins in `requirements.txt`         |
 | Installed packages don't match requirements.txt    | Wrong virtual environment active, or file not regenerated               | Activate the correct venv; regenerate with `pip freeze`            |
-| `pip: command not found`                           | pip not installed or not on PATH                                        | Install pip or use `python3 -m pip` instead                        |
 | Slow or failed downloads                           | Network/proxy issues or corrupted cache                                 | Retry with `--no-cache-dir`; check network/proxy settings          |
 
-> [!NOTE]
-> Some Linux distributions enforce [PEP 668](https://peps.python.org/pep-0668/), which marks the system Python as "externally managed" and blocks `pip install` from running outside a virtual environment (`error: externally-managed-environment`). This is common on newer distribution releases but is not universal, so check your own system rather than assuming it applies. `pip install --break-system-packages` bypasses this protection but is not recommended outside throwaway or test systems.
 
 ---
 
@@ -307,7 +272,6 @@ pip check
 | **Best Practice**                          | **Description**                                                                                    |
 | --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | Always use a virtual environment             | Avoids the externally-managed-environment restriction on systems that enforce it, and prevents dependency conflicts |
-| Pin exact versions for production            | Use `==` in `requirements.txt` to ensure reproducible builds                                          |
 | Regenerate requirements.txt deliberately     | Use `pipreqs` for imports-only files rather than full `pip freeze` dumps where possible               |
 | Run `pip check` after installs               | Catches broken or conflicting dependencies early                                                       |
 | Keep requirements.txt in version control     | Provides an auditable, shared source of truth for the team                                             |
