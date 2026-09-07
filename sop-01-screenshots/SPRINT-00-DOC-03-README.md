@@ -85,11 +85,48 @@ Go is a programming language where code is checked for errors before it runs (st
 <details>
 <summary><strong>Linux</strong></summary>
 
-Your content goes here — text, code blocks, images, anything.
+
+
+Step 1: Download and Extract
+
+```bash
+curl -LO https://go.dev/dl/go1.26.2.darwin-arm64.tar.gzsudo rm -rf /usr/local/go
+sudo rm -rf /usr/local/go
+```
+
+<details> <summary>Screenshot: Go archive downloaded and extracted</summary>
+<img width="1437" height="223" alt="Screenshot 2026-09-08 at 3 12 17 AM" src="https://github.com/user-attachments/assets/792556f7-3c00-452f-92b3-fbccf942ba48" />
+</details>
+
+Step 2: Set the PATH
+
+```bash
+sudo tar -C /usr/local -xzf go1.26.2.darwin-arm64.tar.gzsource ~/.bashrc
+export PATH=$PATH:/usr/local/go/bin
+source ~/.zshrc
+```
+
+<details> <summary>Screenshot: PATH exported and shell reloaded</summary> 
+<img width="1437" height="63" alt="Screenshot 2026-09-08 at 3 12 20 AM" src="https://github.com/user-attachments/assets/23e64882-5762-44e9-9da7-c2fb743158d3" />
+</details>
+
+Step 3: Verify the Installation
+
+```bash
+go version
+```
+
+<details> <summary>Screenshot: go version output</summary> 
+<img width="1437" height="44" alt="Screenshot 2026-09-08 at 3 12 44 AM" src="https://github.com/user-attachments/assets/ab32f7f2-4a44-48d2-8d21-135cc98dde84" />
+</details>
 
 </details>
 
+
+
+
 <details>
+  
 <summary><strong>Macos</strong></summary>
 
 Your content goes here — text, code blocks, images, anything.
