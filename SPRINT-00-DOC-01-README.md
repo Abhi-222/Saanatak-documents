@@ -92,7 +92,7 @@ This SOP has no strict OS version requirement — Node.js runs on virtually any 
 
 ---
 
-# 8. React JS Installation
+# 8. React JS Installation and Verification
 
 ### Step 1: Update Package Repository
 
@@ -195,9 +195,7 @@ npm start
 
 ---
 
-# 9. Verification
-
-### Step 1: Check Node.js, npm, and npx Versions
+### Step 7: Check Node.js, npm, and npx Versions
 
 Verify the Node.js, npm, and npx installations.
 
@@ -216,7 +214,7 @@ npx --version
 
 ---
 
-### Step 2: Verify React Application is Running
+### Step 8: Verify React Application is Running
 
 Open a browser and navigate to:
 
