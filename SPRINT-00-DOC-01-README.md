@@ -6,7 +6,7 @@
 
 | Author | Created On | Version | Last Updated  | L0 Reviewer | L1 Reviewer    | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|----------------|-------------|
-| Sahil  | 28-08-26   | v1.0    |  04-09-26     | `Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
+| Sahil  | 28-08-26   | v1.0    |  07-09-26     | `Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -20,16 +20,17 @@
 6. [React JS Installation and Verification](#6-react-js-installation-and-verification)
 7. [Quick Commands](#7-quick-commands)
 8. [Troubleshooting](#8-troubleshooting)
-9. [Conclusion](#9-conclusion)
-10. [Contact Information](#10-contact-information)
-11. [References](#11-references)
+9. [Use Cases](#9-use-cases)
+10. [Best Practices](#10-best-practices)
+11. [Conclusion](#11-conclusion)
+12. [Contact Information](#12-contact-information)
+13. [References](#13-references)
 
 ---
 
 # 1. Introduction
 
-React JS is an open-source JavaScript library maintained by Meta, used for building fast and interactive user interfaces, primarily for single-page applications (SPAs).
-This document provides a basic procedure to install and configure a React JS application on a Linux system.
+React JS is a free, open-source JavaScript library created and maintained by Meta. It's used to build fast, interactive user interfaces — especially for single-page applications (SPAs), where the page updates smoothly without needing to reload. This document explains the basic steps to install and set up a React JS application on a Linux system.
 
 ---
 
@@ -47,7 +48,7 @@ React JS is required in modern application development because it addresses seve
 - **Strong Ecosystem** – It's backed by a mature ecosystem of libraries, such as Redux for state management and React Router for navigation.
 - **Complex UI Handling** – React excels at managing complex, interactive user interfaces with ease, thanks to its efficient rendering (Virtual DOM).
 - **End-to-End Coverage** – Its ecosystem covers rendering, routing, testing, and debugging, making it a complete solution for frontend development.
-  
+-   
 ---
 
 # 4. Key Features of React JS
@@ -57,12 +58,10 @@ React JS is required in modern application development because it addresses seve
 - **JSX (JavaScript XML)** – Lets you write HTML-like code directly inside JavaScript, so building and reading UI code feels more natural.
 - **One-Way Data Binding** – Data flows in a single direction — from parent components to child components. This makes it easier to track where data comes from and fix bugs.
 - **Hooks** – Special functions like useState and useEffect let simple (functional) components handle data and behavior over time, without needing more complex class-based components.
-- 
+  
 ---
 
 # 5. Prerequisites and System Requirements
-
-This SOP has no strict OS version requirement — Node.js runs on virtually any Linux distribution. The table below reflects the bare minimum needed to install Node.js/npm and run a React development server, not a strict production sizing.
 
 | Requirement | Minimum |
 |-------------|-------------------------|
@@ -241,16 +240,33 @@ Open a browser and navigate to:
 | Package installation fails | Network or registry issue | Check connectivity and npm registry settings |
 
 ---
+# 9. Use Cases
 
-# 9. Conclusion
-
-React JS can be installed easily on Linux by first setting up Node.js and npm.
-
-After installation, the setup should be verified by checking Node.js and npm versions and confirming that the development server runs successfully, ensuring the system is ready for React application development.
+- **Single-Page Applications (SPAs)** – Apps like Gmail or Trello where the page updates instantly without full reloads (e.g., dashboards, admin panels).
+- **E-Commerce Platforms** – Product listings, carts, and filters that need to update in real time as users browse and interact.
+- **Social Media Feeds** – Dynamic, constantly updating content like Instagram or Facebook feeds, where new posts and likes appear without refreshing.
+- **Progressive Web Apps (PWAs)** – Web apps that behave like native mobile apps, offering offline support and fast load times.
+- **Cross-Platform Mobile Apps** – Using React Native (React's mobile counterpart) to build iOS and Android apps from a shared codebase.
 
 ---
 
-# 10. Contact Information
+# 10. Best Practices
+
+- **Keep Components Small and Focused** – Each component should do one thing well, making it easier to test, reuse, and debug.
+- **Use Meaningful Naming Conventions** – Name components and variables clearly (e.g., UserProfile instead of Comp1) so the code is self-explanatory.
+- **Avoid Unnecessary Re-renders** – Use tools like React.memo or useMemo to prevent components from re-rendering when their data hasn't changed.
+- **Organize Files by Feature, Not Type** – Group related components, styles, and logic together (e.g., a UserProfile folder) instead of scattering them across generic components/, styles/ folders.
+- **Write Reusable and Testable Code** – Break logic into custom hooks and small functions so they can be tested independently and reused across the app.
+
+---
+
+# 11. Conclusion
+
+React JS can be easily installed on Linux by first setting up Node.js and npm. Once installed, you can confirm everything is working by checking the Node.js and npm versions and making sure the development server starts up correctly. This means your system is fully ready to start building React applications.
+
+---
+
+# 12. Contact Information
 
 | Name | Email ID |
 |------|----------|
@@ -258,7 +274,7 @@ After installation, the setup should be verified by checking Node.js and npm ver
 
 ---
 
-# 11. References
+# 13. References
 
 | Resource | Description |
 |----------|--------------|
