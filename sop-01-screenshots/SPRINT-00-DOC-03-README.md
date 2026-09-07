@@ -16,8 +16,6 @@
 6. [Installing Go on macOS](#installing-go-on-macos)
 7. [Installing Go on Linux](#installing-go-on-linux)
 8. [Verifying the Installation](#verifying-the-installation)
-9. [Setting Up the Go Workspace](#setting-up-the-go-workspace)
-10. [Writing and Running a First Go Program](#writing-and-running-a-first-go-program)
 11. [Common Installation Issues](#common-installation-issues)
 12. [Uninstalling Go](#uninstalling-go)
 13. [Best Practices](#best-practices)
@@ -185,61 +183,6 @@ go env
 
 </details>
 
-## Setting Up the Go Workspace
-
-```bash
-mkdir my-go-app && cd my-go-app
-go mod init example.com/my-go-app
-```
-<details>
-<summary><strong>Screenshot: go mod init output (go.mod created)</strong></summary>
-
-<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 20 02 PM" src="https://github.com/user-attachments/assets/2414c03e-1583-4e03-b7b4-1fe29fdad48a" />
-
-</details>
-
-This creates a `go.mod` file that tracks the module name and dependencies.
-
-| File | Purpose |
-|---|---|
-| `go.mod` | Module name and dependency versions |
-| `go.sum` | Dependency checksums |
-| `main.go` | Application entry point |
-
-## Writing and Running a First Go Program
-
-```go
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, Go!")
-}
-```
-
-```bash
-go run main.go
-```
-<details>
-<summary><strong>Screenshot: go run main.go output</strong></summary>
-
-<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 22 34 PM" src="https://github.com/user-attachments/assets/871a164c-86d2-414a-86e9-948f66e7baf0" />
-
-</details>
-
-Build a standalone binary with:
-
-```bash
-go build -o my-go-app
-```
-<details>
-<summary><strong>Screenshot: go build output (binary created)</strong></summary>
-
-<img width="623" height="148" alt="Screenshot 2026-09-05 at 5 23 55 PM" src="https://github.com/user-attachments/assets/71f56b7a-54c6-435c-917b-d1891389e230" />
-
-</details>
-
 ## Common Installation Issues
 
 | Issue | Resolution |
@@ -251,22 +194,6 @@ go build -o my-go-app
 | Wrong architecture binary ("exec format error") | Re-download using the correct `amd64`/`arm64` build for your machine |
 | Unsure which Go is active | Run `which go` (macOS/Linux) or `where go` (Windows) and `go env GOROOT` to confirm the install location being used |
 
-## Uninstalling Go
-
-**Windows:** Use "Add or Remove Programs" and remove the Go entry, or re-run the `.msi` installer and choose Uninstall.
-
-**macOS:**
-```bash
-sudo rm -rf /usr/local/go
-# If installed via Homebrew instead:
-brew uninstall go
-```
-
-**Linux:**
-```bash
-sudo rm -rf /usr/local/go
-```
-Then remove the corresponding `PATH` line from `~/.bashrc` or `~/.zshrc`.
 
 ## Best Practices
 
