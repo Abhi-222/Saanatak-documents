@@ -13,7 +13,6 @@
 # Table of Contents
 
 1. [Introduction](#1-introduction)
-2. [Purpose](#2-purpose)
 3. [What is React JS](#3-what-is-react-js)
 4. [Why React JS is Required](#4-why-react-js-is-required)
 5. [Key Features of React JS](#5-key-features-of-react-js)
@@ -21,8 +20,6 @@
 7. [System Requirements](#7-system-requirements)
 8. [React JS Installation](#8-react-js-installation)
 9. [Verification](#9-verification)
-10. [Environment Configuration](#10-environment-configuration)
-11. [Maintenance](#11-maintenance)
 12. [Troubleshooting](#12-troubleshooting)
 13. [Quick Commands](#13-quick-commands)
 14. [Conclusion](#14-conclusion)
@@ -35,19 +32,6 @@
 
 React JS is an open-source JavaScript library maintained by Meta, used for building fast and interactive user interfaces, primarily for single-page applications (SPAs).
 This document provides a basic procedure to install and configure a React JS application on a Linux system.
-
----
-
-# 2. Purpose
-
-The purpose of this document is to provide a simple procedure to:
-
-- Install Node.js and npm on Linux
-- Create a new React application
-- Install project dependencies
-- Verify the React installation
-- Run the React development server
-- Perform basic maintenance and troubleshooting
 
 ---
 
@@ -66,9 +50,7 @@ React JS is required in modern application development because it addresses seve
 - **Faster UI updates** — the Virtual DOM minimizes expensive direct DOM operations.
 - **Reusability** — components can be reused across different parts of an application, reducing duplication.
 - **Maintainability** — breaking UI into components makes large applications easier to manage and debug.
-- **Strong ecosystem** — a large community, extensive libraries, and tooling support (React Router, Redux, Next.js, etc.).
-- **Industry adoption** — widely used, making it easier to hire talent and find support/resources.
-
+  
 ---
 
 # 5. Key Features of React JS
@@ -89,7 +71,6 @@ Before starting the installation, ensure the following are available:
 
 - Linux system such as Ubuntu or Debian
 - Terminal access
-- Internet connectivity
 - Sudo privileges
 - Basic Linux command-line knowledge
 
@@ -104,7 +85,6 @@ This SOP has no strict OS version requirement — Node.js runs on virtually any 
 | RAM | 1 GB (2 GB+ recommended for smoother builds) |
 | Disk Space | ~1 GB free (more as `node_modules` and build output grow) |
 | Operating System | Any Linux distribution (Ubuntu, Debian, Fedora, and similar) |
-| Privileges | Sudo access |
 
 ### Important Ports
 
@@ -255,68 +235,10 @@ Open a browser and navigate to:
 
 ---
 
-# 10. Environment Configuration
-
-## Step 1: Check Node.js Path and Installation Location
-
-Use the `which node` command to identify the Node.js executable location. The `whereis` command displays common locations related to Node.js.
-
-```bash
-which node
-whereis node
-```
-
-<details>
-<summary><strong>Screenshot - Node.js installation locations</strong></summary>
-
-<img width="622" height="97" alt="Screenshot 2026-09-04 at 6 33 22 PM" src="https://github.com/user-attachments/assets/1f64c3e4-fefd-4e50-8239-ac21e88224bf" />
-
-</details>
-
----
-
-# 11. Maintenance
-
-## Step 1: Install React Packages
-
-Additional packages can be installed using npm.
-
-```bash
-npm install <package-name>
-```
-
-<details>
-<summary><strong>Screenshot - Package installed via npm</strong></summary>
-
-<img width="505" height="273" alt="Screenshot 2026-09-04 at 6 48 22 PM" src="https://github.com/user-attachments/assets/de8bd39d-80a6-47e7-b38f-13cbb7ddbcd5" />
-
-</details>
-
-## Step 2: Build for Production
-
-Create an optimized production build of the React application.
-
-```bash
-npm run build
-```
-
-<details>
-<summary><strong>Screenshot - Production build output</strong></summary>
-
-<img width="601" height="455" alt="Screenshot 2026-09-04 at 6 48 54 PM" src="https://github.com/user-attachments/assets/9c69e4ea-7da8-4045-bd4c-cb4abbd84a10" />
-
-</details>
-
----
-
 # 12. Troubleshooting
 
 | Issue | Possible Cause | Solution |
 |-------|-----------------|----------|
-| `node: command not found` | Node.js is not installed | Install Node.js using apt |
-| `npm: command not found` | npm is missing | Install npm separately |
-| `npx: command not found` | npx is missing or npm is outdated | Upgrade npm to the latest version |
-| `Permission denied` | Insufficient permissions | Use sudo privileges |
 | Port 3000 already in use | Another process is using the port | Stop the conflicting process or run on a different port |
 | Package installation fails | Network or registry issue | Check connectivity and npm registry settings |
 
@@ -334,10 +256,6 @@ npm run build
 | Check npx version | `npx -v` |
 | Create React app | `npx create-react-app my-app` |
 | Start development server | `npm start` |
-| Build for production | `npm run build` |
-| Find Node.js path | `which node` |
-| Locate Node.js | `whereis node` |
-| Install a package | `npm install <package-name>` |
 
 ---
 
