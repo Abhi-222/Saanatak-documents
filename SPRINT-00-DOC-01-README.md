@@ -66,7 +66,6 @@ React JS is required in modern application development because it addresses seve
 | Requirement | Minimum |
 |-------------|-------------------------|
 | Operating System | Any Linux distribution (Ubuntu, Debian, Fedora, and similar) |
-| Sudo Privileges | Required for system-level installation |
 | RAM | 1 GB (2 GB+ recommended for smoother builds) |
 | Disk Space | ~1 GB free (more as `node_modules` and build output grow) |
 
