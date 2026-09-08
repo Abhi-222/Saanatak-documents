@@ -53,7 +53,6 @@ Go is a programming language where code is checked for errors before it runs (st
 - **Single Self-Contained Package** – Installing Go gives you the compiler, standard library, and CLI tools all in one download — no separate installs needed.
 - **Cross-Platform Support** – Official installers and binaries are available for Windows, macOS, and Linux, so the setup process feels consistent across systems.
 - **Simple PATH Setup** – Most installers (MSI, PKG, Homebrew) automatically configure your system `PATH`, so `go` is ready to use right after installation.
-- **Built-In Version Checking** – Running `go version` instantly confirms what's installed, making it easy to verify or troubleshoot after setup.
 - **Clean Uninstall/Upgrade** – Since Go installs to a single directory (`/usr/local/go` or similar), removing or upgrading it is as simple as deleting that folder and reinstalling.
 
 ---
@@ -63,7 +62,6 @@ Go is a programming language where code is checked for errors before it runs (st
 | Requirement | Details |
 |---|---|
 | Operating System | Windows 10+, macOS 11+, or a common Linux distribution |
-| Access Level | Administrator (Windows/macOS) or `sudo` access (Linux) |
 | Disk Space | ~500 MB free |
 | Architecture | `amd64`/`x86_64` or `arm64` — check with `uname -m` on macOS/Linux before downloading (Apple Silicon Macs, Windows on ARM, and many newer Linux servers use `arm64`) |
 
@@ -193,12 +191,8 @@ go version
 
 | Issue | Resolution |
 |-------|------------|
-| `go: command not found` | Add the Go `bin` directory to `PATH` in your shell profile (`.bashrc`/`.zshrc`) and reload the shell |
 | Old version after upgrade | Remove the old Go directory before extracting the new one |
-| Permission denied on install | Run with `sudo` or as administrator |
-| `go.mod` errors | Re-run `go mod init` in the project directory |
 | Wrong architecture binary ("exec format error") | Re-download using the correct `amd64`/`arm64` build for your machine |
-| Unsure which Go is active | Run `which go` (macOS/Linux) or `where go` (Windows) and `go env GOROOT` to confirm the install location being used |
 
 ---
 
@@ -224,7 +218,7 @@ go version
 
 ## 10. Conclusion
 
-Go can be installed easily on Windows, macOS, or Linux using official installers, package managers, or manual setup — whichever suits your system best. Once installed, running a couple of quick checks confirms everything is working correctly, leaving you with a solid foundation ready to start building Go applications.
+Go can be installed easily on Windows, macOS, or Linux using official installers, or manual setup — whichever suits your system best. Once installed, running a couple of quick checks confirms everything is working correctly, leaving you with a solid foundation ready to start building Go applications.
 
 ---
 
