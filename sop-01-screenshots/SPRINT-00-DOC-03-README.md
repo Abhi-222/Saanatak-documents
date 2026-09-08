@@ -15,7 +15,6 @@
 2. [What Is Go?](#2-what-is-go)
 3. [Why Go is Required](#3-why-go-is-required)
 4. [Key Features](#4-key-features)
-5. [Core Components](#5-core-components)
 6. [Prerequisites and System Requirements](#6-prerequisites-and-system-requirements)
 7. [Installation and Verification on Required OS](#7-installation-and-verification-on-required-os)
 8. [Troubleshooting](#8-troubleshooting)
@@ -55,17 +54,6 @@ Go is a programming language where code is checked for errors before it runs (st
 - **Simple PATH Setup** – Most installers (MSI, PKG, Homebrew) automatically configure your system `PATH`, so `go` is ready to use right after installation.
 - **Built-In Version Checking** – Running `go version` instantly confirms what's installed, making it easy to verify or troubleshoot after setup.
 - **Clean Uninstall/Upgrade** – Since Go installs to a single directory (`/usr/local/go` or similar), removing or upgrading it is as simple as deleting that folder and reinstalling.
-
----
-
-## 5. Core Components
-
-| Component | Purpose |
-|---|---|
-| `go` | CLI tool to build, run, and manage Go code |
-| Go compiler | Compiles source code into a native binary |
-| `GOROOT` | Directory where Go itself is installed |
-| Go modules | Dependency management for Go projects |
 
 ---
 
@@ -165,36 +153,26 @@ go version
 <details>
 <summary><strong>Windows</strong></summary>
 
-### Step 1: Download and Extract
-
-```bash
-curl -LO https://go.dev/dl/go1.26.2.darwin-arm64.tar.gz
-sudo rm -rf /usr/local/go
-sudo tar -C /usr/local -xzf go1.26.2.darwin-arm64.tar.gz
-```
-
+### Step 1: Official Download Page
 <details>
 <summary>Screenshot: Go archive downloaded and extracted</summary>
-
-<img width="1437" height="223" alt="Screenshot 2026-09-08 at 3 12 17 AM" src="https://github.com/user-attachments/assets/792556f7-3c00-452f-92b3-fbccf942ba48" />
-
+<img width="1600" height="676" alt="WhatsApp Image 2026-09-08 at 11 38 52" src="https://github.com/user-attachments/assets/7d752d9b-85f8-4384-8370-be85d0f4afdd" />
 </details>
 
-### Step 2: Set the PATH
-
-```bash
-export PATH=$PATH:/usr/local/go/bin
-source ~/.zshrc
-```
-
+### Step 2: Go to Msi Installer
 <details>
 <summary>Screenshot: PATH exported and shell reloaded</summary>
-
-<img width="1437" height="63" alt="Screenshot 2026-09-08 at 3 12 20 AM" src="https://github.com/user-attachments/assets/23e64882-5762-44e9-9da7-c2fb743158d3" />
-
+<img width="1600" height="730" alt="WhatsApp Image 2026-09-08 at 11 38 52 (1)" src="https://github.com/user-attachments/assets/9c57e380-34ef-4d7c-a2b9-45ba7eb99b5b" />
 </details>
 
-### Step 3: Verify the Installation
+### Step 3: Installation
+<details>
+<summary>Screenshot: PATH exported and shell reloaded</summary>
+<img width="885" height="649" alt="WhatsApp Image 2026-09-08 at 11 38 52 (2)" src="https://github.com/user-attachments/assets/e1c30ac6-bbcb-4e8f-9f50-cb4f9f6639f4" />
+</details>
+
+
+### Step 4: Verify the Installation
 
 ```bash
 go version
@@ -202,9 +180,7 @@ go version
 
 <details>
 <summary>Screenshot: go version output</summary>
-
-<img width="1437" height="44" alt="Screenshot 2026-09-08 at 3 12 44 AM" src="https://github.com/user-attachments/assets/ab32f7f2-4a44-48d2-8d21-135cc98dde84" />
-
+<img width="844" height="274" alt="WhatsApp Image 2026-09-08 at 11 38 52 (3)" src="https://github.com/user-attachments/assets/835c39b7-ebe3-43f1-b321-b3a618d9ee33" />
 </details>
 </details>
 
