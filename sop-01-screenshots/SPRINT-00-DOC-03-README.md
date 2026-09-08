@@ -1,4 +1,5 @@
 # Common Stack | Applications | Golang | Installation Guide
+
 ---
 
 ## Author Table
@@ -15,14 +16,14 @@
 2. [What Is Go?](#2-what-is-go)
 3. [Why Go is Required](#3-why-go-is-required)
 4. [Key Features](#4-key-features)
-6. [Prerequisites and System Requirements](#6-prerequisites-and-system-requirements)
-7. [Installation and Verification on Required OS](#7-installation-and-verification-on-required-os)
-8. [Troubleshooting](#8-troubleshooting)
-9. [Use Cases](#9-use-cases)
-10. [Best Practices](#10-best-practices)
-11. [Conclusion](#11-conclusion)
-12. [Contact Information](#12-contact-information)
-13. [References](#13-references)
+5. [Prerequisites and System Requirements](#5-prerequisites-and-system-requirements)
+6. [Installation and Verification on Required OS](#6-installation-and-verification-on-required-os)
+7. [Troubleshooting](#7-troubleshooting)
+8. [Use Cases](#8-use-cases)
+9. [Best Practices](#9-best-practices)
+10. [Conclusion](#10-conclusion)
+11. [Contact Information](#11-contact-information)
+12. [References](#12-references)
 
 ---
 
@@ -57,7 +58,7 @@ Go is a programming language where code is checked for errors before it runs (st
 
 ---
 
-## 6. Prerequisites and System Requirements
+## 5. Prerequisites and System Requirements
 
 | Requirement | Details |
 |---|---|
@@ -68,7 +69,7 @@ Go is a programming language where code is checked for errors before it runs (st
 
 ---
 
-## 7. Installation and Verification on Required OS
+## 6. Installation and Verification on Required OS
 
 <details>
 <summary><strong>macOS</strong></summary>
@@ -123,7 +124,7 @@ sudo tar -C /usr/local -xzf go1.23.0.darwin-amd64.tar.gz
 ```
 <details>
 <summary>Screenshot: Go archive downloaded and extracted</summary>
-<img width="1431" height="353" alt="Screenshot 2026-09-08 at 1 36 22 AM" src="https://github.com/user-attachments/assets/4c934e28-c02e-4156-a08e-4c91708efa4f" />
+<img width="1431" height="353" alt="Screenshot 2026-09-08 at 1 36 22 AM" src="https://github.com/user-attachments/assets/4c934e28-c02e-4156-a08e-4c91708efa4f" />
 </details>
 
 ### Step 2: Set the PATH
@@ -134,7 +135,7 @@ source ~/.zshrc
 ```
 <details>
 <summary>Screenshot: PATH exported and shell reloaded</summary>
-<img width="545" height="69" alt="Screenshot 2026-09-08 at 1 37 14 AM" src="https://github.com/user-attachments/assets/a7f15525-2355-4834-8518-4943b8636e7e" />
+<img width="545" height="69" alt="Screenshot 2026-09-08 at 1 37 14 AM" src="https://github.com/user-attachments/assets/a7f15525-2355-4834-8518-4943b8636e7e" />
 </details>
 
 ### Step 3: Verify the Installation
@@ -144,7 +145,7 @@ go version
 ```
 <details>
 <summary>Screenshot: go version output</summary>
-<img width="545" height="69" alt="Screenshot 2026-09-08 at 1 37 40 AM" src="https://github.com/user-attachments/assets/d5dded88-c516-440e-b810-e77bd6a87589" />
+<img width="545" height="69" alt="Screenshot 2026-09-08 at 1 37 40 AM" src="https://github.com/user-attachments/assets/d5dded88-c516-440e-b810-e77bd6a87589" />
 </details>
 </details>
 
@@ -188,7 +189,7 @@ go version
 
 ---
 
-## 8. Troubleshooting
+## 7. Troubleshooting
 
 | Issue | Resolution |
 |-------|------------|
@@ -201,7 +202,7 @@ go version
 
 ---
 
-## 9. Use Cases
+## 8. Use Cases
 
 - **Backend Web Services** – Building fast, scalable APIs and microservices (used by companies like Uber and Twitch).
 - **Cloud & DevOps Tooling** – Powers major infrastructure tools like Docker, Kubernetes, and Terraform.
@@ -211,7 +212,7 @@ go version
 
 ---
 
-## 10. Best Practices
+## 9. Best Practices
 
 - **Download from the official source** – Always get Go from the official website to avoid outdated or unsafe versions.
 - **Match your system type** – Check whether your computer uses amd64 or arm64 before downloading, so you install the right version.
@@ -221,13 +222,13 @@ go version
 
 ---
 
-## 11. Conclusion
+## 10. Conclusion
 
 Go can be installed easily on Windows, macOS, or Linux using official installers, package managers, or manual setup — whichever suits your system best. Once installed, running a couple of quick checks confirms everything is working correctly, leaving you with a solid foundation ready to start building Go applications.
 
 ---
 
-## 12. Contact Information
+## 11. Contact Information
 
 | Name         | Email |
 |--------------|-------|
@@ -235,7 +236,7 @@ Go can be installed easily on Windows, macOS, or Linux using official installers
 
 ---
 
-## 13. References
+## 12. References
 
 | Reference | Link |
 |-----------|------|
