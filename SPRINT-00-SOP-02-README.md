@@ -162,6 +162,7 @@ type requirements.txt
 
 | **Issue** | **Cause** | **Solution** |
 | :--- | :--- | :--- |
+|`error: externally-managed-environment`|Some Linux distributions block pip installs outside a venv (PEP 668) |Activate a virtual environment before installing|
 | `command not found: pip` | Python or `pip` is missing or its environment path variable is not registered. | Run `python3 -m pip install -r requirements.txt` or ensure Python is added to your system **PATH**. |
 | `ResolutionImpossible` | Two or more packages require conflicting versions of the same sub-dependency. | Loosen version constraints from exact locks (`==`) to minimum tags (`>=`) for the conflicting elements. |
 
@@ -205,3 +206,5 @@ Following these steps ensures that our development environments remain **consist
 
 * Official Pip User Documentation: [https://pypa.io](https://pypa.io)
 * Pipreqs Project Catalog: [https://pypi.org](https://pypi.org)
+* Externally managed Python environments[PEP 668](https://peps.python.org/pep-0668/)                                                      
+
