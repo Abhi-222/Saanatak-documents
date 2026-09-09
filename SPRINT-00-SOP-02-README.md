@@ -142,7 +142,7 @@ type requirements.txt
 
 <details>
 <summary><strong>Screenshot - Inspection of generated content</strong></summary>
-<img width="638" height="69" alt="Screenshot 2026-09-09 at 10 40 54 PM" src="https://github.com/user-attachments/assets/2081c6d0-c04c-4820-9717-30ab55a34be4" />
+<!-- <img width="638" height="69" alt="Screenshot 2026-09-09 at 10 40 54 PM" src="https://github.com/user-attachments/assets/2081c6d0-c04c-4820-9717-30ab55a34be4" /> -->
 
 </details>
 
