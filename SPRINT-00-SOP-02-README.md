@@ -4,26 +4,27 @@
 
 # Author Table
 
-| **Author** | **Created On** | **Version** | **Last Updated ** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer**        |
-| ---------- | -------------- | ----------- | ------------------ | --------------- | --------------- | ---------------------- |
-| Sahil      | 27-08-26       | 1.0         | 03-09-26           | `Divya M`      | `Aayush Verma`  | `Mahesh Kumar / Varun` |
+| **Author** | **Created On** | **Version** | **Last Updated **  | **L0 Reviewer**  | **L1 Reviewer** | **L2 Reviewer**        |
+| ---------- | -------------- | ----------- | -------------------| ----------------| -----------------| ---------------------- |
+| Sahil      | 27-08-26       | 1.1         | 03-09-26           | `Vishal/Divya M`| `Aayush Verma`   | `Mahesh Kumar / Varun` |
 
 ---
 
 # Table of Contents
 
 1. [Introduction](#1-introduction)
-3. [What is requirements.txt](#3-what-is-requirementstxt)
-4. [Why requirements.txt is Required](#4-why-requirementstxt-is-required)
-5. [Key Features of requirements.txt](#5-key-features-of-requirementstxt)
-6. [Prerequisites](#6-prerequisites)
-   - [6.1 Access & Permissions](#61-access--permissions)
-   - [6.2 System Requirements](#62-system-requirements)
-7. [Install Dependencies from requirements.txt](#7-install-dependencies-from-requirementstxt)
-8. [Generate requirements.txt](#8-generate-requirementstxt)
+2. [What is requirements.txt](#2-what-is-requirementstxt)
+3. [Why requirements.txt is Required](#3-why-requirementstxt-is-required)
+4. [Key Features of requirements.txt](#4-key-features-of-requirementstxt)
+5. [Prerequisites](#5-prerequisites)
+   - [5.1 Access & Permissions](#51-access--permissions)
+   - [5.2 System Requirements](#52-system-requirements)
+6. [Install Dependencies from requirements.txt](#6-install-dependencies-from-requirementstxt)
+7. [Generate requirements.txt](#7-generate-requirementstxt)
+8. [Quick Commands](#8-quick-commands)
 9. [Validation](#9-validation)
-10. [Use Cases](#10-use-cases)
-11. [Troubleshooting](#11-troubleshooting)
+10. [Troubleshooting](#10-troubleshooting)
+11. [Use Cases](#11-use-cases)
 12. [Best Practices](#12-best-practices)
 13. [Conclusion](#13-conclusion)
 14. [Contact Information](#14-contact-information)
@@ -33,159 +34,82 @@
 
 # 1. Introduction
 
-This SOP provides a structured guide to **installing dependencies from `requirements.txt`**, **generating a `requirements.txt` file**, and **troubleshooting dependency issues** in Python projects on **Linux systems** (Ubuntu, Debian, and other distributions).
+This SOP details how to install, generate, and troubleshoot Python dependencies using  requirements.txt on any Operating systems.
 
-It covers the required setup, installation steps, dependency file generation, verification, validation, and troubleshooting needed to keep Python environments consistent and reproducible, regardless of which Linux distribution or version is in use.
-
----
-
-# 3. What is requirements.txt
-
-`requirements.txt` is a plain-text file used in Python projects to declare the external packages a project depends on, along with their versions. Each line typically specifies a package name and an optional version constraint (e.g., `Flask==2.3.0`), and the file is read by `pip` to install those exact packages into an environment.
-
-Rather than installing each dependency one by one, a single command — `pip install -r requirements.txt` — installs every package listed in the file, letting a developer, CI pipeline, or production server recreate the same set of dependencies used elsewhere.
+It applies to all Python developers ensuring environment consistency across Operating systems.It covers:
+-Installing existing project dependencies
+-Generating updated requirements.txt files
+-Troublesshooting environment and version conflicts.
 
 ---
 
-# 4. Why requirements.txt is Required
+# 2. What is requirements.txt?
 
-- **Reproducibility** — every environment (developer machine, CI server, production) installs the exact same package versions, avoiding "works on my machine" issues.
-- **Faster onboarding** — new contributors can set up a working environment with a single install command instead of hunting down dependencies manually.
-- **Safer upgrades** — version changes are explicit and reviewable rather than silent, making it easier to roll back if an upgrade breaks something.
-- **CI/CD reliability** — build and deployment pipelines can install a known, consistent dependency set on every run.
+A requirement.txt file is a list of all external packages your Python project needs to run.
+Instead of forcing you to install each package manually one by one, it allows you to automatically download and configure the entire environment all at once.
 
 ---
 
-# 5. Key Features of requirements.txt
+# 3. Why requirements.txt is Required?
 
-| **Feature**                     | **Description**                                                                 |
-| ---------------------------------- | ------------------------------------------------------------------------------------ |
-| Version pinning                    | Exact (`==`) or range-based version constraints per package                          |
-| Reproducibility                    | Same file installs an identical set of packages on any machine                       |
-| Two generation modes               | `pip freeze` (full snapshot) or `pipreqs` (imports-only)                             |
-| Conflict detection                 | `pip check` flags incompatible dependency versions before they cause failures        |
-| Environment-isolation friendly     | Designed to be installed inside a virtual environment, not the system Python         |
-| Plain text & VCS-friendly          | Easy to diff, review, and track changes to in Git                                    |
+Without a requirement.txt file, team members and servers have to guess which packages to install. This file is required to solve three main problems:
+
+- **Consistency** — It ensures everyone on the team uses the exact same software versions, preventing the classic "it works on my machine" problem.
+- **Automation** — It allows cloud servers, deployment pipelines, and setup scripts to configure the project automatically without human intervention.
+- **Easy Onboarding** — New developers can set up their local environment and start working immediately instead of manually installing missing packages one by one.
 
 ---
 
-# 6. Prerequisites
+# 4. Key Features of requirements.txt
 
-### 6.1 Access & Permissions
+- **Exact Matches (==)** Installs one specific version of a tool (e.g., Flask==3.0.0) so nothing unexpectedly updates or breaks. 
+- **Minimum Versions (>=)** — Tells Python it needs at least a certain version or newer (e.g., requests>=2.31.0)
+- **Clean Comments(#)** — Allows you to add notes in plain text to explain why a package is needed, which Python will completely ignore when installing.
+                                   |
+---
 
-| **Prerequisite** | **Details**                                                                  |
-| ----------------- | ------------------------------------------------------------------------------ |
-| Terminal Access   | SSH/terminal access to the target machine                                      |
-| Privileges        | `sudo` access, only needed if `python3-venv` / `python3-pip` are not already installed |
-| Project Access    | Access to the project directory containing (or requiring) `requirements.txt`   |
+# 5. Prerequisites % System Requirements
 
-### 6.2 System Requirements
-
-This SOP has no strict version requirement — it works on virtually any Linux distribution, as long as the bare minimum below is met.
-
-| **Requirement**    | **Minimum**                                                   |
-| -------------------- | ---------------------------------------------------------------- |
-| OS                  | Any Linux distribution (Ubuntu, Debian, RHEL-based, etc.) with Python 3 installed |
-| RAM                 | 512 MB or higher                                                 |
-| Disk Space          | Minimal — only enough free space for the packages being installed |
-| Required Packages   | `python3`, `python3-venv`, `python3-pip`                        |
-| Configuration       | An active Python virtual environment (recommended everywhere; required only on systems that enforce PEP 668 — see Section 11) |
+| **Requirement**     | **Specification**                                                |
+| --------------------| ---------------------------------------------------------------- |
+| OS                  | Any major operating system (Windows, macOS, or Linux). |
+| RAM                 | 512 MB or higher (enough to run standard Python scripts) |
+| Disk Space          | Minimal (varies depending on the size of the packages you install)|
+| Required Packages   | Python 3 (includes pip and venv for environment management) |
 
 ---
 
-# 7. Install Dependencies from requirements.txt
+# 6. Install Dependencies from requirements.txt
 
-## Step 7.1: Create and activate a virtual environment
-
-```bash
-python3 -m venv venv && source venv/bin/activate
-```
-
-<details>
-<summary><strong>Screenshot - Virtual environment activated</strong></summary>
-
-<img width="830" height="62" alt="Screenshot 2026-09-04 at 11 50 53 PM" src="https://github.com/user-attachments/assets/1827d3c2-cab1-4771-abd5-d8a6bf833ab1" />
-
-</details>
-
----
-
-## Step 7.2: Install all listed packages
+## Step 6.1: Run the Installation Script
+Navigate to your project folder containing the file and run the following command to deploy the dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
 <details>
-<summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
-
-<img width="1401" height="690" alt="Screenshot 2026-09-04 at 11 51 25 PM" src="https://github.com/user-attachments/assets/67764302-465e-4dc4-9448-59563f3bd552" />
+<summary><strong>Screenshot - Virtual environment activated</strong></summary>
 
 </details>
 
 ---
 
-## Step 7.3: Install without cached packages
+## Step 6.2: Verify the Installation
 
 ```bash
-pip install -r requirements.txt --no-cache-dir
+pip list
 ```
 
 <details>
 <summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
-
-<img width="1401" height="234" alt="Screenshot 2026-09-04 at 11 52 03 PM" src="https://github.com/user-attachments/assets/833fbf72-dfa3-4a2f-a2fa-d6f2b7aabccc" />
-
 </details>
 
 ---
 
-## Step 7.4: Upgrade existing packages to match requirements.txt
+# 7. How to Generate a requirements.txt File
 
-```bash
-pip install -r requirements.txt --upgrade
-```
-
-<details>
-<summary><strong>Screenshot - Packages upgraded</strong></summary>
-
-<img width="1401" height="224" alt="Screenshot 2026-09-04 at 11 52 45 PM" src="https://github.com/user-attachments/assets/4cc61e46-d355-4729-adc0-d8737eab674f" />
-
-</details>
-
----
-
-# 8. Generate requirements.txt
-
-## Step 8.1: Generate a full environment snapshot
-
-```bash
-pip freeze > requirements.txt
-```
-
-<details>
-<summary><strong>Screenshot - pip freeze output</strong></summary>
-
-<img width="772" height="275" alt="Screenshot 2026-09-04 at 11 54 49 PM" src="https://github.com/user-attachments/assets/efcc14bd-94d2-4f5b-ae1c-18e04655a7cd" />
-
-</details>
-
-### Verification
-
-```bash
-cat requirements.txt
-```
-
-<details>
-<summary><strong>Screenshot - pip freeze output</strong></summary>
-
-<img width="772" height="234" alt="Screenshot 2026-09-04 at 11 55 00 PM" src="https://github.com/user-attachments/assets/40a5e98c-d878-439a-8673-180528430b54" />
-
-</details>
-
----
-
-## Step 8.2: Generate based only on imported packages
+## Step 7.1: Install the genrator tool
 
 ```bash
 pip install pipreqs
@@ -194,95 +118,65 @@ pipreqs . --force
 
 <details>
 <summary><strong>Screenshot - pipreqs output</strong></summary>
-
-<img width="1416" height="525" alt="Screenshot 2026-09-04 at 11 57 38 PM" src="https://github.com/user-attachments/assets/54064709-2eac-4629-a8b3-dc7cdda9ee73" />
-
 </details>
 
----
 
-# 9. Validation
-
-### Validate Installed Packages
+## Step 7.2: Inspect the Content
 
 ```bash
-pip list
+cat requirements.txt    [linux/macos]
+type requirements.txt   [Windows]
 ```
 
 <details>
-<summary><strong>Screenshot - validation output</strong></summary>
-
-<img width="480" height="333" alt="Screenshot 2026-09-04 at 11 58 15 PM" src="https://github.com/user-attachments/assets/198da34e-ac6c-435a-9ea2-7ee569dfb6fe" />
-
+<summary><strong>Screenshot - pipreqs output</strong></summary>
 </details>
 
-### Validate Against requirements.txt
-
-```bash
-pip freeze | diff requirements.txt -
-```
-
-<details>
-<summary><strong>Screenshot - validation output</strong></summary>
-
-<img width="794" height="333" alt="Screenshot 2026-09-04 at 11 58 39 PM" src="https://github.com/user-attachments/assets/debfa458-648c-4496-8f16-14b05fc905e4" />
-
-</details>
-
-### Validate No Dependency Conflicts
-
-```bash
-pip check
-```
-
-<details>
-<summary><strong>Screenshot - validation output</strong></summary>
-
-<img width="612" height="115" alt="Screenshot 2026-09-04 at 11 58 58 PM" src="https://github.com/user-attachments/assets/e40e689b-c465-499a-a38d-83572c663450" />
-
-</details>
 
 ---
 
-# 10. Use Cases
+# 8. Quick Commands
 
-| **Scenario**                                    | **Commands / Actions**                  |
-| ------------------------------------------------- | ------------------------------------------ |
-| Setting up a new dev environment                 | `pip install -r requirements.txt`         |
-| Capturing current environment state              | `pip freeze > requirements.txt`           |
-| Generating file from actual imports only         | `pipreqs . --force`                       |
-| Checking for dependency conflicts                | `pip check`                               |
-| Confirming environment matches requirements.txt  | `pip freeze \| diff requirements.txt -`   |
+| Task                                              | Command                                     |
+| ---------------------------------------------------- | ---------------------------------------------- |
+| Install dependencies                              | `pip install -r requirements.txt`           |
+| Generate from imports only                        | `pipreqs . --force`                         |
+| List installed packages                           | `pip list`                                  |
 
 ---
 
-# 11. Troubleshooting
+# 10. Troubleshooting
 
 | **Issue**                                        | **Cause**                                                           | **Solution**                                                 |
 | --------------------------------------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | `error: externally-managed-environment`            | Some Linux distributions block pip installs outside a venv (PEP 668)   | Activate a virtual environment before installing                  |
-| Installed packages don't match requirements.txt    | Wrong virtual environment active, or file not regenerated               | Activate the correct venv; regenerate with `pip freeze`            |
-| Slow or failed downloads                           | Network/proxy issues or corrupted cache                                 | Retry with `--no-cache-dir`; check network/proxy settings          |
 
+---
+
+# 11. Use Cases
+
+-**Setting Up a Cloned Project**: Run the installation script immediately after downloading a project to ensure it works on your computer without missing library errors.
+-**Sharing Code with Others**: Run the generation script before sending your project to a teammate so they know exactly what packages to download.
+-**Fixing Version Errors**: Refer to this file whenever you run into "ModuleNotFoundError" bugs to confirm which tool version your code expects.
+-**Updating Project Dependencies**: Run the pipreqs generation workflow when introducing new architectural components or open-source libraries into the codebase
+-**Security Auditing & Compliance**: Use the verified requirements list as an inventory tracker to scan for known security vulnerabilities or deprecated versions.
 
 ---
 
 # 12. Best Practices
 
-| **Best Practice**                          | **Description**                                                                                    |
-| --------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| Always use a virtual environment             | Avoids the externally-managed-environment restriction on systems that enforce it, and prevents dependency conflicts |
-| Regenerate requirements.txt deliberately     | Use `pipreqs` for imports-only files rather than full `pip freeze` dumps where possible               |
-| Run `pip check` after installs               | Catches broken or conflicting dependencies early                                                       |
-| Keep requirements.txt in version control     | Provides an auditable, shared source of truth for the team                                             |
+-**Pin Exact Versions**: Always use the == operator for production releases (e.g., requests==2.31.0) to avoid unexpected updates that might break your code.
+-**Keep Comments Clean**: Use the # symbol to document why a non-standard or unusual package is required, ensuring team clarity.
+-**Update the File Frequently**: Run the generation workflow immediately after importing a new package so your team never encounters missing module errors.
+-**Avoid Global Clutter**: Never use pip freeze on global system environments to prevent bloating the configuration with local, unrelated tools.
+-**Track via Version Control**: Always commit requirements.txt to Git so that every dependency shift can be tracked, reviewed, and rolled back if necessary.Separate
 
 ---
 
 # 13. Conclusion
 
-This SOP provides a standardized approach to installing, generating, and troubleshooting Python dependencies using `requirements.txt` on any Linux-based system.
-
-Following these procedures helps developers maintain **reliability, reproducibility, and operational stability**, while providing a consistent, evidence-backed approach to configuration, validation, and troubleshooting — including the externally-managed-environment restriction found on some distributions.
+This SOP provides a clear, standardized workflow for installing, generating, and verifying Python dependencies using requirements.txt on any operating system.
+Following these steps ensures that our development environments remain consistent, stable, and error-free. Whether you are working locally or deploying to production, keeping this file updated guarantees that the code runs perfectly on every machine.
 
 ---
 
@@ -301,4 +195,3 @@ Following these procedures helps developers maintain **reliability, reproducibil
 | [pip Documentation](https://pip.pypa.io/en/stable/)                                                | Official pip documentation                     |
 | [requirements.txt Format](https://pip.pypa.io/en/stable/reference/requirements-file-format/)       | requirements.txt file format reference         |
 | [pipreqs](https://pypi.org/project/pipreqs/)                                                       | pipreqs documentation                          |
-| [PEP 668](https://peps.python.org/pep-0668/)                                                       | Externally managed Python environments         |
