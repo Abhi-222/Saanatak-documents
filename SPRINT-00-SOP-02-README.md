@@ -173,21 +173,15 @@ type requirements.txt
 * **Sharing Code with Others:** Run the generation script before sending your project to a teammate so they know exactly what packages to download.
 * **Fixing Version Errors:** Refer to this file whenever you run into "ModuleNotFoundError" bugs to confirm which tool version your code expects.
 
-### For Experts (Production & Automation)
-* **Automating CI/CD Pipelines:** Embed the installation script into deployment pipelines to automatically build clean, identical app environments in cloud containers.
 * **Updating Project Dependencies:** Run the `pipreqs` generation workflow when introducing new architectural components or open-source libraries into the codebase.
 * **Security Auditing & Compliance:** Use the verified requirements list as an inventory tracker to scan for known security vulnerabilities or deprecated versions.
 
 ---
 
 # 11. Best Practices
-
-### For Beginners
 * **Pin Exact Versions:** Always use the `==` operator for production releases (e.g., `requests==2.31.0`) to avoid unexpected updates that might break your code.
 * **Keep Comments Clean:** Use the `#` symbol to document why a non-standard or unusual package is required, ensuring team clarity.
 * **Update the File Frequently:** Run the generation workflow immediately after importing a new package so your team never encounters missing module errors.
-
-### For Experts
 * **Avoid Global Clutter:** Never use `pip freeze` on global system environments to prevent bloating the configuration with local, unrelated tools.
 * **Track via Version Control:** Always commit `requirements.txt` to Git so that every dependency shift can be tracked, reviewed, and rolled back if necessary.
 
