@@ -88,8 +88,7 @@ pip install -r requirements.txt
 
 <details>
 <summary><strong>Screenshot - Execution of installation script</strong></summary>
-
-*(Place screenshot here showing the terminal installing packages)*
+<img width="1440" height="525" alt="Screenshot 2026-09-09 at 11 01 26 PM" src="https://github.com/user-attachments/assets/90c6bedf-2603-4459-89ec-06ef08b7f0e8" />
 </details>
 
 ---
@@ -103,8 +102,7 @@ pip list
 
 <details>
 <summary><strong>Screenshot - Dependencies installed successfully</strong></summary>
-
-*(Place screenshot here showing the clean pip list output)*
+<img width="1440" height="359" alt="Screenshot 2026-09-09 at 11 04 43 PM" src="https://github.com/user-attachments/assets/719261ff-67b9-4b89-9e38-f41cd55b3b9b" />
 </details>
 
 ---
@@ -122,7 +120,7 @@ pipreqs . --force
 <details>
 <summary><strong>Screenshot - pipreqs execution output</strong></summary>
 
-*(Place screenshot here showing clean file creation updates)*
+<img width="1327" height="589" alt="Screenshot 2026-09-09 at 10 40 14 PM" src="https://github.com/user-attachments/assets/200166d2-586c-4429-9f38-fe0be6b013bd" />
 </details>
 
 ## Step 7.2: Inspect the Content
@@ -132,6 +130,10 @@ Verify the file was created cleanly by checking its contents inside the terminal
 ```bash
 cat requirements.txt
 ```
+<details>
+<summary><strong>Screenshot - Inspection of generated content</strong></summary>
+<img width="638" height="69" alt="Screenshot 2026-09-09 at 10 40 54 PM" src="https://github.com/user-attachments/assets/2081c6d0-c04c-4820-9717-30ab55a34be4" />
+</details>
 
 **For Windows:**
 ```bash
@@ -140,8 +142,8 @@ type requirements.txt
 
 <details>
 <summary><strong>Screenshot - Inspection of generated content</strong></summary>
+<img width="638" height="69" alt="Screenshot 2026-09-09 at 10 40 54 PM" src="https://github.com/user-attachments/assets/2081c6d0-c04c-4820-9717-30ab55a34be4" />
 
-*(Place screenshot here showing the exact package list generated)*
 </details>
 
 ---
@@ -160,19 +162,15 @@ type requirements.txt
 
 | **Issue** | **Cause** | **Solution** |
 | :--- | :--- | :--- |
-| `error: externally-managed-environment` | Some Linux distributions block pip installs globally outside virtual environments (PEP 668). | Add the `--user` flag: `pip install -r requirements.txt --user` to isolate installation down to your local account profile. |
 | `command not found: pip` | Python or `pip` is missing or its environment path variable is not registered. | Run `python3 -m pip install -r requirements.txt` or ensure Python is added to your system **PATH**. |
 | `ResolutionImpossible` | Two or more packages require conflicting versions of the same sub-dependency. | Loosen version constraints from exact locks (`==`) to minimum tags (`>=`) for the conflicting elements. |
 
 ---
 
 # 10. Use Cases
-
-### For Beginners (Daily Development)
 * **Setting Up a Cloned Project:** Run the installation script immediately after downloading a project to ensure it works on your computer without missing library errors.
 * **Sharing Code with Others:** Run the generation script before sending your project to a teammate so they know exactly what packages to download.
 * **Fixing Version Errors:** Refer to this file whenever you run into "ModuleNotFoundError" bugs to confirm which tool version your code expects.
-
 * **Updating Project Dependencies:** Run the `pipreqs` generation workflow when introducing new architectural components or open-source libraries into the codebase.
 * **Security Auditing & Compliance:** Use the verified requirements list as an inventory tracker to scan for known security vulnerabilities or deprecated versions.
 
