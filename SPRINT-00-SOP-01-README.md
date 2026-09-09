@@ -43,20 +43,6 @@ It covers the required checks, configuration steps, verification, validation, ro
 
 ---
 
-# 2. Purpose
-
-The purpose of this SOP is to provide a standardized procedure for:
-
-- Viewing current kernel parameter values under `/proc/sys/` using `sysctl`
-- Applying a parameter change temporarily (runtime only, safe to test)
-- Persisting an approved change permanently via `/etc/sysctl.d/`
-- Rolling back a change safely when the restored config does not, by itself, reset the live kernel value
-- Validating that a configured parameter is active and survives a reboot
-
-These procedures help maintain **system stability, security posture, performance, and operational consistency**.
-
----
-
 # 3. What is sysctl
 
 `sysctl` is a Linux command-line utility (and kernel interface) used to view and modify kernel parameters at runtime, without requiring a reboot. It reads and writes values exposed under the `/proc/sys/` virtual filesystem, covering areas such as networking, virtual memory, file handles, and security-related kernel behavior.
@@ -279,16 +265,6 @@ sysctl vm.swappiness net.ipv4.ip_forward fs.file-max
 </details>
 
 **Expected:** Values match the intended settings — immediately after applying, after `sudo sysctl --system`, and again after `sudo reboot`.
-
-### Final Validation Checklist
-
-| **Validation**                               | **Expected Result**                                   |
-| --------------------------------------------- | --------------------------------------------------------- |
-| `sysctl <parameter>` immediately after apply | Matches the intended value                                |
-| `sysctl <parameter>` after `sysctl --system` | Matches the persisted config file                         |
-| `sysctl <parameter>` after reboot            | Still matches — confirms true persistence                 |
-| Dependent services (networking, DB, app)     | Healthy post-reboot                                       |
-| Screenshots                                   | Attached at their respective placeholders as evidence      |
 
 ---
 
