@@ -73,7 +73,7 @@ Without a `requirements.txt` file, team members and servers have to guess which 
 | **OS** | Any major operating system (Windows, macOS, or Linux). |
 | **RAM** | 512 MB or higher (enough to run standard Python scripts). |
 | **Disk Space** | Minimal (varies depending on the size of the packages you install). |
-| **Required Packages** | Python 3 (includes `pip` for package management). |
+| **Required Packages** | Python 3 (includes `pip` for package management & Python3 venv for linux based distributions). |
 
 ---
 
