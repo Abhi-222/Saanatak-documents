@@ -6,7 +6,7 @@
 
 | **Author** | **Created On** | **Version** |**Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- |------------------ | --------------- | --------------- | --------------- |
-| Sahil      | 24-08-26       | 1.0         | 03-09-26          | `Divya M`      | `Aayush Verma`   | `Mahesh Kumar / Varun` |
+| Sahil      | 24-08-26       | 1.1         | 07-09-26          | `Vishal/ Divya M`| `Aayush Verma`| `Mahesh Kumar / Varun` |
 
 ---
 
@@ -37,53 +37,38 @@
 
 # 1. Introduction
 
-This SOP provides a structured guide to viewing, applying, and persisting **kernel parameter changes** using `sysctl` on **Linux servers**, for the purpose of performance or security tuning. It applies across most major distributions and is not tied to a specific OS version.
+sysctl is a Linux tool used to view and change kernel settings — for performance tuning (like memory and networking behavior) or security hardening — without needing a reboot.
 
-It covers the required checks, configuration steps, verification, validation, rollback, and troubleshooting needed to keep kernel-level tuning consistent, auditable, and reversible across environments.
+This SOP covers three things: how to view current kernel settings, how to apply a change safely, and how to persist that change so it survives a reboot.
 
 ---
 
+
 # 3. What is sysctl
 
-`sysctl` is a Linux command-line utility (and kernel interface) used to view and modify kernel parameters at runtime, without requiring a reboot. It reads and writes values exposed under the `/proc/sys/` virtual filesystem, covering areas such as networking, virtual memory, file handles, and security-related kernel behavior.
-
-Values changed with `sysctl` at runtime only affect the live, running kernel. For a change to survive a reboot, the parameter must also be persisted in a configuration file under `/etc/sysctl.d/` or `/etc/sysctl.conf`.
+sysctl is a Linux tool that lets you view and change kernel settings while the system is running — no reboot needed. It covers things like memory usage, networking, and security-related behavior.
+A change made with sysctl only affects the system until it restarts. To make it stick permanently, you also need to save it in a config file under /etc/sysctl.d/.
 
 ---
 
 # 4. Why sysctl is Used
 
-- **Performance tuning** — adjust kernel behavior (memory management, swappiness, network buffers) for a specific workload without recompiling the kernel.
-- **Security hardening** — enable protections such as SYN cookies, disable IP forwarding on non-routing hosts, restrict core dumps, and similar controls.
-- **Safe runtime testing** — validate a parameter change live before committing it permanently, with no persistence risk if the value is wrong.
-- **Operational consistency** — persisted config files make tuning auditable, versionable, and reproducible across servers.
+- **Performance tuning** — speed things up for your specific workload, like making the server less likely to swap memory to disk, or handle more network traffic.
+- **Security hardening** — turn on extra protections, like defenses against certain types of network attacks.
+- **Safe to test** — you can try a change right away and see what happens. If you don't save it, it disappears on the next reboot — so testing carries no long-term risk.
 
 ---
 
 # 5. Key Features of sysctl
 
-| **Feature**                  | **Description**                                                                          |
-| -------------------------------| ---------------------------------------------------------------------------------------------|
-| Runtime + persistent modes     | Change kernel parameters live at runtime (`sysctl -w`) or persist them across reboots (`/etc/sysctl.d/`) |
-| Live introspection             | View any active kernel parameter via `sysctl -a` or directly under `/proc/sys/`               |
-| Modular configuration           | `/etc/sysctl.d/*.conf` isolates custom tuning from OS defaults                                |
-| Reload without reboot           | `sysctl -p` / `sysctl --system` re-applies persisted config without restarting the system      |
-| Broad scope                     | Covers networking, memory management, file system limits, and kernel/security behavior         |
+- **Live changes** — a setting takes effect right away, while the server is still running. No restart needed to see the change work.
+- **Can be made permanent** — by default, a change disappears on reboot. If you want it to stay, you save it to a file, and it'll still be there next time the server starts.
+- **Check anytime** — you can look up any current setting whenever you want, without changing anything, just to see what's active.
+- **Covers a lot** — one tool handles many different kinds of settings: how the network behaves, how memory is managed, and various security-related options.
 
 ---
 
-# 6. Prerequisites
-
-This SOP has no strict OS version requirement — it works on virtually any Linux distribution that includes `sysctl` (part of the `procps` package), including **Ubuntu, Debian, RHEL/CentOS/Rocky, Fedora, and similar systems**.
-
-### 6.1 Access & Permissions
-
-| **Prerequisite**   | **Details**                                                                                        |
-| ------------------ | --------------------------------------------------------------------------------------------------- |
-| Access             | SSH/terminal access with `sudo`/root privileges to view, modify, and persist kernel parameters      |
-| Out-of-band Access | Console/out-of-band access recommended, in case a networking parameter change causes an SSH lockout |
-
-### 6.2 System Requirements
+# 6. Prerequisites & System Requirements
 
 | **Requirement**   | **Minimum**                                                                              |
 | ----------------- | --------------------------------------------------------------------------------------------- |
@@ -93,179 +78,126 @@ This SOP has no strict OS version requirement — it works on virtually any Linu
 
 ---
 
-# 7. View Kernel Parameters
 
-## Step 7.1: View kernel parameters
-
-List all active parameters, check one specific parameter, or read a value directly from the proc filesystem:
-
+ # 7. Viewing, Applying, and Persisting Kernel Parameters
+ 
+## 7.1 View Kernel Parameters
+ 
+### Step 7.1.1: View kernel parameters
+ 
+List all active parameters, or check one specific parameter:
+ 
 ```bash
 sudo sysctl -a                          # list all parameters
 sysctl net.ipv4.ip_forward              # view one specific parameter
-cat /proc/sys/net/ipv4/ip_forward       # read directly from proc
 ```
-
+ 
 <details>
 <summary><strong>Screenshot - full parameter list (sysctl -a)</strong></summary>
-
 <img width="825" height="608" alt="Screenshot 2026-09-05 at 2 14 45 AM" src="https://github.com/user-attachments/assets/b74a9777-e748-47b0-988c-0596e4249e6d" />
-
 </details>
-
 <details>
 <summary><strong>Screenshot - specific parameter value</strong></summary>
-
 <img width="825" height="95" alt="Screenshot 2026-09-05 at 2 15 47 AM" src="https://github.com/user-attachments/assets/9bfa162a-928a-40ce-a53c-357522bde63c" />
-
 </details>
 
----
-
-## Step 7.2: Search for a parameter by keyword
-
+ 
+### Step 7.1.2: Search for a parameter by keyword
+ 
 Useful when the exact parameter name is not known in advance.
-
+ 
 ```bash
 sudo sysctl -a | grep swappiness
 ```
-
+ 
 <details>
 <summary><strong>Screenshot - keyword search output</strong></summary>
-
 <img width="825" height="95" alt="Screenshot 2026-09-05 at 2 16 03 AM" src="https://github.com/user-attachments/assets/d810ff2b-1465-4b4b-be32-7a055e85c2f5" />
-
 </details>
 
 ---
-
-# 8. Apply Kernel Parameters (Temporary)
-
-Temporary changes take effect immediately at runtime but do **not** survive a reboot. Always validate here before persisting (Section 9).
-
-## Step 8.1: Backup configuration and apply a parameter
-
+ 
+ ## 7.2 Apply Kernel Parameters (Temporary)
+ 
+Temporary changes take effect immediately at runtime but do **not** survive a reboot. Always validate here before persisting (7.3).
+ 
+### Step 7.2.1: Apply a parameter
+ 
 ```bash
-sudo cp /etc/sysctl.conf /etc/sysctl.conf.bak_$(date +%F)
-sudo cp -r /etc/sysctl.d /etc/sysctl.d.bak_$(date +%F)
 sudo sysctl -w vm.swappiness=10
 ```
-
+ 
 Expected output:
-
+ 
 ```text
 vm.swappiness = 10
 ```
-
-Take the backup **before** making any change — it's required for a clean rollback later (Section 10).
-
+ 
 <details>
-<summary><strong>Screenshot - backup and applied value</strong></summary>
-
+<summary><strong>Screenshot - sysctl -w applied</strong></summary>
 <img width="825" height="147" alt="Screenshot 2026-09-05 at 2 18 21 AM" src="https://github.com/user-attachments/assets/35bfcbfa-ed97-408f-9453-9bbac5562857" />
-
 </details>
-
----
-
-## Step 8.2: Verify the change
-
+*Note: this screenshot was captured alongside a backup step that's no longer part of this SOP — if you retake it, a screenshot of just the `sysctl -w` command and its output is enough.*
+ 
+ 
+### Step 7.2.2: Verify the change
+ 
 ```bash
 sysctl vm.swappiness
 ```
-
-**Note:** This change is runtime-only — a reboot alone reverts it, so there's no persistence risk yet. To write directly to the kernel instead of using `sysctl -w`, use `echo 10 | sudo tee /proc/sys/vm/swappiness`.
-
+ 
+**Note:** This change is runtime-only — a reboot alone reverts it, so there's no persistence risk yet.
+ 
 <details>
 <summary><strong>Screenshot - verified runtime value</strong></summary>
-
 <img width="825" height="147" alt="Screenshot 2026-09-05 at 2 19 29 AM" src="https://github.com/user-attachments/assets/1def1d73-ec7a-4adf-a912-db677ba20d95" />
-
 </details>
 
----
-
-# 9. Persist Kernel Parameters (Permanent)
-
+ 
+## 7.3 Persist Kernel Parameters (Permanent)
+ 
 Once the temporary change is validated, persist it so it survives a reboot.
-
-## Step 9.1: Create a dedicated config file
-
+ 
+### Step 7.3.1: Create a dedicated config file
+ 
 ```bash
 sudo nano /etc/sysctl.d/99-custom-tuning.conf
 ```
-
+ 
 ```text
 vm.swappiness = 10
 net.ipv4.ip_forward = 1
 fs.file-max = 100000
 ```
-
-Use a dedicated file under `/etc/sysctl.d/` instead of editing `/etc/sysctl.conf` directly — this isolates custom tuning from OS defaults and makes rollback a single file operation.
-
+ 
+Use a dedicated file under `/etc/sysctl.d/` instead of editing `/etc/sysctl.conf` directly — this isolates custom tuning from OS defaults.
+ 
 <details>
 <summary><strong>Screenshot - config file contents</strong></summary>
-
 <img width="825" height="147" alt="Screenshot 2026-09-05 at 2 20 08 AM" src="https://github.com/user-attachments/assets/0f8d53f8-8af4-42c1-947a-493a8b7c7929" />
-
 </details>
 
----
-
-## Step 9.2: Apply and reload
-
+ 
+### Step 7.3.2: Apply, reload, and confirm it survives a reboot
+ 
 ```bash
 sudo sysctl -p /etc/sysctl.d/99-custom-tuning.conf
 sudo sysctl --system
 ```
-
+ 
 <details>
 <summary><strong>Screenshot - config applied and reloaded</strong></summary>
-
 <img width="825" height="346" alt="Screenshot 2026-09-05 at 2 21 25 AM" src="https://github.com/user-attachments/assets/279c2842-7734-46c1-94e6-eaea36039f58" />
-
 </details>
-
----
-
-# 10. Rollback Procedure
-
-If a persisted change causes unexpected behaviour, revert as follows. **Restoring or deleting config files alone does not reset the live kernel value** — the rollback has two parts.
-
-| **Step** | **Action**                                               | **Command**                                                                |
-| -------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| 1        | Remove the change file                                    | `sudo rm -f /etc/sysctl.d/99-custom-tuning.conf`                             |
-| 2        | Find the original value from backup                       | `grep -rE "vm.swappiness\|ip_forward\|file-max" /etc/sysctl.d.bak_<date>/`   |
-| 3        | Manually re-push the original value into the live kernel  | `sudo sysctl -w vm.swappiness=<original_value>`                              |
-| 4        | Reload config                                              | `sudo sysctl --system`                                                       |
-| 5        | Reboot and confirm the value holds long-term               | `sudo reboot`                                                                |
-
-> [!NOTE]
-> If `grep` finds no value for a parameter in the backup, it was only ever a kernel default — use the common Linux default for most distributions (`vm.swappiness=60`, `net.ipv4.ip_forward=0`), or for `fs.file-max`, let it recalculate on reboot rather than guessing a fixed number.
-
-<details>
-<summary><strong>Screenshot - rollback confirmation</strong></summary>
-
-<img width="907" height="417" alt="Screenshot 2026-09-05 at 2 24 20 AM" src="https://github.com/user-attachments/assets/f733fc64-49d4-43eb-9279-3e99f997807c" />
-
-</details>
-
----
-
-# 11. Validation
-
+To confirm the change is truly persistent (not just applied for now), reboot and check the value again:
+ 
 ```bash
+sudo reboot
 sysctl vm.swappiness net.ipv4.ip_forward fs.file-max
 ```
-
-<details>
-<summary><strong>Screenshot - validation output</strong></summary>
-
-<img width="713" height="95" alt="Screenshot 2026-09-05 at 2 44 16 AM" src="https://github.com/user-attachments/assets/0b163dbe-9af8-4bdf-bce3-d89b2edd1602" />
-
-</details>
-
-**Expected:** Values match the intended settings — immediately after applying, after `sudo sysctl --system`, and again after `sudo reboot`.
-
+  
+*Note: no screenshot yet for this reboot-check step — add one when available.*
+ 
 ---
 
 # 12. Use Cases
