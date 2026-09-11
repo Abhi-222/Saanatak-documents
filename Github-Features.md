@@ -1,10 +1,10 @@
-# GitHub Features
+# VCS Design + POC | Features of VCS | GitHub features
 
 ## Author Table
 
-| **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-| ---------- | -------------- | ----------- | ------------------- | ---------------- | ---------------- | ---------------- |
-| Sahil      | 10-09-26       | v1.0        | 10-09-26             |                   |                   |                   |
+| **Author** | **Created on** | **Version** | **Last edited on**  | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
+| ---------- | -------------- | ----------- | ------------------- | ---------------- | ----------------|---------------- |
+| Sahil      | 10-09-26       | v1.0        | 10-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun|
 
 ---
 
@@ -188,7 +188,7 @@ GitHub combines repository management, code review, CI/CD automation, and securi
 
 | **Name** | **Email** |
 | -------- | --------- |
-| Sahil    |           |
+| Sahil    | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co)|
 
 ---
 
@@ -199,5 +199,4 @@ GitHub combines repository management, code review, CI/CD automation, and securi
 | [GitHub Docs](https://docs.github.com/) | Official GitHub documentation |
 | [GitHub Actions](https://docs.github.com/en/actions) | Official documentation for GitHub Actions CI/CD |
 | [About Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches) | GitHub docs on branch protection |
-| [Dependabot](https://docs.github.com/en/code-security/dependabot) | GitHub docs on automated dependency security |
 | [About Pull Requests](https://docs.github.com/en/pull-requests) | GitHub docs on the PR workflow |
