@@ -16,7 +16,7 @@
 1. [Introduction](#1-introduction)
 2. [What is GitHub?](#2-what-is-github)
 3. [Why GitHub is Required?](#3-why-github-is-required)
-4. [GitHub Features](#4-github-features). 
+4. [GitHub Features](#4-github-features)
 5. [Advantages and Disadvantages](#5-advantages-and-disadvantages)
 6. [Use Cases](#6-use-cases)
 7. [Best Practices](#7-best-practices)
