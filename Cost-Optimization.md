@@ -47,7 +47,7 @@ AWS Cost Explorer is a native AWS billing tool that lets you visualize, understa
 
 ## 4. Workflow
 
-<img width="789" height="288" alt="Screenshot 2026-09-11 at 6 59 19 AM" src="https://github.com/user-attachments/assets/10b4df2f-aa02-4c3e-af47-c64328aa536f" />
+<img width="989" height="451" alt="Screenshot 2026-09-13 at 9 13 50 PM" src="https://github.com/user-attachments/assets/9e68beb4-010e-4ea5-b342-726167b08886" />
 
 
 The process flows in two stages: **tagging setup** (steps 1–4) followed by **Cost Explorer reporting** (steps 5–8).
