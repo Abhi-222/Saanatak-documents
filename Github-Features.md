@@ -5,6 +5,7 @@
 | **Author** | **Created on** | **Version** | **Last edited on**  | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------- | ---------------- | ----------------|---------------- |
 | Sahil      | 10-09-26       | v1.0        | 10-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun|
+| Sahil      | 11-09-26       | v1.1        | 13-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun|
 
 ---
 
@@ -13,21 +14,13 @@
 1. [Introduction](#1-introduction)
 2. [What is GitHub?](#2-what-is-github)
 3. [Why GitHub is Required?](#3-why-github-is-required)
-4. [Key Features](#4-key-features)
-5. [GitHub Features](#5-github-features)
-   - 5.1 [Repository Management](#51-repository-management)
-   - 5.2 [Branching & Merging](#52-branching--merging)
-   - 5.3 [Pull Requests & Code Review](#53-pull-requests--code-review)
-   - 5.4 [GitHub Actions (CI/CD)](#54-github-actions-cicd)
-   - 5.5 [Issues & Projects](#55-issues--projects)
-   - 5.6 [Access Control & Permissions](#56-access-control--permissions)
-   - 5.7 [Security Features](#57-security-features)
-6. [Advantages and Disadvantages](#6-advantages-and-disadvantages)
-7. [Use Cases](#7-use-cases)
-8. [Best Practices](#8-best-practices)
-9. [Conclusion](#9-conclusion)
-10. [Contact Information](#10-contact-information)
-11. [References](#11-references)
+4. [GitHub Features](#4-github-features). 
+5. [Advantages and Disadvantages](#5-advantages-and-disadvantages)
+6. [Use Cases](#6-use-cases)
+7. [Best Practices](#7-best-practices)
+8. [Conclusion](#8-conclusion)
+9. [Contact Information](#9-contact-information)
+10. [References](#10-references)
 
 ---
 
@@ -49,19 +42,9 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-## 4. Key Features
+## 4. GitHub Features
 
-- **Version Control** — Tracks every change made to a file, allowing you to easily roll back to older versions if a bug is introduced.
-- **Conflict Prevention** — Automatically highlights code conflicts, preventing developers from accidentally overwriting or erasing each other's work.
-- **Cloud Backup** — Safely stores the entire history of a project in the cloud, protecting data if a developer's computer crashes or is stolen.
-- **Pull Requests & Review** — Creates a formal review system where teammates can comment on, discuss, and approve code before it goes live.
-- **Project Management** — Includes built-in task boards and bug trackers so teams can organize workflows right next to their code.
-
----
-
-## 5. GitHub Features
-
-### 5.1 Repository Management
+### 4.1 Repository Management
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -73,7 +56,7 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-### 5.2 Branching & Merging
+### 4.2 Branching & Merging
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -84,7 +67,7 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-### 5.3 Pull Requests & Code Review
+### 4.3 Pull Requests & Code Review
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -96,7 +79,7 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-### 5.4 GitHub Actions (CI/CD)
+### 4.4 GitHub Actions (CI/CD)
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -108,7 +91,7 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-### 5.5 Issues & Projects
+### 4.5 Issues & Projects
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -119,7 +102,7 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-### 5.6 Access Control & Permissions
+### 4.6 Access Control & Permissions
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -130,7 +113,7 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-### 5.7 Security Features
+### 4.7 Security Features
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -141,25 +124,22 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ---
 
-## 6. Advantages and Disadvantages
+## 5. Advantages and Disadvantages
 
 GitHub offers unmatched collaboration and version control for software development, but it also presents challenges regarding pricing limits, security risks, and a steep learning curve.
 
-### Advantages
 
-- **Centralized Collaboration** — Streamlines teamwork through pull requests, code reviews, and inline comments.
-- **Robust Version Control** — Safeguards your project history, making it easy to track changes and revert bugs.
-- **Built-In Security** — Scans repositories automatically for exposed passwords, secrets, and vulnerable dependencies.
+| **Advantages** | **Disadvantages** |
+| -------- | --------- |
+|Centralized Collaboration -Streamlines teamwork through pull requests, code reviews, and inline comments. |Steep Learning Curve — Requires a solid understanding of Git command-line tools, which can be confusing for beginners.|
+|Robust Version Control— Safeguards your project history, making it easy to track changes and revert bugs. |Costly for Large Teams— Becomes expensive quickly as teams grow, since advanced features and team seats require paid monthly subscriptions.|
+|Built-In Security — Scans repositories automatically for exposed passwords, secrets, and vulnerable dependencies.| Repository Size Limits — Imposes strict limits on large files (over 100MB requires special setup), making it poorly suited for game development or massive datasets.|
 
-### Disadvantages
 
-- **Steep Learning Curve** — Requires a solid understanding of Git command-line tools, which can be confusing for beginners.
-- **Costly for Large Teams** — Becomes expensive quickly as teams grow, since advanced features and team seats require paid monthly subscriptions.
-- **Repository Size Limits** — Imposes strict limits on large files (over 100MB requires special setup), making it poorly suited for game development or massive datasets.
 
 ---
 
-## 7. Use Cases
+## 6. Use Cases
 
 - **Open-Source Collaboration** — Hosts thousands of public projects (like Linux or VS Code) where global communities contribute code, report bugs, and suggest features.
 - **Team Code Management** — Enables engineering teams to collaborate on proprietary software using private repositories without overriding each other's work.
@@ -168,7 +148,7 @@ GitHub offers unmatched collaboration and version control for software developme
 
 ---
 
-## 8. Best Practices
+## 7. Best Practices
 
 - **Protect `main`** — require PRs with at least one approval and passing status checks before merge; no direct pushes.
 - **Keep PRs small and linked to issues** — easier review, and traceable back to the task/ticket.
@@ -178,13 +158,13 @@ GitHub offers unmatched collaboration and version control for software developme
 
 ---
 
-## 9. Conclusion
+## 8. Conclusion
 
 GitHub combines repository management, code review, CI/CD automation, and security tooling into a single platform, making it a widely adopted choice for teams managing source code collaboratively. By following the best practices outlined in this document — protecting main branches, automating checks, and enforcing least-privilege access — teams can use GitHub not just as a code host, but as the back
 
 ---
 
-## 10. Contact Information
+## 9. Contact Information
 
 | **Name** | **Email** |
 | -------- | --------- |
@@ -192,7 +172,7 @@ GitHub combines repository management, code review, CI/CD automation, and securi
 
 ---
 
-## 11. References
+## 10. References
 
 | Topic | Description |
 | ----- | ------------ |
