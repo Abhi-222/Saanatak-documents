@@ -1,3 +1,5 @@
+<img width="2000" height="900" alt="image" src="https://github.com/user-attachments/assets/7347c555-a9f3-4656-84e6-15773f0dcb20" />
+
 # Cost Optimization Designing | Documentation | Cost Tag Reports via Cost Explorer
 
 ## Author Table
@@ -93,11 +95,12 @@ Billing data access can be restricted using IAM condition keys and SCPs; AWS Clo
 
 | **Advantages**| **Disadvantages** |
 |---------------|-------------------|
-| Clear cost attribution down to team, project, or environment level | |
-| No additional tooling cost — built natively into AWS Cost Explorer | |
-| Reports can be saved and reused, reducing repetitive manual analysis | |
-| Supports both ad-hoc investigation and recurring reporting cadences | |
-| Forms the basis for future automation (budgets, anomaly detection, alerts tied to tags) | |
+| Clear cost attribution down to team, project, or environment level | Tag activation is not retroactive — historical spend before activation stays untagged|
+| No additional tooling cost — built natively into AWS Cost Explorer | Up to 24 hours' delay before newly activated tags appear in Cost Explorer data |
+| Reports can be saved and reused, reducing repetitive manual analysis | Reporting accuracy depends entirely on consistent tagging discipline across teams |
+| Supports both ad-hoc investigation and recurring reporting cadences | Some AWS resource types have limited or no support for cost allocation tags |
+| Forms the basis for future automation (budgets, anomaly detection, alerts tied to tags) | Requires ongoing governance effort to keep the tag taxonomy clean over time|
+
 
 ## 7. Use Cases
 
