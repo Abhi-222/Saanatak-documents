@@ -4,9 +4,9 @@
 
 # Author Table
 
-| Author | Created On | Version | Last Updated | L0 Reviewer | L1 Reviewer | L2 Reviewer |
+| Author | Created On | Version | Last Updated  | L0 Reviewer | L1 Reviewer | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|-------------|-------------|
-| Sahil | 31-08-26 | 1.1 | 06-09-26 | `Vishal/Divya M` | `Aayush Verma` | `Mahesh Kumar / Varun` |
+| Sahil  | 31-08-26   | 1.1     | 06-09-26      | `Vishal/Divya M` | `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 ---
 
@@ -129,31 +129,23 @@ allowed_hosts:
 
 # 6. Advantages and Disadvantages
 
-### Advantages
-
-- Reduces duplication — one template can serve many hosts or environments instead of maintaining separate static files.
-- Keeps configuration structure and variable data cleanly separated.
-- Syntax is readable and quick to learn, especially for anyone familiar with Python-style expressions.
-- Tightly integrated with Ansible — works directly with the `template` module, host variables, and gathered facts.
-- Supports conditionals and loops, so a single file can represent many variations of a config.
-
-### Disadvantages
-
-- Templates can become hard to read if logic grows too complex, especially with deeply nested `{% if %}` / `{% for %}` blocks.
-- Syntax errors in a template are only caught at render time, not before the playbook runs.
-- Debugging rendered output usually requires re-running the playbook (e.g., with `--check`/`--diff`) rather than testing the template in isolation.
-- Not a general-purpose templating tool outside the Python/Ansible ecosystem.
-- Overusing logic inside templates can blur the intended separation between configuration and code.
+|Advantages | Disadvantages |
+|-----------|---------------|
+| Reduces duplication — one template can serve many hosts or environments instead of maintaining separate static files |  Templates can become hard to read if logic grows too complex, especially with deeply nested `{% if %}` / `{% for %}` blocks |
+| Keeps configuration structure and variable data cleanly separated | Syntax errors in a template are only caught at render time, not before the playbook runs |
+| Syntax is readable and quick to learn, especially for anyone familiar with Python-style expressions |  Debugging rendered output usually requires re-running the playbook (e.g., with `--check`/`--diff`) rather than testing the template in isolation |
+| Tightly integrated with Ansible — works directly with the `template` module, host variables, and gathered facts |  Not a general-purpose templating tool outside the Python/Ansible ecosystem |
+| Supports conditionals and loops, so a single file can represent many variations of a config |  Overusing logic inside templates can blur the intended separation between configuration and code |
 
 ---
 
 # 7. Use Cases
 
-- **Environment-specific** configuration files — rendering nginx.conf.j2 differently for dev, staging, and production using host-specific variables
-- **Injecting credentials or secrets** — populating a config template with database connection details sourced from vars//Ansible Vault
-- **Conditional feature flags** — enabling or disabling debug mode or specific modules based on a variable
-- **Templating systemd unit files** — generating a service file with a variable port, working directory, or run-as user
-- **Inventory-driven output** — producing a list of allowed hosts, load balancer members, or cluster nodes by looping over an inventory group
+- **Environment-specific** configuration files — rendering nginx.conf.j2 differently for dev, staging, and production using host-specific variables.
+- **Injecting credentials or secrets** — populating a config template with database connection details sourced from vars//Ansible Vault.
+- **Conditional feature flags** — enabling or disabling debug mode or specific modules based on a variable.
+- **Templating systemd unit files** — generating a service file with a variable port, working directory, or run-as user.
+- **Inventory-driven output** — producing a list of allowed hosts, load balancer members, or cluster nodes by looping over an inventory group.
 
 ---
 
@@ -182,8 +174,8 @@ Jinja templating lets you write one file and reuse it for every server, filling 
 
 # 11. References
 
-| Resource | Description |
-|----------|--------------|
-| [Ansible Templating (Jinja2)](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html) | Official Ansible documentation on Jinja templating |
-| [Jinja Documentation](https://jinja.palletsprojects.com/) | Official Jinja templating engine documentation |
-| [Ansible Roles](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html) | Official documentation on Ansible Role structure |
+| References | Links        |
+|------------|--------------|
+| Official Ansible documentation on Jinja templating | [Ansible Templating (Jinja2)](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_templating.html) | 
+| Official Jinja templating engine documentation | [Jinja Documentation](https://jinja.palletsprojects.com/) | 
+| Official documentation on Ansible Role structure | [Ansible Roles](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_reuse_roles.html) | 
