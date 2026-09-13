@@ -174,9 +174,9 @@ GitHub combines repository management, code review, CI/CD automation, and securi
 
 ## 10. References
 
-| Topic | Description |
-| ----- | ------------ |
-| [GitHub Docs](https://docs.github.com/) | Official GitHub documentation |
-| [GitHub Actions](https://docs.github.com/en/actions) | Official documentation for GitHub Actions CI/CD |
-| [About Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches) | GitHub docs on branch protection |
-| [About Pull Requests](https://docs.github.com/en/pull-requests) | GitHub docs on the PR workflow |
+|References| Links |
+|--------- | ------------ |
+| Official GitHub documentation| [GitHub Docs](https://docs.github.com/) |  
+| Official documentation for GitHub Actions CI/CD| [GitHub Actions](https://docs.github.com/en/actions) |  
+| GitHub docs on branch protection| [About Branch Protection Rules](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches) |  
+| GitHub docs on the PR workflow| [About Pull Requests](https://docs.github.com/en/pull-requests) |  
