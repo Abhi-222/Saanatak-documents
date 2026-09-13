@@ -1,3 +1,5 @@
+<img width="888" height="128" alt="image" src="https://github.com/user-attachments/assets/400fb8da-90b4-4250-96dd-d9fac8bb663d" />
+
 # VCS Design + POC | Features of VCS | BitBucket features
 
 ## Author Table
@@ -130,7 +132,7 @@ BitBucket offers strong collaboration, version control, and tight Jira integrati
 
 | **Advantages** | **Disadvantages** |
 | ---------------| ----------------- |
-| Native Jira & Atlassian Integration — Links commits, branches, and PRs to Jira issues out of the box, with no third-party app required| Smaller Ecosystem — Has a far smaller marketplace of third-party integrations and community plugins compared to GitHub |
+| Native Jira & Atlassian Integration — Links commits, branches, and PRs to Jira issues out of the box, with no third-party app required| Smaller Ecosystem — Has a far smaller marketplace of third-party integrations and community   plugins compared to GitHub |
 | Flexible Hosting — Available as both Bitbucket Cloud and Bitbucket Data Center (self-hosted), suiting teams with strict compliance or on-premise needs |Costly for Large Teams — Becomes expensive quickly as teams grow, since Premium features (merge checks, IP allowlisting, audit logs) require paid tiers|
 | Built-In CI/CD — Bitbucket Pipelines ships as part of the platform, avoiding the need to wire up a separate CI tool for basic workflows| Slower UI at Scale — Repository browsing and pipeline logs can feel noticeably slower than competitors on large monorepos or high pipeline volume|
 
