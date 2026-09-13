@@ -1,3 +1,5 @@
+<img width="1600" height="594" alt="image" src="https://github.com/user-attachments/assets/e0a9135c-770e-4592-8b1b-30cbc01d6361" />
+
 # VCS Design + POC | Features of VCS | GitHub features
 
 ## Author Table
