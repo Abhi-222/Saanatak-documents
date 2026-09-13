@@ -45,6 +45,9 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ## 4. BitBucket Features
 
+## Workflow Diagram
+<img width="697" height="579" alt="Screenshot 2026-09-13 at 10 36 19 PM" src="https://github.com/user-attachments/assets/b5585cf1-ae68-4e10-9d9d-7cdb48ece143" />
+
 ### 4.1 Repository Management
 
 | **Feature** | **Description** |
