@@ -4,7 +4,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on**  | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------- | ---------------- | ----------------|---------------- |
-| Sahil      | 11-09-26       | v1.0        | 11-09-26            | `Vishal/Divya M`|   `Aayush Verma` | `Mahesh Kumar / Varun|
+| Sahil      | 11-09-26       | v1.0        | 11-09-26            | `Vishal/Divya M`|   `Aayush Verma` | `Mahesh Kumar / Varun`|
 
 ---
 
@@ -13,21 +13,13 @@
 1. [Introduction](#1-introduction)
 2. [What is BitBucket?](#2-what-is-bitbucket)
 3. [Why BitBucket is Required?](#3-why-bitbucket-is-required)
-4. [Key Features](#4-key-features)
-5. [BitBucket Features](#5-bitbucket-features)
-   - 5.1 [Repository Management](#51-repository-management)
-   - 5.2 [Branching & Merging](#52-branching--merging)
-   - 5.3 [Pull Requests & Code Review](#53-pull-requests--code-review)
-   - 5.4 [Bitbucket Pipelines (CI/CD)](#54-bitbucket-pipelines-cicd)
-   - 5.5 [Issues & Jira Integration](#55-issues--jira-integration)
-   - 5.6 [Access Control & Permissions](#56-access-control--permissions)
-   - 5.7 [Security Features](#57-security-features)
-6. [Advantages and Disadvantages](#6-advantages-and-disadvantages)
-7. [Use Cases](#7-use-cases)
-8. [Best Practices](#8-best-practices)
-9. [Conclusion](#9-conclusion)
-10. [Contact Information](#10-contact-information)
-11. [References](#11-references)
+4. [BitBucket Features](#4-bitbucket-features)
+5. [Advantages and Disadvantages](#5-advantages-and-disadvantages)
+6. [Use Cases](#6-use-cases)
+7. [Best Practices](#7-best-practices)
+8. [Conclusion](#8-conclusion)
+9. [Contact Information](#9-contact-information)
+10. [References](#10-references)
 
 ---
 
@@ -49,19 +41,9 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-## 4. Key Features
+## 4. BitBucket Features
 
-- **Version Control** — Tracks every change made to a file, allowing you to easily roll back to older versions if a bug is introduced.
-- **Conflict Prevention** — Automatically highlights code conflicts, preventing developers from accidentally overwriting or erasing each other's work.
-- **Cloud Backup** — Safely stores the entire history of a project in the cloud, protecting data if a developer's computer crashes or is stolen.
-- **Pull Requests & Review** — Creates a formal review system where teammates can comment on, discuss, and approve code before it goes live.
-- **Native Jira Integration** — Links branches, commits, and pull requests directly to Jira issues, so ticket status can update automatically as code moves through the pipeline.
-
----
-
-## 5. BitBucket Features
-
-### 5.1 Repository Management
+### 4.1 Repository Management
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -73,7 +55,7 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-### 5.2 Branching & Merging
+### 4.2 Branching & Merging
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -84,7 +66,7 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-### 5.3 Pull Requests & Code Review
+### 4.3 Pull Requests & Code Review
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -96,7 +78,7 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-### 5.4 Bitbucket Pipelines (CI/CD)
+### 4.4 Bitbucket Pipelines (CI/CD)
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -108,7 +90,7 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-### 5.5 Issues & Jira Integration
+### 4.5 Issues & Jira Integration
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -119,7 +101,7 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-### 5.6 Access Control & Permissions
+### 4.6 Access Control & Permissions
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -130,7 +112,7 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-### 5.7 Security Features
+### 4.7 Security Features
 
 | **Feature** | **Description** |
 | ----------- | ---------------- |
@@ -142,25 +124,19 @@ BitBucket is required because traditional ways of handling files — like emaili
 
 ---
 
-## 6. Advantages and Disadvantages
+## 5. Advantages and Disadvantages
 
 BitBucket offers strong collaboration, version control, and tight Jira integration for software development, but it also presents challenges regarding UI performance, third-party ecosystem size, and feature gating behind paid plans.
 
-### Advantages
-
-- **Native Jira & Atlassian Integration** — Links commits, branches, and PRs to Jira issues out of the box, with no third-party app required.
-- **Flexible Hosting** — Available as both Bitbucket Cloud and Bitbucket Data Center (self-hosted), suiting teams with strict compliance or on-premise needs.
-- **Built-In CI/CD** — Bitbucket Pipelines ships as part of the platform, avoiding the need to wire up a separate CI tool for basic workflows.
-
-### Disadvantages
-
-- **Smaller Ecosystem** — Has a far smaller marketplace of third-party integrations and community plugins compared to GitHub.
-- **Costly for Large Teams** — Becomes expensive quickly as teams grow, since Premium features (merge checks, IP allowlisting, audit logs) require paid tiers.
-- **Slower UI at Scale** — Repository browsing and pipeline logs can feel noticeably slower than competitors on large monorepos or high pipeline volume.
+| **Advantages** | **Disadvantages** |
+| ---------------| ----------------- |
+| Native Jira & Atlassian Integration — Links commits, branches, and PRs to Jira issues out of the box, with no third-party app required| Smaller Ecosystem — Has a far smaller marketplace of third-party integrations and community plugins compared to GitHub |
+| Flexible Hosting — Available as both Bitbucket Cloud and Bitbucket Data Center (self-hosted), suiting teams with strict compliance or on-premise needs |Costly for Large Teams — Becomes expensive quickly as teams grow, since Premium features (merge checks, IP allowlisting, audit logs) require paid tiers|
+| Built-In CI/CD — Bitbucket Pipelines ships as part of the platform, avoiding the need to wire up a separate CI tool for basic workflows| Slower UI at Scale — Repository browsing and pipeline logs can feel noticeably slower than competitors on large monorepos or high pipeline volume|
 
 ---
 
-## 7. Use Cases
+## 6. Use Cases
 
 - **Jira-Centric Engineering Teams** — Enables teams already using Jira for planning to keep code, tickets, and builds tied together without extra integration work.
 - **Private/Proprietary Code Management** — Enables engineering teams to collaborate on proprietary software using private repositories without overriding each other's work.
@@ -169,7 +145,7 @@ BitBucket offers strong collaboration, version control, and tight Jira integrati
 
 ---
 
-## 8. Best Practices
+## 7. Best Practices
 
 - **Protect `main`** — require PRs with at least one approval and passing merge checks before merge; restrict direct pushes via branch permissions.
 - **Keep PRs small and linked to Jira tickets** — easier review, and traceable back to the task via Smart Commits or branch linking.
@@ -179,13 +155,13 @@ BitBucket offers strong collaboration, version control, and tight Jira integrati
 
 ---
 
-## 9. Conclusion
+## 8. Conclusion
 
 BitBucket combines repository management, code review, CI/CD automation via Pipelines, and native Jira integration into a single platform, making it a strong choice for teams already invested in the Atlassian ecosystem. By following the best practices outlined in this document — protecting main branches, automating checks, and enforcing least-privilege access — teams can use BitBucket not just as a code host, but as the backbone of a Jira-linked development workflow.
 
 ---
 
-## 10. Contact Information
+## 9. Contact Information
 
 | **Name** | **Email** |
 | -------- | --------- |
@@ -193,12 +169,12 @@ BitBucket combines repository management, code review, CI/CD automation via Pipe
 
 ---
 
-## 11. References
+## 10. References
 
-| Topic | Description |
-| ----- | ------------ |
-| [Bitbucket Features](https://bitbucket.org/product/en/features) | Official Bitbucket feature overview |
-| [Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-start-conditions/) | Official documentation for Bitbucket Pipelines CI/CD |
-| [Branch Permissions](https://support.atlassian.com/bitbucket-cloud/docs/use-branch-permissions/) | Bitbucket docs on branch permissions |
-| [Configure Branch Restrictions](https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branch-restrictions/) | Bitbucket docs on merge checks and branch restrictions |
-| [Repository Access Token Permissions](https://support.atlassian.com/bitbucket-cloud/docs/repository-access-token-permissions/) | Bitbucket docs on repository-level permissions |
+|References| Links | 
+|--------- |-------|
+|Official Bitbucket feature overview| [Bitbucket Features](https://bitbucket.org/product/en/features) |  
+|Official documentation for Bitbucket Pipelines CI/CD | [Bitbucket Pipelines](https://support.atlassian.com/bitbucket-cloud/docs/pipeline-start-conditions/) | 
+|Bitbucket docs on branch permissions| [Branch Permissions](https://support.atlassian.com/bitbucket-cloud/docs/use-branch-permissions/) |  
+|Bitbucket docs on merge checks and branch restrictions| [Configure Branch Restrictions](https://support.atlassian.com/bitbucket-cloud/docs/configure-a-projects-branch-restrictions/) | 
+|Bitbucket docs on repository-level permissions| [Repository Access Token Permissions](https://support.atlassian.com/bitbucket-cloud/docs/repository-access-token-permissions/) |  
