@@ -17,7 +17,7 @@ ___
 3. [Why Cost Tag Reports are Required?](#3-why-cost-tag-reports-are-required)
 4. [Workflow](#4-workflow)
 5. [Cost Explorer Features](#5-cost-explorer-features)
-6. [Advantages](#6-advantages)
+6. [Advantages and Disadvantages](#6-advantages-disadvantages)
 7. [Use Cases](#7-use-cases)
 8. [Best Practices](#8-best-practices)
 9. [Conclusion](#9-conclusion)
@@ -89,13 +89,15 @@ Access to Cost Explorer and billing data is controlled via IAM policies (e.g. `A
 
 Billing data access can be restricted using IAM condition keys and SCPs; AWS CloudTrail can log who accessed or modified cost allocation tag settings for audit purposes.
 
-## 6. Advantages
+## 6. Advantages and Disadvantages
 
-- Clear cost attribution down to team, project, or environment level.
-- No additional tooling cost — built natively into AWS Cost Explorer.
-- Reports can be saved and reused, reducing repetitive manual analysis.
-- Supports both ad-hoc investigation and recurring reporting cadences.
-- Forms the basis for future automation (budgets, anomaly detection, alerts tied to tags).
+| **Advantages**| **Disadvantages** |
+|---------------|-------------------|
+| Clear cost attribution down to team, project, or environment level | |
+| No additional tooling cost — built natively into AWS Cost Explorer | |
+| Reports can be saved and reused, reducing repetitive manual analysis | |
+| Supports both ad-hoc investigation and recurring reporting cadences | |
+| Forms the basis for future automation (budgets, anomaly detection, alerts tied to tags) | |
 
 ## 7. Use Cases
 
