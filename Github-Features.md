@@ -46,6 +46,10 @@ GitHub is required because traditional ways of handling files — like emailing 
 
 ## 4. GitHub Features
 
+### Workflow Diagram:-
+
+<img width="697" height="579" alt="Screenshot 2026-09-13 at 10 28 55 PM" src="https://github.com/user-attachments/assets/038162cf-79f1-4d51-bcea-b11f41eccef3" />
+
 ### 4.1 Repository Management
 
 | **Feature** | **Description** |
