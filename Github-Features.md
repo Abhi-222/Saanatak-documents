@@ -4,8 +4,8 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on**  | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------- | ---------------- | ----------------|---------------- |
-| Sahil      | 10-09-26       | v1.0        | 10-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun|
-| Sahil      | 11-09-26       | v1.1        | 13-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun|
+| Sahil      | 10-09-26       | v1.0        | 10-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun`|
+| Sahil      | 11-09-26       | v1.1        | 13-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun`|
 
 ---
 
@@ -131,9 +131,9 @@ GitHub offers unmatched collaboration and version control for software developme
 
 | **Advantages** | **Disadvantages** |
 | -------- | --------- |
-|Centralized Collaboration -Streamlines teamwork through pull requests, code reviews, and inline comments. |Steep Learning Curve — Requires a solid understanding of Git command-line tools, which can be confusing for beginners.|
-|Robust Version Control— Safeguards your project history, making it easy to track changes and revert bugs. |Costly for Large Teams— Becomes expensive quickly as teams grow, since advanced features and team seats require paid monthly subscriptions.|
-|Built-In Security — Scans repositories automatically for exposed passwords, secrets, and vulnerable dependencies.| Repository Size Limits — Imposes strict limits on large files (over 100MB requires special setup), making it poorly suited for game development or massive datasets.|
+|Centralized Collaboration -Streamlines teamwork through pull requests, code reviews, and inline comments |Steep Learning Curve — Requires a solid understanding of Git command-line tools, which can be confusing for beginners|
+|Robust Version Control— Safeguards your project history, making it easy to track changes and revert bugs |Costly for Large Teams— Becomes expensive quickly as teams grow, since advanced features and team seats require paid monthly subscriptions|
+|Built-In Security — Scans repositories automatically for exposed passwords, secrets, and vulnerable dependencies| Repository Size Limits — Imposes strict limits on large files (over 100MB requires special setup), making it poorly suited for game development or massive datasets|
 
 
 
@@ -160,7 +160,7 @@ GitHub offers unmatched collaboration and version control for software developme
 
 ## 8. Conclusion
 
-GitHub combines repository management, code review, CI/CD automation, and security tooling into a single platform, making it a widely adopted choice for teams managing source code collaboratively. By following the best practices outlined in this document — protecting main branches, automating checks, and enforcing least-privilege access — teams can use GitHub not just as a code host, but as the back
+GitHub combines repository management, code review, CI/CD automation, and security tooling into a single platform, making it a widely adopted choice for teams managing source code collaboratively. By following the best practices outlined in this document — protecting main branches, automating checks, and enforcing least-privilege access — teams can use GitHub not just as a code host, but as the back.
 
 ---
 
