@@ -62,9 +62,9 @@ In Ansible, a Jinja template is just a normal text file (usually named with a .j
 ---
 
 # 5. Jinja Templating in Ansible Roles
-
+ 
 Within the standard Ansible Role directory structure, Jinja templates live in the `templates/` directory:
-
+ 
 ```
 roles/
 └── role_name/
@@ -76,55 +76,136 @@ roles/
     ├── defaults/
     └── meta/
 ```
-
-A task inside the role then uses the `template` module to render a file from `templates/` and place it on the target host, using variables defined in `vars/`, `defaults/`, inventory, or passed in when the role is invoked.
-
+ 
+A task inside the role then uses the `template` module to render a file from `templates/` and place it on the target host, using variables defined in `vars/`, `defaults/`, inventory, or passed in when the role is invoked. For example, a task in `tasks/main.yml` might look like this:
+ 
+```yaml
+- name: Render application config file
+  template:
+    src: config_file.conf.j2
+    dest: /etc/myapp/config_file.conf
+    owner: myapp
+    group: myapp
+    mode: "0644"
+```
+ 
+`src` points to the template inside the role's `templates/` directory, and `dest` is where the rendered file lands on the target host.
+ 
 ---
-
-## Example
-
-Let's look at a simple template and break down what each part does.
-
+ 
+## Examples
+ 
+Before looking at one combined template, here's each construct in isolation — a minimal template and its rendered output.
+ 
+### Variable Substitution
+ 
+**Template (`app.conf.j2`):**
 ```jinja2
-# {{ ansible_managed }}
 app_name={{ app_name }}
 app_port={{ app_port }}
-
+```
+ 
+**Variables:**
+- app_name: myapp
+- app_port: 8080
+**Rendered output:**
+```text
+app_name=myapp
+app_port=8080
+```
+ 
+Each `{{ variable_name }}` is replaced directly with the value Ansible has for that variable — no logic involved, just substitution.
+ 
+---
+ 
+### Conditional
+ 
+**Template (`app.conf.j2`):**
+```jinja2
+app_name={{ app_name }}
 {% if enable_debug %}
 debug_mode=true
 {% endif %}
-
+```
+ 
+**Case 1 — `enable_debug: true`:**
+```text
+app_name=myapp
+debug_mode=true
+```
+ 
+**Case 2 — `enable_debug: false`:**
+```text
+app_name=myapp
+```
+ 
+The `{% if %} ... {% endif %}` block adds or removes the line entirely based on the condition — there's no leftover blank line or placeholder when the condition is false, the line simply isn't rendered.
+ 
+---
+ 
+### Loop
+ 
+**Template (`app.conf.j2`):**
+```jinja2
 allowed_hosts:
 {% for host in allowed_hosts %}
   - {{ host }}
 {% endfor %}
 ```
-Here's what's happening, line by line:
-- {{ app_name }} and {{ app_port }} are placeholders — Ansible swaps these out for real values.
-- {% if enable_debug %} ... {% endif %} — this whole block only appears in the final file if enable_debug is set to true. If it's false, this line is skipped entirely.
-- {% for host in allowed_hosts %} ... {% endfor %} — this repeats the line inside it once for every item in the allowed_hosts list.
-
-Now say we set these values:
-
+ 
+**Variables:**
+- allowed_hosts: [server1, server2, server3]
+**Rendered output:**
+```text
+allowed_hosts:
+  - server1
+  - server2
+  - server3
+```
+ 
+The `{% for %} ... {% endfor %}` block repeats once per item in the list. Add or remove hosts in the variable and the output grows or shrinks automatically — the template itself never changes.
+ 
+---
+ 
+### Putting It Together
+ 
+Real templates usually combine all three constructs in one file. Here's the earlier example, now that each piece has been seen on its own:
+ 
+```jinja2
+# {{ ansible_managed }}
+app_name={{ app_name }}
+app_port={{ app_port }}
+ 
+{% if enable_debug %}
+debug_mode=true
+{% endif %}
+ 
+allowed_hosts:
+{% for host in allowed_hosts %}
+  - {{ host }}
+{% endfor %}
+```
+ 
+**Variables:**
 - app_name: myapp
 - app_port: 8080
 - enable_debug: true
 - allowed_hosts: [server1, server2]
-
-Ansible would turn the template above into this finished file:
-
-```jinja2
+**Rendered output:**
+```text
 # Ansible managed
 app_name=myapp
 app_port=8080
-
+ 
 debug_mode=true
-
+ 
 allowed_hosts:
   - server1
   - server2
 ```
-
+ 
+`{{ ansible_managed }}` is a built-in Ansible variable — it doesn't need to be defined anywhere, and typically renders as a note that the file is auto-generated, so no one edits it by hand on the server.
+ 
 ---
 
 # 6. Advantages and Disadvantages
