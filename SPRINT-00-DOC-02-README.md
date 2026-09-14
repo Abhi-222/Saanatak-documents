@@ -106,9 +106,6 @@ app_port={{ app_port }}
 ```
  
 **Variables:**
-- app_name: myapp
-- app_port: 8080
-**Rendered output:**
 ```text
 app_name=myapp
 app_port=8080
@@ -154,8 +151,6 @@ allowed_hosts:
 ```
  
 **Variables:**
-- allowed_hosts: [server1, server2, server3]
-**Rendered output:**
 ```text
 allowed_hosts:
   - server1
@@ -187,11 +182,6 @@ allowed_hosts:
 ```
  
 **Variables:**
-- app_name: myapp
-- app_port: 8080
-- enable_debug: true
-- allowed_hosts: [server1, server2]
-**Rendered output:**
 ```text
 # Ansible managed
 app_name=myapp
