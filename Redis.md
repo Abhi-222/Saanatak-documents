@@ -1,7 +1,7 @@
 # Redis Documentation
 
 <p align="center">
-  <img width="300" height="300" alt="Redis Icon" src="https://github.com/user-attachments/assets/efb92d42-cb23-444b-b13a-0e431b5ffa92" />
+  <img width="700" height="700" alt="Redis Icon" src="https://github.com/user-attachments/assets/efb92d42-cb23-444b-b13a-0e431b5ffa92" />
 </p>
 
 ---
