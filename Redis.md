@@ -1,12 +1,15 @@
-# Redis - Detailed Documentation
 
 <p align="center">
   <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/efb92d42-cb23-444b-b13a-0e431b5ffa92" />
 </p>
 
-| Author | Created on | Version | Last updated by | Last edited on |
-|--------|------------|---------|------------------|-----------------|
-| Sahil  | DD-MM-YYYY | Version 1 | Sahil | DD-MM-YYYY |
+# OT MS Understanding | Redis | Detailed documentation
+
+## Author Table
+
+| **Author** | **Created on** | **Version** | **Last edited on**  | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
+| ---------- | -------------- | ----------- | ------------------- |---------------- | ----------------|---------------- |
+| Sahil      | 10-09-26       | 1.0         | 10-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun`|
 
 ## Table of Contents
 
@@ -69,12 +72,6 @@ Redis is used in the OT-Microservices ecosystem for scenarios such as:
 ## 4. Getting Started
 
 ### 4.1 Pre-requisites
-
-| License Type | Description | Commercial Use | Open Source |
-|---|---|---|---|
-| RSALv2 / SSPLv1 / AGPLv3 (tri-license, choice of one) | Applies to Redis 8.0.x and later. Versions 7.4.x–7.8.x are RSALv2 or SSPLv1. Versions 7.2.x and earlier are BSD-3-Clause. | Yes (per license terms) | Yes |
-
-> Note: Redis's licensing changed with version 7.4 (away from the original BSD-3-Clause license). Confirm the license terms applicable to the specific Redis version being deployed before commercial use.
 
 ### 4.2 Software Overview
 
@@ -248,7 +245,7 @@ For production microservices, at minimum a master + one or more replicas with Se
 
 | Name | Email address |
 |---|---|
-| Sahil | sahil@example.com |
+| Sahil | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
 
 ## 14. References
 
