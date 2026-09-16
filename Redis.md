@@ -3,125 +3,108 @@
   <img width="1500" height="1000" alt="image" src="https://github.com/user-attachments/assets/efb92d42-cb23-444b-b13a-0e431b5ffa92" />
 </p>
 
-# OT MS Understanding | Redis | Detailed documentation
+# Redis Documentation
 
-## Author Table
+| Author | Created on | Version   | Last updated by | Last edited on |
+| ------ | ---------- | --------- | ---------------- | -------------- |
+| Sahil  | 16-09-26   | version 1 | Sahil            | 16-09-26       |
 
-| **Author** | **Created on** | **Version** | **Last edited on**  | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-| ---------- | -------------- | ----------- | ------------------- |---------------- | ----------------|---------------- |
-| Sahil      | 10-09-26       | 1.0         | 10-09-26            | `Vishal/Divya M`|   `Aayush Verma`| `Mahesh Kumar / Varun`|
+## Introduction
 
-## Table of Contents
+Redis (Remote Dictionary Server) is an open-source, in-memory data structure store used as a database, cache, message broker, and streaming engine. It stores data in memory rather than on disk, which makes read and write operations extremely fast compared to traditional disk-based databases. Redis supports a wide range of data structures such as strings, hashes, lists, sets, sorted sets, bitmaps, hyperloglogs, streams, and geospatial indexes.
 
-1. [Introduction](#1-introduction)
-2. [Purpose](#2-purpose)
-3. [Key Features](#3-key-features)
-4. [Getting Started](#4-getting-started)
-   - 4.1 [Pre-requisites](#41-pre-requisites)
-   - 4.2 [Software Overview](#42-software-overview)
-   - 4.3 [System Requirements](#43-system-requirements)
-   - 4.4 [Important Ports](#44-important-ports)
-5. [Dependencies](#5-dependencies)
-   - 5.1 [Run-time Dependency](#51-run-time-dependency)
-   - 5.2 [Other Dependency](#52-other-dependency)
-6. [How to Setup/Install Redis](#6-how-to-setupinstall-redis)
-   - 6.1 [Step-by-step Installation Instructions](#61-step-by-step-installation-instructions)
-   - 6.2 [Configuration](#62-configuration)
-7. [Maintenance](#7-maintenance)
-8. [Monitoring](#8-monitoring)
-9. [Disaster Recovery](#9-disaster-recovery)
-10. [High Availability](#10-high-availability)
-11. [Troubleshooting](#11-troubleshooting)
-12. [FAQs](#12-faqs)
-13. [Contact Information](#13-contact-information)
-14. [References](#14-references)
+## Purposes
 
----
+Redis is commonly used to solve the following problems:
 
-## 1. Introduction
+- **Caching** — reducing load on a primary database by storing frequently accessed data in memory (e.g., session data, API responses, computed query results).
+- **Session Management** — storing user session data for web applications in a fast, shared store accessible across multiple app servers.
+- **Message Broker / Pub-Sub** — enabling real-time messaging between services using Redis Pub/Sub or Streams.
+- **Rate Limiting** — using atomic counters (INCR, EXPIRE) to throttle API requests.
+- **Leaderboards / Real-time Analytics** — using Sorted Sets to maintain ranked data such as gaming leaderboards.
+- **Queueing** — using Lists or Streams as lightweight job/task queues.
 
-Redis (**RE**mote **DI**ctionary **S**erver) is an open-source, in-memory data structure store used as a database, cache, message broker, and streaming engine. Because data is held primarily in RAM, Redis delivers sub-millisecond read/write latency, which makes it a common choice for caching layers, session stores, real-time analytics, and pub/sub messaging in microservices architectures.
+## Key features
 
-<!-- Screenshot placeholder: Redis architecture / logo banner -->
+- **In-memory storage** — data is stored in RAM, giving sub-millisecond read/write latency.
+- **Rich data structures** — Strings, Hashes, Lists, Sets, Sorted Sets, Bitmaps, HyperLogLogs, Streams, Geospatial indexes.
+- **Persistence options** — RDB (point-in-time snapshots) and AOF (append-only file logging) for durability.
+- **Replication** — supports master-replica replication for read scalability and failover.
+- **High Availability** — Redis Sentinel provides automatic failover and monitoring.
+- **Clustering** — Redis Cluster allows horizontal scaling by sharding data across multiple nodes.
+- **Atomic operations** — operations like INCR/DECR are atomic, useful for counters and locks.
+- **Pub/Sub messaging** — built-in publish/subscribe messaging pattern.
+- **Lua scripting** — supports server-side scripting for complex atomic operations.
+- **TTL support** — keys can be set to expire automatically, ideal for caching.
 
-## 2. Purpose
+## Getting Started
 
-Redis is used in the OT-Microservices ecosystem for scenarios such as:
+### Pre-requisites
 
-- **Caching** – reducing database load by storing frequently accessed data (e.g., API responses, session tokens) in memory.
-- **Session management** – storing user session state for stateless application servers.
-- **Rate limiting** – using atomic counters (`INCR`, `EXPIRE`) to throttle API requests.
-- **Pub/Sub messaging** – lightweight event broadcasting between microservices.
-- **Leaderboards / real-time analytics** – using Sorted Sets for ranking and counting use cases.
-- **Message queues** – using Lists or Streams for lightweight job queues.
+| License Type | Description                                                     | Commercial Use | Open Source |
+| ------------- | ---------------------------------------------------------------- | --------------- | ----------- |
+| BSD 3-Clause  | Redis (up to 7.2) is free and open for public use and modification. Redis 7.4+ moved to RSALv2/SSPLv1 dual license for source-available use; check version-specific terms before commercial redistribution. | Yes             | Yes         |
 
-## 3. Key Features
-
-| Feature | Description |
-|---|---|
-| In-memory storage | Data is stored in RAM, giving very low read/write latency compared to disk-based databases. |
-| Rich data structures | Supports Strings, Hashes, Lists, Sets, Sorted Sets, Bitmaps, HyperLogLogs, Geospatial indexes, and Streams. |
-| Persistence options | Supports RDB (point-in-time snapshots) and AOF (append-only file) persistence to recover data after restarts. |
-| Replication | Master-replica replication for read scaling and failover. |
-| High Availability | Redis Sentinel provides automatic failover; Redis Cluster provides sharding and HA at scale. |
-| Atomic operations | Commands like `INCR`, `SETNX` are atomic, making Redis reliable for counters and locks. |
-| Pub/Sub | Built-in publish/subscribe messaging system. |
-| Lua scripting | Server-side scripting for complex atomic operations. |
-| Transactions | `MULTI`/`EXEC` support for grouping commands. |
-
-## 4. Getting Started
-
-### 4.1 Pre-requisites
-
-### 4.2 Software Overview
+### Software Overview
 
 | Software | Version |
-|---|---|
-| Redis | 8.0.x (latest stable line as of documentation date) |
+| -------- | ------- |
+| Redis    | 8.0.5 (default via Ubuntu 26.04 "Resolute" universe repo) |
 
-### 4.3 System Requirements
+### System Requirement
 
-| Requirement | Minimum Recommendation |
-|---|---|
-| Processor/Instance Type | Dual-Core / t2.medium instance (or higher for production workloads) |
-| RAM | 4 GB or higher (Redis is memory-bound — size RAM to dataset size plus overhead) |
-| ROM (Disk Space) | 10 GB or higher (for persistence files — RDB/AOF) |
-| OS Required | Linux (Ubuntu 20.04+/Amazon Linux 2 or later recommended) |
+| Requirement              | Minimum Recommendation                     |
+| ------------------------- | ------------------------------------------- |
+| Processor/Instance Type   | Dual-Core / T2.medium instance              |
+| RAM                       | 2 GB minimum (size to dataset + overhead)   |
+| ROM (Disk Space)          | 10 GB or higher (for RDB/AOF persistence)   |
+| OS Required               | Linux — Ubuntu 26.04 LTS "Resolute" (also works on 22.04/24.04, CentOS/RHEL 7+) |
 
-### 4.4 Important Ports
+### Important Ports
 
-| Port | Description |
-|---|---|
-| 22 | Used to establish an SSH connection to the EC2 instance for setup and access. |
-| 6379 | Default Redis server port used for client connections. |
-| 16379 | Default Redis Cluster bus port (used for node-to-node communication when Cluster mode is enabled; typically the client port + 10000). |
-| 26379 | Default Redis Sentinel port (used when Sentinel is configured for high availability). |
+| Ports | Description                                                                 |
+| ----- | ---------------------------------------------------------------------------- |
+| 22    | Used to establish an SSH connection to the server and access a shell.       |
+| 6379  | Default Redis server port used by clients to connect to the Redis instance. |
+| 16379 | Used by Redis Cluster for node-to-node bus communication (client port + 10000). |
+| 26379 | Default port for Redis Sentinel.                                             |
 
-## 5. Dependencies
+## Dependencies
 
-### 5.1 Run-time Dependency
+### Run-time Dependency
 
 | Run-time Dependency | Version | Description |
-|---|---|---|
-| glibc | System default (Ubuntu 20.04+) | Standard C library required to run the Redis server binary. |
-| systemd | System default | Used to manage the Redis service (start/stop/enable on boot). |
+| --------------------- | ------- | ------------ |
+| glibc                  | 2.17+   | Standard C library required to run the Redis binary on Linux. |
+| systemd                | Any recent | Used to manage the Redis service (start/stop/enable on boot). |
 
-### 5.2 Other Dependency
+### Other Dependency
 
 | Other Dependency | Version | Description |
-|---|---|---|
-| redis-tools / redis-cli | Matches server version | Command-line client used to interact with and administer Redis. |
-| build-essential, tcl | Latest (apt) | Required only if compiling Redis from source. |
+| ------------------ | ------- | ------------ |
+| gcc / build-essential | Latest (repo) | Required only if compiling Redis from source. |
+| tcl                    | 8.5+          | Required to run Redis's own test suite when building from source. |
 
-## 6. How to Setup/Install Redis
+## How to Setup/Install Redis
 
-### 6.1 Step-by-step Installation Instructions
+### Step-by-step Installation Instruction
 
-**Install via apt (Ubuntu/Debian):**
+**On Ubuntu 26.04 (Resolute):**
+
+Redis is available directly from Ubuntu's default `universe` repository — no third-party source needs to be added.
 
 ```
 sudo apt update
-sudo apt install redis-server -y
+sudo apt install redis-server redis-tools -y
+```
+
+This installs the `redis-server` package for the daemon and `redis-tools`, which provides `redis-cli` and related client utilities. The package also creates `/etc/redis/redis.conf` and registers the `redis-server.service` systemd unit automatically, pre-configured with `--supervised systemd --daemonize no`.
+
+**On CentOS/RHEL:**
+
+```
+sudo yum install epel-release -y
+sudo yum install redis -y
 ```
 
 **Start and enable the service:**
@@ -137,121 +120,130 @@ sudo systemctl enable redis-server
 redis-cli ping
 ```
 
-A healthy instance responds with `PONG`.
+A response of `PONG` confirms Redis is installed and running correctly.
 
-<!-- Screenshot placeholder: terminal output of redis-cli ping showing PONG -->
+**Verify the exact package/version installed:**
 
-### 6.2 Configuration
+```
+apt list --installed | grep redis
+redis-server --version
+```
 
-The main configuration file is located at `/etc/redis/redis.conf`. Common settings to review/change:
+### Configuration
 
-| Setting | Purpose |
-|---|---|
-| `bind` | Restricts which network interfaces Redis listens on (avoid `0.0.0.0` in production without protection). |
-| `port` | Port Redis listens on (default `6379`). |
-| `requirepass` | Sets an authentication password — should always be set outside local dev environments. |
-| `maxmemory` | Caps memory usage; works with `maxmemory-policy` to control eviction. |
-| `maxmemory-policy` | Eviction strategy when `maxmemory` is reached (e.g., `allkeys-lru`, `volatile-ttl`). |
-| `appendonly` | Enables AOF persistence (`yes`/`no`). |
-| `save` | Defines RDB snapshot intervals. |
+Redis is configured primarily through the `redis.conf` file, typically located at `/etc/redis/redis.conf`.
 
-After editing the configuration file, restart the service:
+Common configuration changes:
+
+- **Bind address** — restrict which interfaces Redis listens on:
+  ```
+  bind 127.0.0.1 -::1
+  ```
+- **Set a password (requirepass):**
+  ```
+  requirepass YourStrongPassword
+  ```
+- **Persistence mode** — enable AOF for durability:
+  ```
+  appendonly yes
+  ```
+- **Max memory and eviction policy:**
+  ```
+  maxmemory 512mb
+  maxmemory-policy allkeys-lru
+  ```
+
+After editing the configuration file, restart Redis to apply changes:
 
 ```
 sudo systemctl restart redis-server
 ```
 
-<!-- Screenshot placeholder: redis.conf key settings highlighted -->
+## Maintenance
 
-## 7. Maintenance
+Follow these commands to maintain the Redis service:
 
 ```
-# For Update
+# For Update (Ubuntu/Debian)
 sudo apt update && sudo apt upgrade redis-server -y
 
-# To upgrade software version
-sudo apt install redis-server=<version> -y
+# To check installed/upgraded software version
+redis-server --version
 
 # For restart
 sudo systemctl restart redis-server
-
-# To check service status
-sudo systemctl status redis-server
 ```
 
-## 8. Monitoring
+Periodic maintenance tasks should also include reviewing memory usage (`INFO memory`), checking for slow queries (`SLOWLOG GET`), and rotating/compacting AOF files (`BGREWRITEAOF`).
 
-After installation, verify Redis is running correctly and monitor its health using the following:
+## Monitoring
 
-| Command | Purpose |
-|---|---|
-| `redis-cli ping` | Confirms the server is up and responding. |
-| `redis-cli info` | Returns detailed server stats (memory, clients, persistence, replication). |
-| `redis-cli info memory` | Shows current memory usage — useful for catching memory pressure early. |
-| `redis-cli monitor` | Streams all commands processed by the server in real time (use with caution in production — performance impact). |
-| `redis-cli --latency` | Measures round-trip latency to the server. |
+After installation, confirm Redis is running and healthy using the following:
 
-Log files are typically located at `/var/log/redis/redis-server.log` and should be checked first when investigating issues.
+```
+# Check service status
+sudo systemctl status redis-server
 
-<!-- Screenshot placeholder: redis-cli info output -->
+# Confirm Redis is responsive
+redis-cli ping
 
-## 9. Disaster Recovery
+# View real-time server statistics
+redis-cli info
 
-Disaster recovery processes ensure continuity and recoverability of Redis data in the event of node failure or data loss.
+# Monitor commands in real time
+redis-cli monitor
+```
 
-- **RDB snapshots**: Point-in-time backups saved to disk (`dump.rdb`) at configured intervals — restore by placing the file in the data directory and restarting Redis.
-- **AOF (Append Only File)**: Logs every write operation; provides more durable recovery with minimal data loss compared to RDB alone.
-- **Regular backup copies**: Copy `dump.rdb`/`appendonly.aof` files off-instance (e.g., to S3) on a schedule.
-- **Replica promotion**: In a replicated setup, a replica can be promoted to master if the primary node fails.
+Key metrics to watch: `used_memory`, `connected_clients`, `keyspace_hits` / `keyspace_misses`, `evicted_keys`, and `rejected_connections`. In case of issues, check logs at `/var/log/redis/redis-server.log` for errors or warnings.
 
-Best practice is to combine RDB + AOF persistence with automated, off-host backups.
+## Disaster Recovery
 
-## 10. High Availability
+- **RDB Snapshots** — Redis periodically saves point-in-time snapshots of the dataset to disk (`dump.rdb`). Snapshot frequency is configured via `save` directives in `redis.conf`.
+- **AOF (Append Only File)** — logs every write operation; on restart, Redis replays the AOF to reconstruct the dataset with minimal data loss.
+- **Backup strategy** — regularly copy `dump.rdb` / AOF files to a separate storage location (e.g., S3) outside the Redis host.
+- **Restore process** — stop Redis, replace the `dump.rdb` (or AOF file) in the configured data directory, then restart the service to reload the data.
+- Best practice: combine RDB + AOF ("hybrid persistence") for both fast restarts and minimal data loss.
 
-Redis provides HA through two main mechanisms:
+## High Availability
 
-- **Redis Sentinel**: Monitors master and replica nodes, and automatically performs failover by promoting a replica to master if the current master becomes unavailable.
-- **Redis Cluster**: Shards data across multiple nodes and provides automatic failover per shard, allowing Redis to scale horizontally while remaining available if individual nodes fail.
+- **Redis Sentinel** — monitors master and replica nodes, automatically promotes a replica to master on failure, and notifies clients of the topology change.
+- **Replication** — a master node replicates writes to one or more replica nodes, which can serve read traffic and act as failover candidates.
+- **Redis Cluster** — shards data across multiple master nodes (with replicas for each shard), providing both horizontal scalability and automatic failover, with no single point of failure.
+- For production workloads, running at least 3 Sentinel nodes (for quorum) or a properly sized Redis Cluster is recommended over a single standalone instance.
 
-For production microservices, at minimum a master + one or more replicas with Sentinel is recommended to avoid a single point of failure.
+## Troubleshooting
 
-## 11. Troubleshooting
+- **Redis service fails to start** — check `/var/log/redis/redis-server.log` for port conflicts or permission issues on the data directory; verify `redis.conf` syntax.
+- **`Could not connect to Redis` errors** — confirm the service is running (`systemctl status redis-server`) and that the `bind` directive/firewall rules allow the client's IP.
+- **`NOAUTH Authentication required` error** — the `requirepass` directive is set; clients must authenticate using `AUTH <password>` or the `-a` flag with `redis-cli`.
+- **High memory usage / OOM kills** — review `maxmemory` and `maxmemory-policy`; without an eviction policy, Redis can consume all available RAM.
+- **Data loss after restart** — verify persistence is enabled (`appendonly yes` and/or `save` snapshot rules); an unconfigured instance runs in memory-only mode.
 
-| Issue | Cause | Resolution |
-|---|---|---|
-| `Could not connect to Redis` | Redis service not running, or bind/firewall blocking the port | Check `sudo systemctl status redis-server`; verify port 6379 is open and `bind`/`protected-mode` settings are correct |
-| `NOAUTH Authentication required` | `requirepass` is set but client did not authenticate | Run `redis-cli -a <password>` or `AUTH <password>` after connecting |
-| High memory usage / OOM | No `maxmemory` limit set, or eviction policy not configured | Set `maxmemory` and an appropriate `maxmemory-policy` |
-| Data lost after restart | Persistence (RDB/AOF) not enabled | Enable `appendonly yes` and/or configure `save` intervals |
-| Slow commands | Use of blocking or O(N) commands (e.g., `KEYS *`) on large datasets | Use `SCAN` instead of `KEYS`, and review `redis-cli --latency` / slow log |
-
-<!-- Screenshot placeholder: error output for common issue, if applicable -->
-
-## 12. FAQs
+## FAQs
 
 - **Is Redis free to use?**
-  - Yes, Redis Open Source is free to use; however, licensing terms changed starting with version 7.4 (RSALv2/SSPLv1/AGPLv3 tri-license) — review terms for commercial/managed-service use cases.
+  - Redis versions through 7.2 are open-source (BSD 3-Clause). From Redis 7.4 onward, Redis Ltd. moved core Redis to a dual RSALv2/SSPLv1 source-available license — free to use in most cases, but commercial redistribution/hosting scenarios should be reviewed against current license terms.
 
-- **Can Redis be deployed on all cloud platforms?**
-  - Yes, Redis can be self-hosted on any cloud provider (AWS EC2, Azure VM, GCP Compute) or consumed as a managed service (e.g., AWS ElastiCache for Redis).
+- **Can Redis data be persisted, since it's an in-memory store?**
+  - Yes. Redis supports RDB snapshots and AOF logging so data can survive restarts and crashes.
 
-- **Does Redis persist data by default?**
-  - Partially — RDB snapshotting is enabled by default with periodic saves; AOF must be explicitly enabled for stronger durability.
+- **Can Redis be deployed on any cloud platform?**
+  - Yes, Redis can be deployed on AWS, Azure, GCP, or on-premises; managed offerings (e.g., AWS ElastiCache for Redis) are also available.
 
-- **Is Redis single-threaded?**
-  - The core command execution is single-threaded (per shard), which is why Redis avoids costly O(N) blocking commands in production; I/O threading was introduced in later versions to improve throughput.
+- **Does Redis support clustering for large datasets?**
+  - Yes, Redis Cluster shards data across multiple nodes to scale horizontally beyond a single machine's memory.
 
-## 13. Contact Information
+## Contact Information
 
-| Name | Email address |
-|---|---|
-| Sahil | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
+| Name  | Email address        |
+| ----- | --------------------- |
+| Sahil | sahil@mygurukulam.co |
 
-## 14. References
+## References
 
-| Links | Description |
-|---|---|
-| https://redis.io/docs/latest/ | Official Redis documentation |
-| https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/ | Official Redis installation guide |
-| https://redis.io/docs/latest/operate/rs/release-notes/ | Redis release notes and version history |
-| https://github.com/OT-MICROSERVICES/documentation-template/wiki/Software-Template | Documentation format followed from this template |
+| Links                                              | Descriptions                                    |
+| ---------------------------------------------------- | ------------------------------------------------ |
+| https://redis.io/docs/latest/                        | Official Redis documentation                     |
+| https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/ | Reference for Redis persistence (RDB/AOF) details |
+| https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/    | Reference for Redis Sentinel / High Availability  |
+| https://github.com/OT-MICROSERVICES/documentation-template/wiki/Software-Template | Software Template this document follows          |
