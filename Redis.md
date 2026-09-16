@@ -199,10 +199,10 @@ sudo systemctl restart redis-server
 
 ```
 
-<details>
+<!-- <details>
 <summary><strong>Screenshot - redis.conf edited with requirepass and appendonly set</strong></summary>
 <img width="802" height="571" alt="Screenshot 2026-09-16 at 2 01 42 PM" src="https://github.com/user-attachments/assets/5929659f-3943-4ba3-907e-14d7a2b573de" />
-</details>
+</details> -->
 
 ---
 
