@@ -34,9 +34,7 @@
 
 # 1. Purpose
 
-The purpose of this document is to provide a structured guide for Redis installation, configuration, basic CLI operations, maintenance, monitoring, disaster recovery, and high availability on AWS EC2.
-
-It covers the required prerequisites, system requirements, important ports, installation steps, configuration parameters, and verification of a working Redis instance.
+This document explains how to install, configure, and manage Redis on AWS EC2. It covers everything needed to get Redis up and running — including setup steps, basic commands, day-to-day maintenance, monitoring, backup/recovery, and high availability — so that anyone on the team can follow it and deploy Redis confidently, even without prior experience.
 
 ---
 
@@ -47,11 +45,8 @@ It covers the required prerequisites, system requirements, important ports, inst
 | In-Memory Storage | Data is stored in RAM, giving sub-millisecond read/write latency. |
 | Rich Data Structures | Supports Strings, Hashes, Lists, Sets, Sorted Sets, Bitmaps, HyperLogLogs, Streams, and Geospatial indexes. |
 | Persistence Options | RDB (point-in-time snapshots) and AOF (append-only file logging) for durability. |
-| Replication | Supports master-replica replication for read scalability and failover. |
-| High Availability | Redis Sentinel provides automatic failover and monitoring. |
-| Clustering | Redis Cluster allows horizontal scaling by sharding data across multiple nodes. |
+| High Availability & Clustering | Redis Sentinel provides automatic failover and monitoring; Redis Cluster enables horizontal scaling by sharding data across nodes. |
 | Atomic Operations | Operations like INCR/DECR are atomic, useful for counters and locks. |
-| AWS Support | Can be deployed on AWS EC2 instances. |
 
 ---
 
@@ -62,23 +57,23 @@ It covers the required prerequisites, system requirements, important ports, inst
 Before installing Redis, ensure the following prerequisites are available:
 
 | **Requirement** | **Details / Verification** |
-| --- | --- |
+| ----------------| -------------------------- |
 | AWS EC2 | EC2 instance with a supported Linux distribution. |
-| Operating System | Ubuntu 26.04 LTS "Resolute" (also works on 22.04/24.04). |
-| Network Connectivity | Client applications should be able to reach the instance on the required port. |
+| Operating System | Ubuntu 26.04 LTS "Resolute Raccoon" (also works on 22.04/24.04). |
 | Sudo Access | Required for package installation and configuration. |
-| Security Group | Required Redis port must be allowed. |
+| Security Group | Inbound rule allowing TCP port 6379 from trusted sources/clients. |
+| Network Connectivity | Client applications must be able to reach the instance on port 6379. |
 
 ---
 
 ## Software Overview
 
 | **Component / Command** | **Purpose** |
-| --- | --- |
+| ----------------------- | ----------- |
 | `redis-server` | Main Redis database service/daemon. |
-| `redis.conf` | Main Redis configuration file. |
-| `redis-cli` | Command-line interface for executing Redis commands. |
-| `redis-tools` | Package providing `redis-cli` and related client utilities. |
+| `redis.conf` | Main Redis configuration file (`/etc/redis/redis.conf`). |
+| `redis-cli` | Command-line interface for executing Redis commands (included in `redis-tools`). |
+| `redis-tools` | Package providing client utilities: `redis-cli`, `redis-benchmark`, `redis-check-aof`, `redis-check-rdb`. |
 | `systemctl` | Used to start, stop, enable, and check the Redis service. |
 
 ---
@@ -90,10 +85,10 @@ The setup is performed on AWS EC2 using Ubuntu.
 | **Requirement** | **Environment** |
 | --- | --- |
 | Platform | AWS EC2 |
-| Instance Type | m7i.xlarge (4 vCPU) |
-| OS | Ubuntu 26.04 LTS "Resolute" |
-| Redis Version | 8.0.5 (default via Ubuntu 26.04 "Resolute" universe repo) |
-| RAM | 2 GB minimum (size to dataset + overhead) |
+| Instance Type | m7i.xlarge (4 vCPU, 16 GB RAM) |
+| OS | Ubuntu 26.04 LTS "Resolute Raccoon" |
+| Redis Version | 8.0.5 (default via Ubuntu 26.04 "Resolute Raccoon" universe repo) |
+| RAM | 2 GB minimum for Redis workload (m7i.xlarge provides 16 GB headroom) |
 | Disk Space | 10 GB or higher (for RDB/AOF persistence) |
 
 > For production deployments, hardware sizing should be based on workload, dataset size, and expected throughput.
@@ -103,9 +98,9 @@ The setup is performed on AWS EC2 using Ubuntu.
 ## Important Ports
 
 | **Port** | **Protocol** | **Purpose** |
-| --- | --- | --- |
-| `22` | TCP | Used to establish an SSH connection to the server and access a shell. |
-| `6379` | TCP | Default Redis server port used by clients to connect to the Redis instance. |
+| -------- | ------------ | ----------- |
+| `22`     | TCP          | Used to establish an SSH connection to the server and access a shell. |
+| `6379`   | TCP          | Default Redis server port used by clients to connect to the Redis instance. |
 
 > Port `6379` should be restricted to trusted clients or application networks via the security group.
 
@@ -116,9 +111,10 @@ The setup is performed on AWS EC2 using Ubuntu.
 Redis on Ubuntu 26.04 is installed directly from the default `universe` repository — no external packages need to be added beforehand.
 
 | **Dependency** | **Purpose** |
-| --- | --- |
-| `apt` | Installs and manages the Redis packages. |
-| `systemd` | Manages the Redis service. |
+| -------------- | ----------- |
+| `apt`          | Installs and manages the Redis packages. |
+| `systemd`      | Manages the Redis service. |
+| `universe repository` | Ubuntu component that hosts the `redis-server`/`redis-tools` packages (usually enabled by default). |
 
 ---
 
@@ -129,6 +125,10 @@ Redis on Ubuntu 26.04 is installed directly from the default `universe` reposito
 ```bash
 sudo apt update
 ```
+<details>
+<summary><strong>Screenshot - Package index updated</strong></summary>
+<img width="1440" height="305" alt="Screenshot 2026-09-16 at 1 49 26 PM" src="https://github.com/user-attachments/assets/ea65f00d-1536-4f94-b6db-33631715e7d4" />
+</details>
 
 ---
 
@@ -137,6 +137,10 @@ sudo apt update
 ```bash
 sudo apt install redis-server redis-tools -y
 ```
+<details>
+<summary><strong>Screenshot - Redis packages installed</strong></summary>
+<img width="1261" height="626" alt="Screenshot 2026-09-16 at 1 52 16 PM" src="https://github.com/user-attachments/assets/ba833162-750f-4bfc-96a3-33dd53e7109b" />
+</details>
 
 This installs the `redis-server` package for the daemon and `redis-tools`, which provides `redis-cli` and related client utilities. The package also creates `/etc/redis/redis.conf` and registers the `redis-server.service` systemd unit automatically, pre-configured with `--supervised systemd --daemonize no`.
 
@@ -144,23 +148,16 @@ This installs the `redis-server` package for the daemon and `redis-tools`, which
 
 ## 5.3 Start and Enable Redis
 
-Enable the service:
-
 ```bash
 sudo systemctl enable redis-server
-```
-
-Start the service:
-
-```bash
 sudo systemctl start redis-server
-```
-
-Check the service:
-
-```bash
 sudo systemctl status redis-server --no-pager
 ```
+
+<details>
+<summary><strong>Screenshot - Redis service enabled and running</strong></summary>
+<img width="866" height="343" alt="Screenshot 2026-09-16 at 1 52 51 PM" src="https://github.com/user-attachments/assets/8bf89bb3-d6b9-424a-bd5b-020fb3d84569" />
+</details>
 
 ---
 
@@ -179,6 +176,11 @@ apt list --installed | grep redis
 redis-server --version
 ```
 
+<details>
+<summary><strong>Screenshot - Redis ping and version verified</strong></summary>
+<img width="816" height="155" alt="Screenshot 2026-09-16 at 1 53 23 PM" src="https://github.com/user-attachments/assets/837eae1f-7e9f-43c3-8d31-c3206b0f49dd" />
+</details>
+
 ---
 
 # Configuration
@@ -189,30 +191,18 @@ The main Redis configuration file is:
 /etc/redis/redis.conf
 ```
 
-Edit the configuration:
+To Edit the configuration:
 
 ```bash
 sudo nano /etc/redis/redis.conf
-```
-
-Example configuration changes:
-
-```conf
-bind 127.0.0.1 -::1
-
-requirepass YourStrongPassword
-
-appendonly yes
-
-maxmemory 512mb
-maxmemory-policy allkeys-lru
-```
-
-After editing the configuration file, restart Redis to apply changes:
-
-```bash
 sudo systemctl restart redis-server
+
 ```
+
+<details>
+<summary><strong>Screenshot - redis.conf edited with requirepass and appendonly set</strong></summary>
+<img width="802" height="571" alt="Screenshot 2026-09-16 at 2 01 42 PM" src="https://github.com/user-attachments/assets/5929659f-3943-4ba3-907e-14d7a2b573de" />
+</details>
 
 ---
 
@@ -220,15 +210,11 @@ sudo systemctl restart redis-server
 
 After installing Redis, basic commands can be used to verify connectivity, set and retrieve keys, and confirm expiry behavior.
 
-## 6.1 Connect to Redis
-
-Connect to the Redis CLI:
+Connect to the Redis CLI
 
 ```bash
-redis-cli
+redis-cli 
 ```
-
-## 6.2 Set a Key
 
 Set a test key:
 
@@ -236,15 +222,12 @@ Set a test key:
 SET service_status "SUCCESS"
 ```
 
-## 6.3 Get a Key
 
 Retrieve the key:
 
 ```bash
 GET service_status
 ```
-
-## 6.4 Set a Key with Expiry
 
 Set a key with a TTL (in seconds):
 
@@ -258,24 +241,17 @@ Check remaining time-to-live:
 TTL session_token
 ```
 
-## 6.5 Delete a Key
+Delete a Key
 
 ```bash
 DEL service_status
 ```
 
-## 6.6 Verified Output
 
-The commands were successfully verified on the EC2 instance:
-
-```text
-127.0.0.1:6379> SET service_status "SUCCESS"
-OK
-127.0.0.1:6379> GET service_status
-"SUCCESS"
-```
-
-This confirms that **Redis is running, CLI connectivity is working, and keys can be set and retrieved successfully.**
+<details>
+<summary><strong>Screenshot - CLI SET/GET/TTL/DEL verified</strong></summary>
+<img width="478" height="238" alt="Screenshot 2026-09-16 at 1 55 48 PM" src="https://github.com/user-attachments/assets/fbc778b8-625d-4395-ab72-9dae10676d13" />
+</details>
 
 ---
 
@@ -283,18 +259,18 @@ This confirms that **Redis is running, CLI connectivity is working, and keys can
 
 Regular maintenance helps keep the Redis instance healthy and reliable.
 
-| **Task** | **Command / Action** |
-| --- | --- |
-| Check Service | `sudo systemctl status redis-server` |
+| **Task**        | **Command / Action** |
+| --------------- | -------------------- |
+| Check Service   | `sudo systemctl status redis-server` |
 | Restart Service | `sudo systemctl restart redis-server` |
-| Update Package | `sudo apt update && sudo apt upgrade redis-server -y` |
-| Check Version | `redis-server --version` |
-| Check CLI | `redis-cli ping` |
-| Check Disk | `df -h` |
+| Update Package  | `sudo apt update && sudo apt upgrade redis-server -y` |
+| Check Version   | `redis-server --version` |
+| Check CLI       | `redis-cli ping` |
+| Check Disk      | `df -h` |
 | Check System Resources | `free -h` / `nproc` |
-| Check Logs | `sudo journalctl -u redis-server` |
-| Rewrite AOF | `redis-cli BGREWRITEAOF` |
-| Check Slow Queries | `redis-cli SLOWLOG GET` |
+| Check Logs             | `sudo journalctl -u redis-server` |
+| Rewrite AOF            | `redis-cli BGREWRITEAOF` |
+| Check Slow Queries     | `redis-cli SLOWLOG GET` |
 
 ---
 
@@ -302,19 +278,23 @@ Regular maintenance helps keep the Redis instance healthy and reliable.
 
 Monitoring helps identify performance problems, resource exhaustion, and service availability issues.
 
-| **Metric / Check** | **Purpose** | **Command / Tool** |
-| --- | --- | --- |
-| Service Status | Verify service health | `sudo systemctl status redis-server` |
-| Server Stats | View memory, clients, stats | `redis-cli info` |
-| Live Command Monitor | Watch commands in real time | `redis-cli monitor` |
-| Memory Usage | Detect memory pressure | `redis-cli info memory` / `free -h` |
-| CPU Usage | Detect CPU saturation | `top` / `htop` |
-| Disk Usage | Prevent storage exhaustion | `df -h` |
-| Redis Port | Verify port 6379 | `ss -lntp \| grep 6379` |
-| Service Logs | View recent logs | `journalctl -u redis-server -n 100` |
-| Live Logs | Monitor logs continuously | `journalctl -u redis-server -f` |
+| **Metric / Check**   | **Purpose**                 | **Command / Tool** |
+| -------------------- | ----------------------------| ------------------ |
+| Service Status       | Verify service health          | `sudo systemctl status redis-server` |
+| Server Stats         | View memory, clients, stats    | `redis-cli info` |
+| Live Command Monitor | Watch commands in real time    | `redis-cli monitor` |
+| Memory Usage         | Detect memory pressure         | `redis-cli info memory` / `free -h` |
+| CPU Usage            | Detect CPU saturation          | `top` / `htop` |
+| Disk Usage           | Prevent storage exhaustion     | `df -h` |
+| Redis Port           | Verify port 6379               | `ss -lntp \| grep 6379` |
+| Connected Clients    | Detect connection leaks/spikes | `redis-cli info clients` |
+| Latency              | Measure command response time  | `redis-cli --latency` |
+| Service Logs         | View recent logs               | `journalctl -u redis-server -n 100` |
+| Live Logs            | Monitor logs continuously      | `journalctl -u redis-server -f` |
 
 Key metrics to watch: `used_memory`, `connected_clients`, `keyspace_hits` / `keyspace_misses`, `evicted_keys`, and `rejected_connections`.
+
+> `redis-cli monitor` streams every command in real time and can noticeably impact performance — avoid running it on high-throughput production instances for extended periods.
 
 ---
 
@@ -322,16 +302,16 @@ Key metrics to watch: `used_memory`, `connected_clients`, `keyspace_hits` / `key
 
 Disaster Recovery (DR) consists of processes, strategies, and tools used to recover Redis services and data after unexpected failures.
 
-| **Failure Scenario** | **Protection Mechanism** |
-| --- | --- |
-| Instance Failure | RDB/AOF backups restored to a new instance |
-| Disk Failure | Replicated data and off-instance backups |
-| Data Corruption | Backup and restore |
-| Accidental Deletion | Backup (RDB snapshot / AOF replay) |
+| **Failure Scenario**      | **Protection Mechanism** |
+| ------------------------- | ------------------------ |
+| Instance Failure          | RDB/AOF backups restored to a new instance |
+| Disk Failure              | Replicated data and off-instance backups |
+| Data Corruption           | Backup and restore |
+| Accidental Deletion       | Backup (RDB snapshot / AOF replay) |
 | Availability Zone Failure | Multi-AZ deployment with replicas |
-| Region Failure | Cross-region backup strategy |
+| Region Failure            | Cross-region backup strategy |
 
-RDB snapshots (`dump.rdb`) and AOF logs should be copied regularly to a separate storage location (e.g., S3) outside the Redis host. Restoring involves stopping Redis, replacing the data file in the configured data directory, and restarting the service.
+RDB snapshots (`dump.rdb`) and AOF logs should be copied regularly to a separate storage location (e.g., S3) outside the Redis host.
 
 ---
 
@@ -339,21 +319,21 @@ RDB snapshots (`dump.rdb`) and AOF logs should be copied regularly to a separate
 
 High Availability (HA) ensures that Redis remains accessible with minimal downtime even when individual infrastructure components fail.
 
-| **HA Component** | **Recommendation** |
-| --- | --- |
-| Replication | Configure master-replica replication for read scalability and failover. |
-| Sentinel | Use Redis Sentinel (minimum 3 nodes for quorum) for automatic failover and monitoring. |
-| Clustering | Use Redis Cluster to shard data across nodes for horizontal scale and no single point of failure. |
+| **HA Component**   | **Recommendation** |
+| ------------------ | ------------------ |
+| Replication        | Configure master-replica replication for read scalability and failover. |
+| Sentinel           | Use Redis Sentinel (minimum 3 nodes for quorum) for automatic failover and monitoring. |
+| Clustering         | Use Redis Cluster to shard data across nodes for horizontal scale and no single point of failure. |
 | Availability Zones | Distribute replicas across AZs. |
-| Backups | Maintain independent RDB/AOF backups. |
-| Monitoring | Configure health monitoring and alerts. |
-| Capacity | Maintain sufficient headroom for node failures. |
+| Backups            | Maintain independent RDB/AOF backups. |
+| Monitoring         | Configure health monitoring and alerts. |
+| Capacity           | Maintain sufficient headroom for node failures. |
 
 ---
 
 # 11. Conclusion
 
-Redis provides high performance, flexibility, and in-memory speed for caching, session management, messaging, and real-time data use cases. A properly configured Redis deployment on AWS EC2 improves application responsiveness while maintaining data durability and availability.
+Redis provides high performance, flexibility, and in-memory speed for caching, session management, messaging, and real-time data use cases. A properly configured Redis deployment on AWS EC2 improves application responsiveness while maintaining data durability and availability. This document should serve as a reliable reference for setting up, operating, and maintaining Redis within the team, reducing ramp-up time for anyone new to the tool.
 
 ---
 
@@ -361,7 +341,7 @@ Redis provides high performance, flexibility, and in-memory speed for caching, s
 
 ### Is Redis free to use?
 
-Redis versions through 7.2 are open-source (BSD 3-Clause). From Redis 7.4 onward, Redis Ltd. moved core Redis to a dual RSALv2/SSPLv1 source-available license — free to use in most cases, but commercial redistribution/hosting scenarios should be reviewed against current license terms.
+Redis versions through 7.2 are open-source (BSD 3-Clause). Redis 7.4–7.8 shipped under a dual RSALv2/SSPLv1 source-available license. Starting with Redis 8.0 (the version used in this doc), Redis Ltd. added AGPLv3 as a third licensing option — users can choose RSALv2, SSPLv1, or AGPLv3. AGPLv3 is OSI-approved, making Redis 8.0+ open source again. Free to use in all cases; commercial redistribution or managed-hosting scenarios should still be reviewed against RSALv2/SSPLv1 terms if AGPLv3 isn't the chosen option.
 
 ### Can Redis data be persisted, since it's an in-memory store?
 
@@ -375,8 +355,8 @@ Yes. Redis Cluster shards data across multiple nodes to scale horizontally beyon
 
 # 13. Contact Information
 
-| Name | Email Address |
-| --- | --- |
+| Name  | Email Address |
+| ----- | ------------- |
 | Sahil | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
 
 ---
@@ -388,4 +368,5 @@ Yes. Redis Cluster shards data across multiple nodes to scale horizontally beyon
 | [Redis Documentation](https://redis.io/docs/latest/) | Official Redis documentation |
 | [Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/) | Reference for Redis persistence (RDB/AOF) details |
 | [Redis Sentinel](https://redis.io/docs/latest/operate/oss_and_stack/management/sentinel/) | Reference for Redis Sentinel / High Availability |
+| [Redis Licenses](https://redis.io/legal/licenses/) | Official Redis licensing (RSALv2 / SSPLv1 / AGPLv3) |
 | [Software Template](https://github.com/OT-MICROSERVICES/documentation-template/wiki/Software-Template) | Software Template this document follows |
