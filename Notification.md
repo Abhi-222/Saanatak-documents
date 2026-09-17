@@ -39,7 +39,7 @@ Before starting, ensure the following are available.
 Port `9200` does not need to be publicly exposed because Elasticsearch is accessed locally from the EC2 instance.
 
 <details>
-<summary>📷 Screenshot: EC2 security group inbound rules</summary>
+<summary>Screenshot: EC2 security group inbound rules</summary>
 
 _Add screenshot here_
 
@@ -214,8 +214,8 @@ curl -s http://127.0.0.1:9200
 ```
 
 <details>
-<summary>📷 Screenshot: Elasticsearch running / curl response</summary>
-<img width="574" height="315" alt="Screenshot 2026-09-17 at 7 00 08 AM" src="https://github.com/user-attachments/assets/79f17b52-21b7-41ce-be84-64cb373f627f" />
+<summary>Screenshot: Elasticsearch running / curl response</summary>
+<img width="574" height="315" alt="Screenshot 2026-09-17 at 7 00 08 AM" src="https://github.com/user-attachments/assets/79f17b52-21b7-41ce-be84-64cb373f627f" />
 </details>
 
 ### Java
@@ -229,8 +229,8 @@ java -version
 ```
 
 <details>
-<summary>📷 Screenshot: Elasticsearch running / curl response</summary>
-<img width="717" height="88" alt="Screenshot 2026-09-17 at 7 01 21 AM" src="https://github.com/user-attachments/assets/f4b1f0bc-cc68-431c-b7f2-abd8660e0669" />
+<summary>Screenshot: Elasticsearch running / curl response</summary>
+<img width="717" height="88" alt="Screenshot 2026-09-17 at 7 01 21 AM" src="https://github.com/user-attachments/assets/f4b1f0bc-cc68-431c-b7f2-abd8660e0669" />
 </details>
 
 ### MailHog
@@ -266,8 +266,8 @@ sudo ss -lntp | grep -E ':(1025|8025)\b'
 
 
 <details>
-<summary>📷 Screenshot: MailHog listeners (ss output)</summary>
-<img width="892" height="88" alt="Screenshot 2026-09-17 at 7 01 57 AM" src="https://github.com/user-attachments/assets/37a9139b-7be6-48f9-a44b-eaf13c1a9c50" />
+<summary>Screenshot: MailHog listeners (ss output)</summary>
+<img width="892" height="88" alt="Screenshot 2026-09-17 at 7 01 57 AM" src="https://github.com/user-attachments/assets/37a9139b-7be6-48f9-a44b-eaf13c1a9c50" />
 </details>
 
 ---
@@ -300,8 +300,8 @@ Verify:
 pip list | grep -E 'emails|elasticsearch|config-with-yaml|schedule'
 ```
 <details>
-<summary>📷 Screenshot: MailHog listeners (ss output)</summary>
-<img width="1087" height="119" alt="Screenshot 2026-09-17 at 7 04 29 AM" src="https://github.com/user-attachments/assets/a142327e-6fe2-4af5-96f1-3e807272cbf4" />
+<summary>Screenshot: MailHog listeners (ss output)</summary>
+<img width="1087" height="119" alt="Screenshot 2026-09-17 at 7 04 29 AM" src="https://github.com/user-attachments/assets/a142327e-6fe2-4af5-96f1-3e807272cbf4" />
 </details>
 
 
@@ -318,8 +318,8 @@ curl -s http://127.0.0.1:9200
 ```
 
 <details>
-<summary>📷 Screenshot: Elasticsearch running / curl response</summary>
-<img width="574" height="315" alt="Screenshot 2026-09-17 at 7 00 08 AM" src="https://github.com/user-attachments/assets/79f17b52-21b7-41ce-be84-64cb373f627f" />
+<summary>Screenshot: Elasticsearch running / curl response</summary>
+<img width="574" height="315" alt="Screenshot 2026-09-17 at 7 00 08 AM" src="https://github.com/user-attachments/assets/79f17b52-21b7-41ce-be84-64cb373f627f" />
 </details>
 
 ### Create Test Employee Data
@@ -356,8 +356,8 @@ curl -s http://127.0.0.1:9200/employee-management/_count
 
 
 <details>
-<summary>📷 Screenshot: Employee documents created / count response</summary>
-<img width="1120" height="48" alt="Screenshot 2026-09-17 at 7 06 24 AM" src="https://github.com/user-attachments/assets/c59e207d-d865-44a6-bbf8-5e4b92f12a87" />
+<summary>Screenshot: Employee documents created / count response</summary>
+<img width="1120" height="48" alt="Screenshot 2026-09-17 at 7 06 24 AM" src="https://github.com/user-attachments/assets/c59e207d-d865-44a6-bbf8-5e4b92f12a87" />
 </details>
 
 ---
@@ -375,8 +375,8 @@ sudo ss -lntp | grep -E ':(1025|8025)\b'
 ```
 
 <details>
-<summary>📷 Screenshot: Employee documents created / count response</summary>
-<img width="906" height="87" alt="Screenshot 2026-09-17 at 7 07 50 AM" src="https://github.com/user-attachments/assets/7c2e8d95-49a0-456d-8e8d-8ed744d8b420" />
+<summary>Screenshot: Employee documents created / count response</summary>
+<img width="906" height="87" alt="Screenshot 2026-09-17 at 7 07 50 AM" src="https://github.com/user-attachments/assets/7c2e8d95-49a0-456d-8e8d-8ed744d8b420" />
 </details>
 
 ---
@@ -416,8 +416,8 @@ echo $CONFIG_FILE
 ```
 
 <details>
-<summary>📷 Screenshot: Employee documents created / count response</summary>
-<img width="981" height="87" alt="Screenshot 2026-09-17 at 7 13 07 AM" src="https://github.com/user-attachments/assets/e38fa7b2-2dfd-4e47-87a7-cda1da91264f" />
+<summary>Screenshot: Employee documents created / count response</summary>
+<img width="981" height="87" alt="Screenshot 2026-09-17 at 7 13 07 AM" src="https://github.com/user-attachments/assets/e38fa7b2-2dfd-4e47-87a7-cda1da91264f" />
 </details>
 
 ---
@@ -441,8 +441,8 @@ The application:
 7. MailHog captures the email
 
 <details>
-<summary>📷 Screenshot: Terminal output of `notification_api.py --mode external`</summary>
-<img width="1440" height="176" alt="Screenshot 2026-09-17 at 7 26 32 AM" src="https://github.com/user-attachments/assets/fdd96431-1184-4025-a6b7-f89c244d2b76" />
+<summary>Screenshot: Terminal output of `notification_api.py --mode external`</summary>
+<img width="1440" height="176" alt="Screenshot 2026-09-17 at 7 26 32 AM" src="https://github.com/user-attachments/assets/fdd96431-1184-4025-a6b7-f89c244d2b76" />
 </details>
 
 ---
@@ -465,15 +465,15 @@ http://<EC2-PUBLIC-IP>:8025
 
 
 <details>
-<summary>📷 Screenshot: MailHog Web UI showing captured email (reviewer demo)</summary>
+<summary>Screenshot: MailHog Web UI showing captured email (reviewer demo)</summary>
 
-<img width="1440" height="341" alt="Screenshot 2026-09-17 at 7 28 55 AM" src="https://github.com/user-attachments/assets/f9e3542c-54aa-40d8-a714-b8e703f21eeb" />
+<img width="1440" height="341" alt="Screenshot 2026-09-17 at 7 28 55 AM" src="https://github.com/user-attachments/assets/f9e3542c-54aa-40d8-a714-b8e703f21eeb" />
 
 </details>
 
 <details>
-<summary>📷 Screenshot: `curl` response from MailHog API showing captured message</summary>
-<img width="1081" height="53" alt="Screenshot 2026-09-17 at 7 36 11 AM" src="https://github.com/user-attachments/assets/9287c428-e3ba-4ee6-a838-ecec8e873a9a" />
+<summary>Screenshot: `curl` response from MailHog API showing captured message</summary>
+<img width="1081" height="53" alt="Screenshot 2026-09-17 at 7 36 11 AM" src="https://github.com/user-attachments/assets/9287c428-e3ba-4ee6-a838-ecec8e873a9a" />
 </details> 
 
 ---
@@ -497,8 +497,8 @@ schedule.every().hour.do(send_mail_to_all_users)
 **Known discrepancy:** Repository documentation mentions a monthly schedule, while the current implementation uses an hourly schedule. This should be reviewed with the application owner.
 
 <details>
-<summary>📷 Screenshot: Terminal output of `notification_api.py --mode scheduled`</summary>
-<img width="1081" height="341" alt="Screenshot 2026-09-17 at 7 31 51 AM" src="https://github.com/user-attachments/assets/11a9faf1-870e-42ef-be62-59181cbcafdd" />
+<summary>Screenshot: Terminal output of `notification_api.py --mode scheduled`</summary>
+<img width="1081" height="341" alt="Screenshot 2026-09-17 at 7 31 51 AM" src="https://github.com/user-attachments/assets/11a9faf1-870e-42ef-be62-59181cbcafdd" />
 </details>
 
 Stop the running process with:
