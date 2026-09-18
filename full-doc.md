@@ -22,9 +22,10 @@
 
 # Author Table
 
-| **Author** | **Created On** | **Version** | **Last Edited On** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
-| ---------- | -------------- | ----------- | ------------------- | ---------------- | ---------------- | ---------------- |
-| Anshul Kotiya | 13-09-2026  | 1.0         | 13-09-2026           | Shubham Rathi     | Shreya / Nikita   | Piyush Upadhyay   |
+| Author | Created On | Version | Last Updated  | L0 Reviewer | L1 Reviewer    | L2 Reviewer |
+|--------|------------|---------|---------------|-------------|----------------|-------------|
+| Sahil  | 28-08-26   | v1.0    |  28-08-26     | `Vishal ? Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
+
 
 ---
 
@@ -406,7 +407,7 @@ It shows how a user request moves through the frontend, NGINX, backend services,
 
 | **Name**      | **Email**                             |
 | ------------- | --------------------------------------- |
-| Anshul Kotiya | anshul.kotiya.snaatak@mygurukulam.co   |
+| Sahil Butola | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co)   |
 
 ---
 
