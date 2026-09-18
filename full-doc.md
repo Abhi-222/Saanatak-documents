@@ -24,7 +24,7 @@
 
 | Author | Created On | Version | Last Updated  | L0 Reviewer | L1 Reviewer    | L2 Reviewer |
 |--------|------------|---------|---------------|-------------|----------------|-------------|
-| Sahil  | 28-08-26   | v1.0    |  28-08-26     | `Vishal ? Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
+| Sahil  | 16-09-26   | 1.0     |  16-09-26     | `Vishal ? Divya M`   | `Aayush Verma` | `Mahesh Kumar / Varun` |
 
 
 ---
