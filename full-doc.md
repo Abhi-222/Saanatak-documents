@@ -34,26 +34,8 @@
 1. [Introduction](#1-introduction)
 2. [Application Overview](#2-application-overview)
 3. [Application Components](#3-application-components)
-
-   * [3.1 React Frontend](#31-react-frontend)
-   * [3.2 NGINX](#32-nginx)
-   * [3.3 Employee API](#33-employee-api)
-   * [3.4 Salary API](#34-salary-api)
-   * [3.5 Attendance API](#35-attendance-api)
-   * [3.6 Notification Service](#36-notification-service)
-   * [3.7 ScyllaDB](#37-scylladb)
-   * [3.8 PostgreSQL](#38-postgresql)
-   * [3.9 Redis](#39-redis)
-4. [Overall Architecture](#4-overall-architecture)
-  * [4.1 Component Architecture Diagram](#41-component-architecture-diagram)
-  
+4. [Overall Architecture](#4-overall-architecture)  
 5. [Application Flow](#5-application-flow)
-
-   * [5.1 Overall Request Flow](#51-overall-request-flow)
-   * [5.2 Employee Flow](#52-employee-flow)
-   * [5.3 Salary Flow](#53-salary-flow)
-   * [5.4 Attendance Flow](#54-attendance-flow)
-   * [5.5 Notification Flow](#55-notification-flow)
 6. [Component Communication](#6-component-communication)
 7. [Conclusion](#7-conclusion)
 8. [Contact Information](#8-contact-information)
@@ -72,8 +54,7 @@ This document explains the **overall component architecture** and the **various 
 
 OT-Microservices follows a **microservices architecture**, where different business functionalities are handled by separate services.
 
-The application contains:
-
+The application contains:-
 * React-based frontend
 * NGINX reverse proxy
 * Employee API (port 8080)
@@ -360,20 +341,17 @@ Redis is separate from the primary persistent databases used for employee, salar
 
 <img width="1027" height="138" alt="Screenshot 2026-09-14 014416" src="https://github.com/user-attachments/assets/2d35e1d0-cd39-48bc-a252-3f6b2dede7d3" />
 
-
 ---
 
 ## 5.4 Attendance Flow
 
 <img width="1078" height="123" alt="Screenshot 2026-09-14 014454" src="https://github.com/user-attachments/assets/69b472f1-bc55-4d31-8f18-12d6520866ac" />
 
-
 ---
 
 ## 5.5 Notification Flow
 
 <img width="1207" height="480" alt="Screenshot 2026-09-14 014550" src="https://github.com/user-attachments/assets/e4d58460-33e0-4e82-9a3a-e312584f1c11" />
-
 
 > Unlike the Employee, Salary, and Attendance flows, this flow does **not** pass through the Frontend or NGINX — the Notification Service is triggered independently and only reads data from the other three APIs.
 
