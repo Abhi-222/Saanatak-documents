@@ -404,7 +404,7 @@ The POC does not depend on Jenkins, Terraform, or Docker, and focuses only on th
 
 | Name | Email Address |
 |------|---------------|
-| Sahil Butola | sahil.butola.snaatak@mygurukulam.co |
+| Sahil Butola | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co)|
 
 ---
 
