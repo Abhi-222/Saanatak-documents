@@ -65,18 +65,16 @@ The tool controls the **execution order, conditions, integrations, credentials, 
 
 # 3. Why CI Orchestration Tools are Required
 
-| Purpose                    | Description                                                                     |
-| -------------------------- | ------------------------------------------------------------------------------- |
-| **Automation**             | Automates repetitive build, test, validation, and packaging activities.         |
-| **Consistency**            | Ensures applications follow a standardized CI workflow.                         |
-| **Repeatability**          | Executes the same pipeline repeatedly from defined configuration.               |
-| **Early Validation**       | Identifies build, test, quality, and security issues early.                     |
-| **Tool Integration**       | Connects source control, build, testing, quality, security, and artifact tools. |
-| **Parallel Execution**     | Runs independent CI activities simultaneously.                                  |
-| **Centralized Visibility** | Provides visibility into pipeline execution, logs, stages, and failures.        |
-| **Credential Management**  | Supplies credentials to CI jobs securely.                                       |
-| **Scalability**            | Executes CI workloads across multiple agents or runners.                        |
-| **Standardization**        | Enables teams to follow common CI processes and practices.                      |
+* Automation: Automates repetitive build, test, validation, and packaging activities.
+* Consistency: Ensures applications follow a standardized CI workflow.
+* Repeatability: Executes the same pipeline repeatedly from defined configuration.
+* Early Validation: Identifies build, test, quality, and security issues early.
+* Tool Integration: Connects source control, build, testing, quality, security, and artifact tools.
+* Parallel Execution: Runs independent CI activities simultaneously.
+* Centralized Visibility: Provides visibility into pipeline execution, logs, stages, and failures.
+* Credential Management: Supplies credentials to CI jobs securely.
+* Scalability: Executes CI workloads across multiple agents or runners.
+* Standardization: Enables teams to follow common CI processes and practices.
 
 ---
 
@@ -95,7 +93,6 @@ The evaluation is based on the following requirements and assumptions.
 | **Security**            | Credentials must not be hardcoded. Role-based access control with least privilege is required.                   |
 | **Maintainability**     | Pipelines must be defined as code, version-controlled, and reusable across applications.                         |
 
-> If the organization's primary SCM is GitLab, the recommendation in Section 10 should be revisited, since GitLab CI/CD would then be a strong fit.
 
 ---
 
@@ -272,18 +269,16 @@ BuildPiper targets application delivery and cross-team orchestration, which is b
 
 # 12. Advantages
 
-| Advantage                 | Description                                                        |
-| ------------------------- | ------------------------------------------------------------------ |
-| **Automation**            | Automates build, test, validation, and packaging activities.       |
-| **Pipeline as Code**      | CI workflows are maintained in a version-controlled `Jenkinsfile`. |
-| **Flexibility**           | Supports different application technologies and DevOps tools.      |
-| **Distributed Execution** | Agents execute workloads independently from the controller.        |
-| **Extensibility**         | Plugins and integrations extend Jenkins functionality.             |
-| **Security**              | Provides credential management and authorization capabilities.     |
-| **Reusability**           | Shared Libraries reduce duplicated pipeline logic.                 |
-| **Visibility**            | Stages, results, and logs provide centralized visibility.          |
-| **Scalability**           | Workloads can be distributed across multiple agents.               |
-| **Standardization**       | Teams can implement common CI stages and practices.                |
+* Automation: Automates build, test, validation, and packaging activities.
+* Pipeline as Code: CI workflows are maintained in a version-controlled Jenkinsfile.
+* Flexibility: Supports different application technologies and DevOps tools.
+* Distributed Execution: Agents execute workloads independently from the controller.
+* Extensibility: Plugins and integrations extend Jenkins functionality.
+* Security: Provides credential management and authorization capabilities.
+* Reusability: Shared Libraries reduce duplicated pipeline logic.
+* Visibility: Stages, results, and logs provide centralized visibility.
+* Scalability: Workloads can be distributed across multiple agents.
+* Standardization: Teams can implement common CI stages and practices.
 
 ---
 
