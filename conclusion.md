@@ -4,7 +4,7 @@
 
 ---
 
-# Application CI Design | CI Orchestration Tools | Comparison Table and Final Tool Recommendation
+# Comparison between different CI Orchestration Tools 
 
 ---
 
