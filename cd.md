@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="252" height="80" alt="Ansible + AWS logo" src="https://via.placeholder.com/252x80?text=Ansible+%2B+AWS" />
+<img width="480" height="270" alt="image" src="https://github.com/user-attachments/assets/d138c331-e4c4-4bdd-b272-ff8dc570cb79" />
 
 </div>
 
@@ -12,9 +12,9 @@
 
 ## Author Table
 
-| Author | Created On | Version | Last Updated By | Last Edited On | Pre Reviewer | L0 Reviewer | L1 Reviewer | L2 Reviewer |
-|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Sahil Butola | 30-09-2026 | 1.0 | Sahil Butola | 30-09-2026 | - | - | - | - |
+| Author | Created On | Version | Last Edited On | L0 Reviewer | L1 Reviewer | L2 Reviewer |
+|:-------|:-----------|:--------|:---------------|:------------|:------------|:------------|
+| Sahil Butola | 30-09-2026 | 1.0 | 30-09-2026 | Divya M. / Vishal | Aayush Verma | Varun / Mahesh |
 
 ---
 
@@ -55,16 +55,16 @@ AWS CLI is used for AWS authentication and EC2 verification, while Ansible uses 
 
 ## 2. Objective
 
- -Configure AWS CLI authentication 
- -Identify the target EC2 instance using AWS CLI 
- -Configure Ansible AWS Dynamic Inventory 
- -Dynamically discover EC2 instances using AWS tags 
- -Establish SSH connectivity between Ansible and the EC2 instance 
- -Install and configure Nginx 
- -Deploy a test HTML page 
- -Validate Nginx configuration 
- -Verify the deployed application 
- -Demonstrate Ansible idempotency 
+ -Configure AWS CLI authentication. 
+ -Identify the target EC2 instance using AWS CLI. 
+ -Configure Ansible AWS Dynamic Inventory. 
+ -Dynamically discover EC2 instances using AWS tags. 
+ -Establish SSH connectivity between Ansible and the EC2 instance. 
+ -Install and configure Nginx. 
+ -Deploy a test HTML page. 
+ -Validate Nginx configuration. 
+ -Verify the deployed application. 
+ -Demonstrate Ansible idempotency. 
 
 ---
 
@@ -98,33 +98,8 @@ Steps that are easy to skip because the deployment "looks" ready without them.
 
 ## 6. Architecture
 
-```text
-                AWS CLI
-                   |
-                   | AWS Authentication /
-                   | EC2 Verification
-                   |
-                   v
-             AWS EC2 Instance
-             Role=webserver
-                   ^
-                   |
-          Dynamic Inventory
-                   |
-                   |
-             Ansible Control
-                 Server
-                   |
-                   | SSH
-                   v
-              Ubuntu EC2
-                   |
-                   v
-              Nginx
-                   |
-                   v
-          Application HTML Page
-```
+<img width="1186" height="718" alt="image" src="https://github.com/user-attachments/assets/3d3bf614-2c87-4b20-9cdf-9ffa8679575a" />
+
 
 | Component | Responsibility |
 |-----------|----------------|
@@ -429,7 +404,7 @@ The POC does not depend on Jenkins, Terraform, or Docker, and focuses only on th
 
 | Name | Email Address |
 |------|---------------|
-| Sahil Butola | [Add contact email] |
+| Sahil Butola | sahil.butola.snaatak@mygurukulam.co |
 
 ---
 
@@ -439,6 +414,8 @@ The POC does not depend on Jenkins, Terraform, or Docker, and focuses only on th
 |---|---|
 | Ansible AWS EC2 Inventory Plugin | [amazon.aws.aws_ec2 Documentation](https://docs.ansible.com/ansible/latest/collections/amazon/aws/aws_ec2_inventory.html) |
 | Ansible Documentation | [Ansible Docs](https://docs.ansible.com/) |
+| Ansible Installation on Ubuntu System| [Ansible-installation](https://docs.ansible.com/projects/ansible/latest/installation_guide/installation_distros.html)|
 | AWS CLI | [AWS CLI Documentation](https://docs.aws.amazon.com/cli/) |
+| AWS Installation on Ubuntu System|[aws-cli-installation](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) |
 | AWS EC2 | [AWS EC2 Documentation](https://docs.aws.amazon.com/ec2/) |
 | Nginx | [Nginx Documentation](https://nginx.org/en/docs/) |
