@@ -101,59 +101,9 @@ The evaluation is based on the following requirements and assumptions.
 
 # 5. CI Orchestration Workflow
 
-```text
-                    ┌──────────────────┐
-                    │    Developer     │
-                    │   Code Changes   │
-                    └────────┬─────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │ Git Repository   │
-                    └────────┬─────────┘
-                             │
-                       Webhook / Trigger
-                             │
-                             ▼
-                 ┌────────────────────────┐
-                 │ CI Orchestration Tool  │
-                 └───────────┬────────────┘
-                             │
-                             ▼
-                    ┌──────────────────┐
-                    │     Checkout     │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │      Build       │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │  Automated Test  │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │ Quality Analysis │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │ Security Checks  │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │ Package / Build  │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │ Artifact Storage │
-                    └────────┬─────────┘
-                             ▼
-                    ┌──────────────────┐
-                    │ CI Result /      │
-                    │ Notification     │
-                    └──────────────────┘
-```
+<img width="300" height="700" alt="image" src="https://github.com/user-attachments/assets/e23f9738-2ae8-41aa-95ff-7f517ee2ae90" />
 
+---
 ### Workflow Steps
 
 | Step   | Activity     | Description                                                  |
@@ -303,32 +253,7 @@ BuildPiper targets application delivery and cross-team orchestration, which is b
 
 ### Selection Summary
 
-```text
-             APPLICATION CI REQUIREMENT
-                        │
-                        ▼
-            ┌──────────────────────┐
-            │ Define Criteria and  │
-            │ Weights              │
-            └──────────┬───────────┘
-                       │
-         ┌─────────────┼─────────────┐
-         ▼             ▼             ▼
-    ┌─────────┐  ┌───────────┐  ┌────────────┐
-    │ Jenkins │  │ GitLab CI │  │ BuildPiper │
-    └────┬────┘  └─────┬─────┘  └──────┬─────┘
-         └─────────────┼───────────────┘
-                       ▼
-            ┌────────────────────┐
-            │ Weighted Scoring + │
-            │ Cost/Effort Review │
-            └──────────┬─────────┘
-                       ▼
-               ┌──────────────┐
-               │   Jenkins    │
-               │   Selected   │
-               └──────────────┘
-```
+<img width="700" height="700" alt="image" src="https://github.com/user-attachments/assets/1b032771-4df1-4148-aa51-03d84b70ff76" />
 
 ---
 
