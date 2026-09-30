@@ -8,7 +8,7 @@
 
 ---
 
-## Document Information
+## Author Table
 
 | Author       | Created On | Version | Last Edited On | L0 Reviewer       | L1 Reviewer  | L2 Reviewer        |
 | ------------ | ---------- | ------- | -------------- | ----------------- | ------------ | ------------------ |
