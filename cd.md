@@ -22,19 +22,18 @@
 
 1. [Introduction](#1-introduction)
 2. [Objective](#2-objective)
-3. [Scope](#3-scope)
-4. [Prerequisites](#4-prerequisites)
-5. [Setup & Environment Assumptions](#5-setup--environment-assumptions)
-6. [Architecture](#6-architecture)
-7. [Implementation](#7-implementation)
-8. [Validation](#8-validation)
-9. [Observations](#9-observations)
-10. [Troubleshooting](#10-troubleshooting)
-11. [Security Considerations](#11-security-considerations)
-12. [Result](#12-result)
-13. [Conclusion](#13-conclusion)
-14. [Contact Information](#14-contact-information)
-15. [References](#15-references)
+3. [Prerequisites](#3-prerequisites)
+4. [Setup & Environment Assumptions](#4-setup--environment-assumptions)
+5. [Architecture](#5-architecture)
+6. [Implementation](#6-implementation)
+7. [Validation](#7-validation)
+8. [Observations](#8-observations)
+9. [Troubleshooting](#9-troubleshooting)
+10. [Security Considerations](#10-security-considerations)
+11. [Result](#11-result)
+12. [Conclusion](#12-conclusion)
+13. [Contact Information](#13-contact-information)
+14. [References](#14-references)
 
 ---
 
@@ -43,7 +42,6 @@
 This POC demonstrates how **Ansible** can be used to automate the deployment of **Nginx** on an AWS EC2 instance.
 
 AWS CLI is used for AWS authentication and EC2 verification, while Ansible uses **AWS Dynamic Inventory** to automatically discover the target EC2 instance based on its AWS tag — no static IP is hardcoded anywhere.
-
 
 | Field | Details |
 |-------|---------|
@@ -56,7 +54,6 @@ AWS CLI is used for AWS authentication and EC2 verification, while Ansible uses 
 ---
 
 ## 2. Objective
-
 
  -Configure AWS CLI authentication 
  -Identify the target EC2 instance using AWS CLI 
@@ -96,7 +93,6 @@ Steps that are easy to skip because the deployment "looks" ready without them.
 | 2 | Install the AWS Ansible collection | `ansible-galaxy collection install amazon.aws` | The `amazon.aws.aws_ec2` inventory plugin isn't built into Ansible — without it, `ansible-inventory` errors with "plugin not found" |
 | 3 | Verify installs | `ansible --version` / `aws --version` | Confirms the control machine is ready before proceeding |
 | 4 | Configure AWS CLI credentials | `aws configure` (set region `ap-south-1`) | Both AWS CLI and the `boto3`-based inventory plugin read from this configuration |
-
 
 ---
 
@@ -189,7 +185,7 @@ aws ec2 describe-instances \
 
 <details>
 <summary> Screenshot: AWS CLI instance verification output</summary>
-<img width="1001" height="269" alt="Screenshot 2026-09-30 at 12 02 09 PM" src="https://github.com/user-attachments/assets/13d35f32-8a8b-4e8f-95b1-4e7e973fb3c9" />
+<img width="1001" height="269" alt="Screenshot 2026-09-30 at 12 02 09 PM" src="https://github.com/user-attachments/assets/13d35f32-8a8b-4e8f-95b1-4e7e973fb3c9" />
 </details>
 
 ---
@@ -198,7 +194,7 @@ aws ec2 describe-instances \
 
 <details>
 <summary> Screenshot: Project Structure</summary>
-<img width="1001" height="269" alt="Screenshot 2026-09-30 at 12 02 26 PM" src="https://github.com/user-attachments/assets/dad83a65-d356-4222-be6d-93c0f284b258" />
+<img width="1001" height="269" alt="Screenshot 2026-09-30 at 12 02 26 PM" src="https://github.com/user-attachments/assets/dad83a65-d356-4222-be6d-93c0f284b258" />
 </details>
 
 `inventory/aws_ec2.yml`:
@@ -239,7 +235,7 @@ ansible-inventory -i inventory/aws_ec2.yml --graph
 
 <details>
 <summary> Screenshot: Dynamic inventory graph output</summary>
-<img width="1001" height="269" alt="Screenshot 2026-09-30 at 12 02 45 PM" src="https://github.com/user-attachments/assets/b42c8dff-eac5-4b34-83e1-f83a5e3fbc27" />
+<img width="1001" height="269" alt="Screenshot 2026-09-30 at 12 02 45 PM" src="https://github.com/user-attachments/assets/b42c8dff-eac5-4b34-83e1-f83a5e3fbc27" />
 </details>
 
 ---
@@ -249,21 +245,20 @@ ansible-inventory -i inventory/aws_ec2.yml --graph
 Set key permissions and test SSH manually:
 
 ```bash
-chmod 400 sahil-key.pem
+chmod 400 /home/ubuntu/sahil-key.pem
 ssh -i /home/ubuntu/sahil-key.pem ubuntu@<PUBLIC-IP>
 ```
 
 Test Ansible connectivity:
 
 ```bash
-ansible -i inventory/aws_ec2.yml webserver -m ping --private-key /home/ubuntu/sahil-key.pem
+ansible -i inventory/aws_ec2.yml _webserver -m ping --private-key /home/ubuntu/sahil-key.pem
 ```
 
 <details>
 <summary> Screenshot: Playbook execution output</summary>
-<img width="1001" height="226" alt="Screenshot 2026-09-30 at 12 05 23 PM" src="https://github.com/user-attachments/assets/8ab70bda-02b5-4bb4-83a3-47f108a7dfab" />
+<img width="1001" height="226" alt="Screenshot 2026-09-30 at 12 05 23 PM" src="https://github.com/user-attachments/assets/8ab70bda-02b5-4bb4-83a3-47f108a7dfab" />
 </details>
-
 
 ---
 
@@ -335,16 +330,16 @@ ansible -i inventory/aws_ec2.yml webserver -m ping --private-key /home/ubuntu/sa
 1. Configure AWS CLI (`aws configure`) and verify with `aws sts get-caller-identity`.
 2. Verify the target EC2 using `aws ec2 describe-instances` filtered on `Role=webserver`.
 3. Create `inventory/aws_ec2.yml` and validate with `ansible-inventory --graph`.
-4. Set SSH key permissions (`chmod 400 sahil-key.pem`) and test manual SSH login.
+4. Set SSH key permissions (`chmod 400 /home/ubuntu/sahil-key.pem`) and test manual SSH login.
 5. Run `ansible ... -m ping` to confirm Ansible connectivity.
 6. Syntax-check the playbook: `ansible-playbook --syntax-check -i inventory/aws_ec2.yml playbook.yml`.
-7. Deploy: `ansible-playbook -i inventory/aws_ec2.yml playbook.yml --private-key sahil-key.pem`.
+7. Deploy: `ansible-playbook -i inventory/aws_ec2.yml playbook.yml --private-key /home/ubuntu/sahil-key.pem`.
 8. Validate Nginx service and HTTP response (see Section 8).
 9. Re-run step 7 once more to confirm idempotency.
 
 <details>
 <summary> Screenshot: Playbook execution output</summary>
-<img width="1440" height="513" alt="Screenshot 2026-09-30 at 12 06 22 PM" src="https://github.com/user-attachments/assets/c3dedfa1-1e57-4781-8ccb-a3751a668a4e" />
+<img width="1440" height="513" alt="Screenshot 2026-09-30 at 12 06 22 PM" src="https://github.com/user-attachments/assets/c3dedfa1-1e57-4781-8ccb-a3751a668a4e" />
 </details>
 
 ---
@@ -355,7 +350,7 @@ ansible -i inventory/aws_ec2.yml webserver -m ping --private-key /home/ubuntu/sa
 |-------|--------|
 | AWS CLI Authentication | Account identity returned |
 | Target EC2 Identified (AWS CLI) | Instance found, tagged `Role=webserver` |
-| AWS Dynamic Inventory | EC2 discovered under `webserver` group |
+| AWS Dynamic Inventory | EC2 discovered under `_webserver` group |
 | SSH Connectivity | `pong` (SUCCESS) |
 | Ansible Syntax Check | Passed (`playbook: playbook.yml`) |
 | Nginx Installation | Successful |
@@ -363,13 +358,10 @@ ansible -i inventory/aws_ec2.yml webserver -m ping --private-key /home/ubuntu/sa
 | HTTP Response | `Deployment Successful` |
 | Idempotency (2nd run) | No unnecessary changes |
 
-
 <details>
 <summary>Screenshot: Nginx service & HTTP validation output</summary>
-
-<!-- Add screenshot of `systemctl is-active nginx` and `curl` output here -->
-<img width="656" height="182" alt="Screenshot 2026-09-30 at 12 07 20 PM" src="https://github.com/user-attachments/assets/0a83d812-dc89-4f3b-b950-ad24fa7e9709" />
-<img width="833" height="348" alt="Screenshot 2026-09-30 at 12 08 27 PM" src="https://github.com/user-attachments/assets/2b492672-c4cb-4d38-bf59-f74870c9d29e" />
+<img width="656" height="182" alt="Screenshot 2026-09-30 at 12 07 20 PM" src="https://github.com/user-attachments/assets/0a83d812-dc89-4f3b-b950-ad24fa7e9709" />
+<img width="833" height="348" alt="Screenshot 2026-09-30 at 12 08 27 PM" src="https://github.com/user-attachments/assets/2b492672-c4cb-4d38-bf59-f74870c9d29e" />
 </details>
 
 ---
@@ -387,7 +379,7 @@ ansible -i inventory/aws_ec2.yml webserver -m ping --private-key /home/ubuntu/sa
 
 | Issue | Solution |
 |-------|----------|
-| No hosts matched (`webserver` group empty) | Verify EC2 is tagged `Role=webserver` and in `running` state |
+| No hosts matched (`_webserver` group empty) | Verify EC2 is tagged `Role=webserver` and in `running` state |
 | `aws sts get-caller-identity` fails | Re-run `aws configure` and check the access/secret key |
 | SSH connection refused | Check EC2 Security Group allows port 22 from the control machine |
 | Ansible syntax check fails | Validate YAML indentation in `playbook.yml` |
@@ -399,7 +391,7 @@ ansible -i inventory/aws_ec2.yml webserver -m ping --private-key /home/ubuntu/sa
 ## 11. Security Considerations
 
 * Do not commit `sahil-key.pem` to Git.
-* Keep private key permissions restricted: `chmod 400 sahil-key.pem`.
+* Keep private key permissions restricted: `chmod 400 /home/ubuntu/sahil-key.pem`.
 * Do not hardcode AWS access keys inside the inventory or playbook — use AWS CLI configuration or environment-based credentials.
 * Use IAM permissions scoped appropriately for the POC.
 * Restrict SSH access through the EC2 Security Group.
@@ -420,7 +412,7 @@ Idempotency: No unnecessary changes on re-run
 
 <details>
 <summary> Screenshot: Final deployment result</summary>
-<img width="1195" height="554" alt="Screenshot 2026-09-30 at 12 09 14 PM" src="https://github.com/user-attachments/assets/75ab5b41-571c-4866-8a23-fec01c363d38" />
+<img width="1195" height="554" alt="Screenshot 2026-09-30 at 12 09 14 PM" src="https://github.com/user-attachments/assets/75ab5b41-571c-4866-8a23-fec01c363d38" />
 </details>
 
 ---
