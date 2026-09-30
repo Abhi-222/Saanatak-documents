@@ -55,16 +55,17 @@ AWS CLI is used for AWS authentication and EC2 verification, while Ansible uses 
 
 ## 2. Objective
 
- -Configure AWS CLI authentication. 
- -Identify the target EC2 instance using AWS CLI. 
- -Configure Ansible AWS Dynamic Inventory. 
- -Dynamically discover EC2 instances using AWS tags. 
- -Establish SSH connectivity between Ansible and the EC2 instance. 
- -Install and configure Nginx. 
- -Deploy a test HTML page. 
- -Validate Nginx configuration. 
- -Verify the deployed application. 
- -Demonstrate Ansible idempotency. 
+The objective of this POC is to demonstrate an **automated and repeatable deployment of Nginx on an AWS EC2 instance using Ansible**, where the target host is discovered dynamically through AWS tags instead of hardcoded IP addresses.
+ 
+The POC aims to achieve the following:
+ 
+1. Configure AWS CLI authentication and verify the target EC2 instance using its `Role=webserver` tag.
+2. Configure Ansible AWS Dynamic Inventory to discover EC2 instances dynamically using AWS tags, without hardcoded IP addresses.
+3. Establish SSH connectivity between the Ansible control machine and the EC2 instance.
+4. Install and configure Nginx on the EC2 instance using an Ansible playbook.
+5. Deploy a test HTML page to the Nginx web root.
+6. Validate the Nginx configuration and verify the deployed application over HTTP.
+7. Demonstrate Ansible idempotency by re-running the playbook without unnecessary changes.
 
 ---
 
