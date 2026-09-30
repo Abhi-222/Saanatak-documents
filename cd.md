@@ -113,19 +113,7 @@ Steps that are easy to skip because the deployment "looks" ready without them.
 
 **Final Workflow**
 
-```text
-AWS CLI Configuration → AWS Authentication → Find EC2 via AWS CLI
-        ↓
-Ansible Dynamic Inventory → Discover Role=webserver
-        ↓
-SSH Connectivity → Ansible Ping → Playbook Syntax Check
-        ↓
-Install Nginx → Start/Enable → Deploy HTML Page
-        ↓
-Validate Nginx → Restart Nginx
-        ↓
-HTTP Validation → Idempotency Test
-```
+<img width="516" height="850" alt="image" src="https://github.com/user-attachments/assets/145954ac-d590-4dcb-9fad-d55bd2b5610e" />
 
 ---
 
