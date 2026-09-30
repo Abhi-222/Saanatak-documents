@@ -56,17 +56,15 @@ This document defines which SonarQube metrics should be monitored, how to monito
 
 # 3. Why Monitor SonarQube?
 
-| Objective | Description |
-|-----------|-------------|
-| Early Quality Detection | Detect quality issues early in the development cycle. |
-| Security Assurance | Detect security vulnerabilities before release. |
-| Coverage Tracking | Track test coverage over time. |
-| Technical Debt Visibility | Identify increasing technical debt and maintainability issues. |
-| Quality Gate Control | Detect Quality Gate failures and act on them in the CI pipeline. |
-| Service Reliability | Detect SonarQube service failures and Compute Engine processing problems. |
-| Storage Health | Detect Elasticsearch disk or index problems. |
-| Processing Visibility | Monitor analysis processing and background tasks. |
-| Proactive Alerting | Generate alerts when important operational conditions occur. |
+* Early Quality Detection: Detect quality issues early in the development cycle.
+* Security Assurance: Detect security vulnerabilities before release.
+* Coverage Tracking: Track test coverage over time.
+* Technical Debt Visibility: Identify increasing technical debt and maintainability issues.
+* Quality Gate Control: Detect Quality Gate failures and act on them in the CI pipeline.
+* Service Reliability: Detect SonarQube service failures and Compute Engine processing problems.
+* Storage Health: Detect Elasticsearch disk or index problems.
+* Processing Visibility: Monitor analysis processing and background tasks.
+* Proactive Alerting: Generate alerts when important operational conditions occur.
 
 ---
 
@@ -148,7 +146,7 @@ These metrics monitor the SonarQube server itself.
 
 The SonarQube dashboard provides project-level visibility into bugs, vulnerabilities, code smells, coverage, duplication, complexity and Quality Gate status. It is useful for developers and reviewers who need to inspect individual projects.
 
-<!-- Screenshot placeholder: SonarQube project dashboard -->
+<img width="2850" height="1670" alt="image" src="https://github.com/user-attachments/assets/9a2b1680-bc1f-4ea7-af69-99b7a0004182" />
 
 ---
 
@@ -163,19 +161,16 @@ The Web API retrieves SonarQube information programmatically and is the method u
 | System health | System API (health) | Overall health (GREEN / YELLOW / RED) and any causes |
 | Monitoring metrics | Monitoring API (metrics) | Platform metrics in Prometheus-compatible format |
 
-The monitoring endpoint exposes metrics in Prometheus-compatible exposition format. Current SonarQube documentation shows authentication for this endpoint using an appropriate SonarQube passcode.
-
-<img width="2850" height="1670" alt="image" src="https://github.com/user-attachments/assets/9a2b1680-bc1f-4ea7-af69-99b7a0004182" />
 
 ---
 
-## 6.3 POC Validation
+## 6.3 Validation
 
 A sample Java project named **sonarqube-demo** was analyzed with SonarScanner on SonarQube Community Build 26.9.0.129388 (Ubuntu, 2 vCPU, ~7.6 GiB RAM). The values below were retrieved directly from the SonarQube APIs after analysis.
 
 ### Project Metrics
 
-| Metric | POC Value | Observation |
+| Metric |  Value | Observation |
 |---|---:|---|
 | Bugs | 0 | No bugs detected |
 | Vulnerabilities | 0 | No vulnerabilities detected |
@@ -261,7 +256,6 @@ An alert should be generated when an important condition persists.
 | Read-only Elasticsearch Index | Read-only indices greater than 0 | Generate Critical alert |
 | Quality Gate Failure | Project Quality Gate is ERROR | Fail/block the CI quality-control stage according to pipeline policy |
 
-> **Note:** The POC validated the APIs directly. Integrating the monitoring endpoint with Prometheus and Alertmanager (email/Slack notifications) is a proposed production approach and was **not implemented in this POC**.
 
 ---
 
