@@ -1,6 +1,6 @@
 <img width="1920" height="600" alt="image" src="https://github.com/user-attachments/assets/6254e48a-adf9-43bf-9e7f-9b3d4b0a36e6" />
 
-# Application CI Design | Generic CI Operation | Commit Sign-off
+# Commit Sign-off POC
 
 ## Author Table
 
@@ -10,77 +10,117 @@
 
 ## Table of Contents
 
-1. [Introduction](#1-introduction)
-2. [What is Commit Sign-off](#2-what-is-commit-sign-off)
-3. [Why Commit Sign-off is Required](#3-why-commit-sign-off-is-required)
-4. [Commit Sign-off Workflow](#4-commit-sign-off-workflow)
-5. [Advantages](#5-advantages)
-6. [POC](#6-poc)
-7. [Best Practices](#7-best-practices)
-8. [Conclusion](#8-conclusion)
-9. [Contact Information](#9-contact-information)
-10. [References](#10-references)
+1. [Objective](#1-objective)
+2. [Prerequisites](#2-prerequisites)
+3. [POC Implementation](#3-poc-implementation)
+4. [Verification](#4-verification)
+5. [Validation](#5-validation)
+6. [Result](#6-result)
+7. [Conclusion](#7-conclusion)
+8. [Contact Information](#8-contact-information)
+9. [References](#9-refrences)
+
 
 
 ---
 
 ## 1. Objective
-
-Verify that a Git commit can be created with a `Signed-off-by:` trailer and that the sign-off can be validated from the commit history.
+ 
+To verify that Git can create a commit with a `Signed-off-by:` trailer using the `git commit -s` option and that the sign-off can be verified from commit history.
 
 ---
 
 ## 2. Prerequisites
-
-* Git installed.
-* Access to a Git repository.
-* Git user name and email configured.
-
+ 
+* Ubuntu/Linux system
+* Git installed
+* Git username and email configured
+Verify:
+ 
 ```bash
 git --version
-git config --global user.name "Your Name"
-git config --global user.email "your-email@example.com"
+git config --global user.name
+git config --global user.email
 ```
+ 
+**POC Environment:**
+ 
+* Git version: `2.43.0`
+* Username: `sahil`
+* Email: `sahil@example.com`
+  
+<details>
+<summary> Screenshot: Prerequisites verification</summary>
+<img width="1060" height="278" alt="image" src="https://github.com/user-attachments/assets/99244d75-8a91-4cd1-a88f-7057e12622eb" />
+</details>
 
----
+___
 
-## 3. Create Signed-off Commit
 
+## 3. POC Implementation
+ 
+### Step 1: Create Repository
+ 
 ```bash
-git clone <repository-url>
-cd <repository>
-git checkout -b commit-signoff-poc
+mkdir ~/commit-signoff-poc
+cd ~/commit-signoff-poc
+git init
+```
+ 
+Verify:
+ 
+```bash
+git status
+```
+ 
 
+<details>
+<summary> Screenshot: Repository creation and status</summary> 
+<img width="1156" height="278" alt="image" src="https://github.com/user-attachments/assets/1d2a36a8-a3a3-4530-bc8c-e2e9d7f1552d" />
+</details>
+
+### Step 2: Create Test File
+ 
+```bash
 echo "Commit sign-off POC" > signoff.txt
 git add signoff.txt
+git status
+```
+ 
+<details>
+<summary> Screenshot: Test file created and staged</summary>
+<img width="1632" height="448" alt="image" src="https://github.com/user-attachments/assets/975a5836-203a-4659-9a7c-13f0458d0709" /> 
+</details>
+
+
+### Step 3: Create Signed-off Commit
+ 
+```bash
 git commit -s -m "Add commit sign-off POC"
 ```
-
+ 
 The `-s` option adds the `Signed-off-by:` trailer automatically.
+ 
+<details>
+<summary> Screenshot: Signed-off commit created</summary>
+<img width="1632" height="448" alt="image" src="https://github.com/user-attachments/assets/ddfaba86-fdcf-4e87-9e2e-bf9502c56dff" />
+</details>
 
----
 
-## 4. Verify Sign-off
-
-Display the latest commit:
-
+## 4. Verification
+ 
+Run:
+ 
 ```bash
 git show -s --format=%B HEAD
 ```
-
-Expected output:
-
-```text
-Add commit sign-off POC
-
-Signed-off-by: Your Name <your-email@example.com>
-```
-
-The sign-off can also be checked using:
-
-```bash
-git log -1 --format=%B
-```
+ 
+This confirms that the commit contains the required sign-off information.
+ 
+<details>
+<summary> Screenshot: Sign-off verification</summary>
+<img width="1632" height="448" alt="image" src="https://github.com/user-attachments/assets/f7abd428-fa59-4149-a33a-372b35daf6f9" />
+</details>
 
 ---
 
@@ -102,13 +142,13 @@ The POC successfully demonstrates that `git commit -s` adds a `Signed-off-by:` t
 
 ___
 
-## 8. Conclusion
+## 7. Conclusion
 
 Commit sign-off provides a standardized and traceable way to record contributor acknowledgement in Git commits. Integrating sign-off validation into CI can ensure that required commits satisfy the project's contribution policy before continuing the applicable CI workflow.
 
 ---
 
-## 9. Contact Information
+## 8. Contact Information
 
 | Name         | Email                                                                             |
 | ------------ | --------------------------------------------------------------------------------- |
@@ -116,10 +156,9 @@ Commit sign-off provides a standardized and traceable way to record contributor 
 
 ---
 
-## 10. References
+## 9. References
 
 | Resource | Links    |
 |----------|----------|
 |  Git Documentation | [Git Documentation](https://git-scm.com/docs/git-commit) | 
 |  Git Commit Signing Options | [Git Commit Signing Options](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff) | 
-|  Git Trailers | [Git Trailers](https://git-scm.com/docs/git-interpret-trailers) |
