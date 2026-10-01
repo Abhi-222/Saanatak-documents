@@ -177,8 +177,10 @@ The POC successfully validated compilation and executable binary creation.
 
 ## 12. References
 
-| [Go Documentation](https://go.dev/doc/) | Go Documentation |
-| [Go Command Documentation](https://pkg.go.dev/cmd/go) | Go Command Documentation |
-| [Go Modules](https://go.dev/ref/mod) | Go Modules |
-| [TinyGo Documentation](https://tinygo.org/docs/) | TinyGo Documentation |
-| [GCC gccgo Documentation](https://gcc.gnu.org/onlinedocs/gccgo/) | GCC gccgo Documentation |
+| Reference                                                        | Description              |
+| ---------------------------------------------------------------- | ------------------------ |
+| [Go Documentation](https://go.dev/doc/)                          | Go Documentation         |
+| [Go Command Documentation](https://pkg.go.dev/cmd/go)            | Go Command Documentation |
+| [Go Modules](https://go.dev/ref/mod)                             | Go Modules               |
+| [TinyGo Documentation](https://tinygo.org/docs/)                 | TinyGo Documentation     |
+| [GCC gccgo Documentation](https://gcc.gnu.org/onlinedocs/gccgo/) | GCC gccgo Documentation  |
