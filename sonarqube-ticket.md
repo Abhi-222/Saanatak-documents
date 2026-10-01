@@ -1,27 +1,30 @@
-# Application CI Design | SonarQube | Monitoring Metrics
+<img width="800" height="184" alt="image" src="https://github.com/user-attachments/assets/a960a0ea-eb5e-42a1-9686-13347f29c653" />
 
-## Author Table
+<h1 align="left"> Using SonarQube for Monitoring Metrics</h1>
 
-| Author       | Created On | Version | Last Edited On |
-| ------------ | ---------- | ------- | -------------- |
-| Sahil Butola | 01-10-2026 | 1.0     | 01-10-2026     |
+---
+## Author Information
+
+| **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
+| ---------- | -------------- | ----------- | ------------------ | --------------- | --------------- | --------------- |
+| Sahil      | 30-09-26       | v1.0        | 01-09-26           | Divya M. / Vishal | Aayush Verma  | Mahesh / Varun  |
 
 ## Table of Contents
 
-1. [Introduction](#introduction)
-2. [What is SonarQube?](#what-is-sonarqube)
-3. [Why SonarQube?](#why-sonarqube)
-4. [SonarQube Workflow](#sonarqube-workflow)
-5. [Types of Metrics](#types-of-metrics)
-6. [Advantages](#advantages)
-7. [Best Practices](#best-practices)
-8. [Conclusion](#conclusion)
-9. [Contact Information](#contact-information)
-10. [References](#references)
+1. [Introduction](#1-introduction)
+2. [What is SonarQube?](#2-what-is-sonarqube)
+3. [Why SonarQube?](#3-why-sonarqube)
+4. [SonarQube Workflow](#4-sonarqube-workflow)
+5. [Types of Metrics](#5-types-of-metrics)
+6. [Advantages](#6-advantages)
+7. [Best Practices](#7-best-practices)
+8. [Conclusion](#8-conclusion)
+9. [Contact Information](#9-contact-information)
+10. [References](#10-references)
 
 ---
 
-## Introduction
+## 1. Introduction
 
 SonarQube is a platform used to analyze source code for quality, reliability, maintainability, and security-related issues. It provides measurable metrics that help developers understand the overall quality of a codebase.
 
@@ -29,7 +32,7 @@ SonarQube is a platform used to analyze source code for quality, reliability, ma
 
 ---
 
-## What is SonarQube?
+## 2. What is SonarQube?
 
 SonarQube analyzes source code using predefined rules and generates a detailed analysis report.
 
@@ -43,7 +46,7 @@ SonarQube analyzes source code using predefined rules and generates a detailed a
 
 ---
 
-## Why SonarQube?
+## 3. Why SonarQube?
 
 * Identifies bugs and potential security vulnerabilities.
 * Detects code smells and maintainability issues.
@@ -56,40 +59,10 @@ SonarQube analyzes source code using predefined rules and generates a detailed a
 
 ---
 
-## SonarQube Workflow
+## 4. SonarQube Workflow
 
-```text
-                 Source Code
-                      |
-                      v
-                SonarScanner
-                      |
-                      v
-               SonarQube Server
-                      |
-                      v
-             Source Code Analysis
-                      |
-        +-------------+-------------+
-        |             |             |
-        v             v             v
-      Bugs      Vulnerabilities  Code Smells
-        |             |             |
-        +-------------+-------------+
-                      |
-                      v
-                Other Metrics
-          (Coverage, Duplication,
-            Complexity, LOC)
-                      |
-                      v
-                 Quality Gate
-                      |
-                +-----+-----+
-                |           |
-                v           v
-              PASS        FAIL
-```
+<img width="918" height="1339" alt="image" src="https://github.com/user-attachments/assets/f5eae8e2-9b40-42df-9505-5087110a0843" />
+
 
 ### Workflow Explanation
 
@@ -103,7 +76,7 @@ SonarQube analyzes source code using predefined rules and generates a detailed a
 
 ---
 
-## Types of Metrics
+## 5. Types of Metrics
 
 SonarQube groups its metrics by the aspect of code quality they measure. Each category below lists what the metric means and what to watch for when monitoring it.
 
@@ -151,7 +124,7 @@ SonarQube groups its metrics by the aspect of code quality they measure. Each ca
 
 ---
 
-## Advantages
+## 6. Advantages
 
 * **Early Issue Detection** – Identifies code-quality and security issues early.
 * **Improved Code Quality** – Helps developers identify maintainability problems.
@@ -164,7 +137,7 @@ SonarQube groups its metrics by the aspect of code quality they measure. Each ca
 
 ---
 
-## Best Practices
+## 7. Best Practices
 
 * **Use Appropriate Quality Profiles** – Apply relevant coding rules for the project and programming language.
 * **Use Quality Gates** – Define measurable conditions for acceptable code quality.
@@ -178,26 +151,27 @@ SonarQube groups its metrics by the aspect of code quality they measure. Each ca
 
 ---
 
-## Conclusion
+## 8. Conclusion
 
 SonarQube provides automated source-code analysis and measurable quality metrics. It helps developers identify bugs, vulnerabilities, code smells, duplication, coverage, and complexity issues. Quality Profiles and Quality Gates provide consistent and measurable standards for evaluating source-code quality.
 
 ---
 
-## Contact Information
+## 9. Contact Information
 
-| Field   | Details                                    |
-| ------- | ------------------------------------------ |
-| Author  | Sahil Butola                               |
-| Purpose | SonarQube Monitoring Metrics Documentation |
-| Team    | DevOps / Engineering                       |
+| Auntor | email |
+|--------|-------|
+| Sahil | [sahil.butola.snaatak@mygurukulam.co](mailto:sahil.butola.snaatak@mygurukulam.co) |
 
 ---
 
-## References
+## 10. References
 
-* [SonarQube Documentation](https://docs.sonarsource.com/sonarqube/)
-* [SonarQube Metrics](https://docs.sonarsource.com/sonarqube/latest/user-guide/code-metrics/metrics-definition/)
-* [SonarQube Quality Gates](https://docs.sonarsource.com/sonarqube/latest/user-guide/quality-gates/)
-* [SonarQube Quality Profiles](https://docs.sonarsource.com/sonarqube/latest/instance-administration/quality-profiles/)
-* [SonarScanner Documentation](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/)
+| Topic | Description |
+|-------|-------------|
+| [SonarQube Documentation](https://docs.sonarsource.com/sonarqube/) | SonarQube Documentation |
+| [SonarQube Metrics](https://docs.sonarsource.com/sonarqube/latest/user-guide/code-metrics/metrics-definition/) | SonarQube Metrics |
+| [SonarQube Quality Gates](https://docs.sonarsource.com/sonarqube/latest/user-guide/quality-gates/) | SonarQube Quality Gates |
+| [SonarQube Quality Profiles](https://docs.sonarsource.com/sonarqube/latest/instance-administration/quality-profiles/) | SonarQube Quality Profiles |
+| [SonarScanner Documentation](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/)| SonarScanner Documentation |
+
