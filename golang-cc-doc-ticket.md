@@ -182,4 +182,3 @@ The POC successfully validated compilation and executable binary creation.
 | [Go Modules](https://go.dev/ref/mod) | Go Modules |
 | [TinyGo Documentation](https://tinygo.org/docs/) | TinyGo Documentation |
 | [GCC gccgo Documentation](https://gcc.gnu.org/onlinedocs/gccgo/) | GCC gccgo Documentation |
-| [POC]()| POC|
