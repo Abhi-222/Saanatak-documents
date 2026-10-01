@@ -1,6 +1,6 @@
 <img width="1920" height="600" alt="image" src="https://github.com/user-attachments/assets/6254e48a-adf9-43bf-9e7f-9b3d4b0a36e6" />
 
-# Application CI Design | Generic CI Operation | Commit Sign-off
+# Commit Sign-off Documentation
 
 ## Author Table
 
