@@ -59,30 +59,19 @@ The sign-off records the contributor identity and their acknowledgement of the a
 
 ## 4. Commit Sign-off Workflow
 
-```text
-Developer
-    |
-    v
-Create / Modify Code
-    |
-    v
-git commit -s
-    |
-    v
-Signed-off-by Added
-    |
-    v
-Push Commit
-    |
-    v
-CI Validation
-    |
-    +---- Valid ----> Continue CI
-    |
-    +---- Missing --> Fail / Report
-```
+<img width="979" height="1441" alt="signoff-workflow" src="https://github.com/user-attachments/assets/940dfea3-564f-4f0f-8ee3-4a082c2aadf7" />
 
-The CI validation checks whether the required `Signed-off-by:` trailer is present before continuing the applicable workflow.
+### Workflow Explanation
+
+1. **Developer** – The contributor starts the change in their local clone of the repository.
+2. **Create / Modify Code** – The developer creates or edits files and stages them with `git add`.
+3. **git commit -s** – The developer commits using the `-s` (`--signoff`) option.
+4. **Signed-off-by Added** – Git adds a `Signed-off-by: Name <email>` line to the commit message, using the configured Git user name and email.
+5. **Push Commit** – The developer pushes the signed-off commit to the remote repository, which triggers the CI workflow.
+6. **CI Validation** – CI checks the commit message for the required `Signed-off-by:` trailer. This is the decision point of the workflow.
+7. **Valid → Continue CI** – If the trailer is present, the check passes and the remaining CI stages continue.
+8. **Missing → Fail / Report** – If the trailer is missing, the check fails and the missing sign-off is reported. The developer then needs to fix the commit (for example `git commit --amend -s`) and push again.
+   
 
 ---
 
@@ -124,6 +113,7 @@ git show -s --format=%B HEAD
 
 The output should contain the `Signed-off-by:` trailer.
 
+
 ---
 
 ## 7. Best Practices
@@ -158,5 +148,4 @@ Commit sign-off provides a standardized and traceable way to record contributor 
 |  Git Documentation | [Git Documentation](https://git-scm.com/docs/git-commit) | 
 |  Git Commit Signing Options | [Git Commit Signing Options](https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff) | 
 |  Git Trailers | [Git Trailers](https://git-scm.com/docs/git-interpret-trailers) |
-
 
