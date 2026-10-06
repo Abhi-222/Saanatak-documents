@@ -1,4 +1,4 @@
-# VCS Implementation | Setup Notification for Code Events
+# Setup Notification for Code Events
 
 ## 1. Author Table
 
