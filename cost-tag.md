@@ -8,7 +8,7 @@
 
 | **Author** | **Created on** | **Version** | **Last edited on** | **L0 Reviewer** | **L1 Reviewer** | **L2 Reviewer** |
 | ---------- | -------------- | ----------- | ------------------ | --------------- | --------------- | --------------- |
-| Sahil | 30-09-26 | 1.0 | 30-09-26 | Vishal/Divya M | Aayush Verma | Mahesh Kumar / Varun |
+| Sahil      | 07-09-26 | 1.0 | 30-09-26    | Vishal/Divya M     | Aayush Verma    | Mahesh Kumar / Varun|
 
 ---
 
@@ -47,11 +47,17 @@ The implementation uses an existing AWS resource (an EC2 instance) and is perfor
 
 # 3. Implementation Workflow
 
-The workflow has two stages: tagging setup (steps 1 to 4) and Cost Explorer reporting (steps 5 to 10).
+<img width="1978" height="902" alt="image" src="https://github.com/user-attachments/assets/f1fd6cdd-7dbf-4c1e-8418-664f6670d5fc" />
 
-<p align="center">
-<img width="420" alt="Cost tag report implementation workflow" src="images/cost-tag-report-workflow.png" />
-</p>
+The process flows in two stages: **tagging setup** (steps 1–4) followed by **Cost Explorer reporting** (steps 5–8).
+1. **Define Tags** — Standardize a tagging taxonomy (e.g. `Owner`, `Environment`, `Project`, `CostCenter`).
+2. **Apply Tags** — Attach the agreed tags to AWS resources (EC2, RDS, S3, etc.), ideally enforced via Terraform/IaC or tag policies.
+3. **Activate Cost Allocation Tags** — Enable the tags as "User-Defined Cost Allocation Tags" in the Billing and Cost Management console.
+4. **Tag Propagation** — Allow up to 24 hours for tags to reflect in Cost Explorer and billing data.
+5. **Open Cost Explorer** — Group the cost view by the relevant tag key.
+6. **Apply Filters** — Narrow by date range, service, or linked account as needed.
+7. **Save / Export** — Save the view as a reusable custom report, or export to CSV for offline analysis.
+8. **Analyze & Share** — Review cost by team/project/environment and distribute the report to stakeholders.
 
 ---
 
