@@ -1,6 +1,6 @@
 # Setup Notification for Code Events
 
-## 1. Author Table
+## Author Table
 
 | Author       | Created On  | Version | Last Edited On | L0 Reviewer | L1 Reviewer | L2 Reviewer |
 | ------------ | ----------- | ------- | -------------- | ----------- | ----------- | ----------- |
@@ -52,7 +52,7 @@ Configure notifications for important GitHub VCS events and deliver them to Slac
 
 <details>
 <summary> Screenshot: GitHub repository showing Final-fight/github-notifications</summary>
-
+<img width="2858" height="1148" alt="image" src="https://github.com/user-attachments/assets/72c8006c-6b0d-40c4-b8e7-5d9bcc2d1bea" />
 </details>
 
 ---
@@ -86,7 +86,7 @@ Configured events:
 
 <details>
 <summary> Screenshot:Slack GitHub subscription confirmation</summary>
-
+<img width="1429" height="325" alt="Screenshot 2026-10-07 at 2 50 39 AM" src="https://github.com/user-attachments/assets/e83aa166-9378-494b-869f-c92694b6c8ec" />
 </details>
 
 ---
@@ -104,12 +104,12 @@ git push -u origin ticket1-branch-test
 
 <details>
 <summary> Screenshot:GitHub showing `ticket1-branch-test</summary>
-
+<img width="2858" height="650" alt="image" src="https://github.com/user-attachments/assets/40740ecd-3a0f-453a-bbef-b427bbaafd2c" />
 </details>
 
 <details>
 <summary> Screenshot:Slack branch-created notification</summary>
-
+<img width="1429" height="325" alt="Screenshot 2026-10-07 at 2 53 13 AM" src="https://github.com/user-attachments/assets/d6f02005-0974-4e06-89a0-f48960ce0782" />
 </details>
 
 ---
@@ -129,13 +129,13 @@ Review required with write access
 
 <details>
 <summary> Screenshot:Pull Request showing review required</summary>
-
+<img width="1429" height="722" alt="Screenshot 2026-10-07 at 2 56 03 AM" src="https://github.com/user-attachments/assets/149958b2-7857-4d4c-ba33-02a4e7159b22" />
 </details>
 
 
 <details>
 <summary> Screenshot:Slack PR notification</summary>
-
+<img width="1429" height="712" alt="Screenshot 2026-10-07 at 2 59 12 AM" src="https://github.com/user-attachments/assets/168dd947-3474-48d3-9b9a-3ba79ed05c4d" />
 </details>
 
 
@@ -155,7 +155,7 @@ on:
 
 <details>
 <summary> Screenshot:PR comment and/or update notification in Slack</summary>
-
+<img width="771" height="712" alt="Screenshot 2026-10-07 at 3 01 29 AM" src="https://github.com/user-attachments/assets/9008a483-e606-4d84-ab0b-10702a5608c3" />
 </details>
 
 
@@ -174,13 +174,13 @@ A commit pushed to either branch should generate a Slack notification.
 
 <details>
 <summary> Screenshot:Commit pushed to main/develop</summary>
-
+<img width="1119" height="712" alt="Screenshot 2026-10-07 at 3 04 28 AM" src="https://github.com/user-attachments/assets/08f1aeef-7e7f-4e43-b84c-66374cc37248" />
 </details>
 
 
 <details>
 <summary> Screenshot:Slack commit notification </summary>
-
+<img width="1416" height="712" alt="Screenshot 2026-10-07 at 3 05 08 AM" src="https://github.com/user-attachments/assets/35691df8-e5a4-491a-82dc-bcb6bc9cc9e0" />
 </details>
 
 
@@ -198,13 +198,13 @@ This validates the branch deletion notification.
 
 <details>
 <summary> Screenshot:Branch deleted from GitHub </summary>
-
+<img width="2832" height="752" alt="image" src="https://github.com/user-attachments/assets/694e3535-2086-474e-bf52-dd665cab8cc8" />
 </details>
 
 
 <details>
 <summary> Screenshot:Slack branch-deletion notification </summary>
-
+<img width="1085" height="322" alt="Screenshot 2026-10-07 at 3 08 17 AM" src="https://github.com/user-attachments/assets/74663fdc-420a-4dc3-ab35-4c1cbb0097c6" />
 </details>
 
 
@@ -249,5 +249,4 @@ GitHub VCS notifications were configured for `Final-fight/github-notifications`.
 
 The setup covers Pull Requests, comments, commits on `main`/`develop`, and branch creation/deletion.
 
-Event-by-event screenshots should be attached as evidence before marking the acceptance criteria completely **PASS**.
 
