@@ -1,3 +1,5 @@
+<img width="800" height="300" alt="image" src="https://github.com/user-attachments/assets/eda342a2-a571-4a4b-9ba8-ca6c6f43a171" />
+
 # Setup Notification for Code Events
 
 ## Author Table
