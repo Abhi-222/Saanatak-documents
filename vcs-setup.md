@@ -86,7 +86,7 @@ Configured events:
 
 <details>
 <summary> Screenshot:Slack GitHub subscription confirmation</summary>
-<img width="1429" height="325" alt="Screenshot 2026-10-07 at 2 50 39 AM" src="https://github.com/user-attachments/assets/e83aa166-9378-494b-869f-c92694b6c8ec" />
+<img width="1274" height="327" alt="Screenshot 2026-10-07 at 3 16 21 AM" src="https://github.com/user-attachments/assets/ea103d73-079f-498e-84d1-0ecc50e09ba4" />
 </details>
 
 ---
