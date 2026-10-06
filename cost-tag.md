@@ -68,7 +68,10 @@ The process flows in two stages: **tagging setup** (steps 1–4) followed by **C
 1. Log in to the AWS Management Console and open **EC2**.
 2. Go to **Instances** and select an existing instance.
 
-<!-- Screenshot placeholder: selected EC2 instance -->
+<details>
+<summary> Screenshot:selected EC2 instance</summary>
+<img width="2378" height="1290" alt="image" src="https://github.com/user-attachments/assets/de058e99-791f-401b-a136-73cc1dfbc13d" />
+</details>
 
 ---
 
@@ -87,7 +90,10 @@ Apply the standard tags defined in the previous sprint.
 2. Choose **Manage tags** and add the four key-value pairs.
 3. Save, then confirm the tags are visible on the instance.
 
-<!-- Screenshot placeholder: tags on the EC2 instance -->
+<details>
+<summary> Screenshot:tags on the EC2 instance</summary>
+<img width="1189" height="473" alt="Screenshot 2026-10-07 at 12 20 03 AM" src="https://github.com/user-attachments/assets/b6e92405-fa90-4568-9dfd-95cad60d3cba" />
+</details>
 
 ---
 
@@ -103,7 +109,10 @@ Tags must be activated as user-defined cost allocation tags before Cost Explorer
 
 **Historical cost:** activation applies only to cost incurred afterwards by default. To cover earlier periods, a management account user can choose **Backfill tags** on the same page and select a start month (up to 12 months back). The tag must already have been assigned to the resource in that period.
 
-<!-- Screenshot placeholder: activated Cost Allocation Tags -->
+<details>
+<summary> Screenshot:activated Cost Allocation Tags </summary>
+<img width="1372" height="588" alt="Screenshot 2026-10-07 at 12 25 05 AM" src="https://github.com/user-attachments/assets/7a6837fe-aeaf-48f5-bd5d-687a8e28bed0" />
+</details>
 
 ---
 
@@ -115,8 +124,11 @@ Tags must be activated as user-defined cost allocation tags before Cost Explorer
 
 The report now shows cost per Project tag value, plus a separate entry for cost without the tag.
 
-<!-- Screenshot placeholder: Cost Explorer grouped by Project tag -->
-
+<details>
+<summary> Screenshot:Cost Explorer grouped by Project tag </summary>
+<img width="1158" height="663" alt="Screenshot 2026-10-07 at 12 36 12 AM" src="https://github.com/user-attachments/assets/f6a3e6d9-1bc9-428c-b715-0934498d9ade" />
+</details>
+  
 ---
 
 ## 4.5 Apply Filters
@@ -126,8 +138,11 @@ The report now shows cost per Project tag value, plus a separate entry for cost 
 
 The report now shows project-level cost for the Dev environment only.
 
-<!-- Screenshot placeholder: Environment = Dev filter applied -->
-
+<details>
+<summary> Screenshot:Environment = Dev filter applied </summary>
+<img width="2316" height="1326" alt="image" src="https://github.com/user-attachments/assets/f11eb6fa-b4d3-46bc-bde1-e0ecb77f6aab" />
+</details>
+  
 ---
 
 ## 4.6 Save and Export the Report
@@ -136,7 +151,10 @@ The report now shows project-level cost for the Dev environment only.
 2. Save the report as **Cost Tag Report - Project** (or per the organization's naming convention).
 3. Use the download option to export the data as CSV for offline analysis and stakeholder sharing.
 
-<!-- Screenshot placeholder: saved report and exported CSV -->
+<details>
+<summary> Screenshot:saved report and exported CSV </summary>
+<img width="1382" height="668" alt="image" src="https://github.com/user-attachments/assets/3acdb4ca-7812-4cd9-8d62-1899aea835b7" />
+</details>
 
 ---
 
