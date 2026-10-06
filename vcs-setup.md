@@ -4,7 +4,7 @@
 
 | Author       | Created On  | Version | Last Edited On | L0 Reviewer | L1 Reviewer | L2 Reviewer |
 | ------------ | ----------- | ------- | -------------- | ----------- | ----------- | ----------- |
-| Sahil Butola | 07-Oct-2026 | 1.0     | 07-Oct-2026    |  Divya M. / Vishal | Aayush Verma | Mahesh / Varun Kumar |
+| Sahil Butola | 07-Oct-2026 | 1.0     | 07-Oct-2026    |  Divya M. / Vishal | Aayush Verma | Mahesh / Varun  |
 
 ---
 
